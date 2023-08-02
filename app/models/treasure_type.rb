@@ -1,3 +1,4 @@
 class TreasureType< ApplicationRecord
-  belongs_to :video
+  has_many :videos
+  has_one :treasure
 end
