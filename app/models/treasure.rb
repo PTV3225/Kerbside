@@ -1,5 +1,5 @@
-class Rubbish < ApplicationRecord
-  belongs_to :rubbish_type
+class Treasure < ApplicationRecord
+  belongs_to :treasure_type
   belongs_to :post
 
   belongs_to :post
