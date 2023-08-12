@@ -1,0 +1,3 @@
+class TreasuresController < ApplicationController
+
+end

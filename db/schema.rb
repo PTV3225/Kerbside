@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_100556) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_14_001853) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,50 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_100556) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+
+
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "chatroom_id"
+    t.datetime "timestamp", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "location"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "council_pickup_date"
+  end
+
+  create_table "treasure_types", force: :cascade do |t|
+    t.string "treasure_type"
+    t.integer "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "treasures", force: :cascade do |t|
+    t.bigint "treasure_type_id", null: false
+    t.boolean "status"
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
+    t.index ["post_id"], name: "index_treasures_on_post_id"
+    t.index ["treasure_type_id"], name: "index_treasures_on_treasure_type_id"
+
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,10 +94,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_100556) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "treasures", "posts"
+  add_foreign_key "treasures", "treasure_types"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+
 end
