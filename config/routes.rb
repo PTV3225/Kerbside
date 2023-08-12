@@ -5,4 +5,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+
+#nesting chatrooms within posts so that a chatroom belongs to a single post
+  resources :posts do
+    resources :chatrooms
+  end
+
+
+
 end
