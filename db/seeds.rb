@@ -7,26 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-# Seed data for RubbishTypes (types of street rubbish)
-rubbish_types = [
-  { title: 'Chair' },
-  { title: 'TV' },
-  { title: 'Sofa' },
-  # Add more rubbish types here
-]
-
-RubbishType.create!(rubbish_types)
-
-# Seed data for Videos (DIY videos)
-videos = [
-  { title: 'DIY Chair Restoration' },
-  { title: 'Fixing a Broken TV' },
-  { title: 'Upcycling Old Sofas' },
-  # Add more videos here
-]
-
-Video.create!(videos)
-
 # Seed data for Users
 users = [
   { email: 'user1@example.com', password: 'password', first_name: 'John', last_name: 'Doe' },
@@ -39,7 +19,6 @@ users = [
   { email: 'user6@example.com', password: 'password', first_name: 'Olivia', last_name: 'Davis' },
   { email: 'user7@example.com', password: 'password', first_name: 'William', last_name: 'Miller' }
 ]
-
 User.create!(users)
 
 # Seed data for Admin User
@@ -48,8 +27,52 @@ admin_user = User.create!(
   password: 'adminpassword', # Change this to your desired admin password
   first_name: 'Admin',
   last_name: 'User',
-  admin: true
+
 )
+
+
+
+
+videos = [
+  { title: 'DIY Chair Restoration' },
+  { title: 'Fixing a Broken TV' },
+  { title: 'Upcycling Old Sofas' },
+  # Add more videos here
+]
+videos = Video.create!(videos)
+
+treasure_types = [
+  { treasure_type: 'Chair', video: videos[0] },
+  { treasure_type: 'TV', video: videos[1] },
+  { treasure_type: 'Sofa', video: videos[2] },
+  # ...
+]
+TreasureType.create!(treasure_types)
+
+# Seed data for Posts (addresses for location)
+posts = [
+  { user_id: User.first.id, location: '123 Smith St', description: 'Great TV in working order at Smith St' },
+  { user_id: User.second.id, location: '456 Locke St', description: 'Comfy reclining sofa available on Locke St' },
+  # Add more posts here
+  { user_id: User.third.id, location: '789 Elm St', description: 'Sturdy chair ready for pickup on Elm St' },
+  { user_id: User.fourth.id, location: '101 Maple Ave', description: 'TV stand up for grabs on Maple Ave' },
+  { user_id: User.fifth.id, location: '111 Pine St', description:'Cozy sofa looking for a new home on Pine St' },
+  { user_id: User.fifth.id, location: '222 Oak St', description: 'Learn how to restore furniture in our DIY workshop' }
+]
+posts = Post.create!(posts)
+
+
+
+# Seed data for Treasures
+treasures = [
+  { treasure_type_id: TreasureType.first.id, status: true, post_id: Post.first.id, description: 'High-quality chair' },
+  { treasure_type_id: TreasureType.second.id, status: true, post_id: Post.second.id, description: 'Fully functional TV' },
+  # Add more treasures here
+]
+Treasure.create!(treasures)
+
+# Rest of the user-related seed data remains unchanged
+
 
 # Seed data for Chatrooms
 chatroom_names = [
@@ -61,19 +84,5 @@ chatroom_names = [
   'Sofa on Pine St',
   'DIY Furniture Restoration'
 ]
-
 chatrooms = chatroom_names.map { |name| { name: name } }
 Chatroom.create!(chatrooms)
-
-# Seed data for Posts (addresses for location)
-posts = [
-  { user_id: User.first.id, location: '123 Smith St', content: 'Great TV in working order at Smith St' },
-  { user_id: User.second.id, location: '456 Locke St', content: 'Comfy reclining sofa available on Locke St' },
-  # Add more posts here
-  { user_id: User.third.id, location: '789 Elm St', content: 'Sturdy chair ready for pickup on Elm St' },
-  { user_id: User.fourth.id, location: '101 Maple Ave', content: 'TV stand up for grabs on Maple Ave' },
-  { user_id: User.fifth.id, location: '111 Pine St', content: 'Cozy sofa looking for a new home on Pine St' },
-  { user_id: User.fifth.id, location: '222 Oak St', content: 'Learn how to restore furniture in our DIY workshop' }
-]
-
-Post.create!(posts)
