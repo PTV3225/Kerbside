@@ -1,3 +1,4 @@
 class Video < ApplicationRecord
-  has_many :rubbish_types
+  has_many :treasure_types
+  validates :title, presence: true
 end
