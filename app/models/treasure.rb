@@ -5,5 +5,4 @@ class Treasure < ApplicationRecord
   has_many_attached :photos
 
   validates :status, inclusion: { in: [true, false] }
-
 end
