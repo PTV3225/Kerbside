@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>All Posts</h1>
+    <div class="row">
+        <% @posts.each do |post| %>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Location: <%= post.location %></h5>
+                        <p class="card-text"><strong>Description:</strong> <%= post.description %></p>
+                        <p class="card-text"><strong>Council pickup date:</strong> <%= post.council_pickup_date %></p>
+                    </div>
+                    <% if post.images.any? %>
+                        <div class="card-footer">
+                            <h6>Photos:</h6>
+                            <% post.images.each do |image| %>
+                                <%= image_tag image, class: "img-fluid" %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

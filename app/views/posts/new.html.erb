@@ -1,22 +1,22 @@
 <div class="container">
-    <h1>Create a New Post</h1>
-    <form action="/posts" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" class="form-control" id="location" name="location" required>
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="council_pickup_date">Council Pickup Date</label>
-            <input type="date" class="form-control" id="council_pickup_date" name="council_pickup_date" required>
-        </div>
-        <div class="form-group">
-            <label for="images">Photos</label>
-            <input type="file" class="form-control" id="images" name="images[]" multiple>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+  <h1>Tell the world about your hard rubbish</h1>
+  <%= form_with(model: Post.new, local: true, html: { enctype: "multipart/form-data" }) do |form| %>
+    <div class="form-group">
+      <%= form.label :location, "Location" %>
+      <%= form.text_field :location, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= form.label :description, "Description" %>
+      <%= form.text_area :description, class: "form-control", rows: 3, required: true %>
+    </div>
+    <div class="form-group">
+      <%= form.label :council_pickup_date, "Council pickup date (if applicable)" %>
+      <%= form.date_field :council_pickup_date, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= form.label :images, "Photos" %>
+      <%= form.file_field :images, class: "form-control", multiple: true, name: "images[]" %>
+    </div>
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
 </div>

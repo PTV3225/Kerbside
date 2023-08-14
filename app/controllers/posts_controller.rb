@@ -41,7 +41,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     unless @post.user == current_user
-      flash[:alert] = "You are not allowed to delete this post. For more information, contact admin@admin.nz"
+      flash[:alert] = "You are not allowed to delete this post. For more information contact admin@admin.nz"
       redirect_to @post
     end
 
