@@ -1,4 +1,4 @@
 class TreasureType< ApplicationRecord
   has_many :videos
-  has_one :treasure
+  has_many :treasures
 end

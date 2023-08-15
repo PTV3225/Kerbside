@@ -37,21 +37,34 @@ admin_user = User.create!(
   first_name: 'Admin',
   last_name: 'User'
 )
+#LOOOOOP throough it
 
-videos = [
+
+
+video_data = [
   { title: 'DIY Chair Restoration', description: Faker::Hobby.activity, url: 'https://youtu.be/Ek-EE37rPUQ' },
   { title: 'Fixing a Broken TV', description: Faker::Hobby.activity, url: 'https://youtu.be/hJGmrQDbUOQ' },
   { title: 'Upcycling Old Sofas', description: Faker::Hobby.activity, url: 'https://youtu.be/BrjN4vmwbuw' }
-
 ]
-videos = Video.create!(videos)
 
-treasure_types = [
-  { treasure_type: 'Chair', video: videos[0] },
-  { treasure_type: 'TV', video: videos[1] },
-  { treasure_type: 'Sofa', video: videos[2] }
+videos = []
+
+video_data.each do |data|
+  videos << Video.create(data)
+end
+
+treasure_type_data = [
+  { category: 'Chair', video: video_data[0] },
+  { category: 'TV', video: video_data[1] },
+  { category: 'Sofa', video: video_data[2] }
 ]
-TreasureType.create!(treasure_types)
+
+treasure_types = []
+
+treasure_type_data.each do |data|
+  treasure_types << TreasureType.create(data)
+end
+
 
 # Seed data for Posts (addresses for location)
 posts = [
@@ -60,10 +73,12 @@ posts = [
   { user_id: User.third.id, location: '789 Elm St', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-17' },
   { user_id: User.fourth.id, location: '101 Maple Ave', description: 'TV stand up for grabs on Maple Ave', council_pickup_date: '2023-09-18' },
   { user_id: User.fifth.id, location: '111 Pine St', description:'Cozy sofa looking for a new home on Pine St', council_pickup_date: '2023-09-25' },
-
+  { user_id: User.fifth.id, location: '222 Oak St', description: 'Learn how to restore furniture in our DIY workshop', council_pickup_date: '2023-09-30' }
 ]
 
-posts = Post.create!(posts)
+posts.each do |post_params|
+  Post.create!(post_params)
+end
 
 # Seed data for Treasures
 treasures = [
