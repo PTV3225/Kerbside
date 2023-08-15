@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 require "open-uri"
+
 
 puts "clearing database"
 
@@ -34,7 +36,6 @@ admin_user = User.create!(
   password: 'adminpassword',
   first_name: 'Admin',
   last_name: 'User'
-
 )
 
 videos = [
@@ -49,7 +50,6 @@ treasure_types = [
   { treasure_type: 'Chair', video: videos[0] },
   { treasure_type: 'TV', video: videos[1] },
   { treasure_type: 'Sofa', video: videos[2] }
-
 ]
 TreasureType.create!(treasure_types)
 
@@ -65,15 +65,14 @@ posts = [
 
 posts = Post.create!(posts)
 
-
-
 # Seed data for Treasures
 treasures = [
   { treasure_type_id: TreasureType.first.id, status: true, post_id: Post.first.id, description: 'High-quality chair' },
   { treasure_type_id: TreasureType.second.id, status: true, post_id: Post.second.id, description: 'Fully functional TV' }
 ]
 
-treasure = Treasure.create!(treasures)
+Treasure.create!(treasures)
+
 
 # Seed data for Chatrooms
 chatroom_names = [

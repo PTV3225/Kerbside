@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Post Details</h1>
+    <div class="card">
+        <div class="card-body">
+            <div class="post-details">
+                <p><strong>Location:</strong> <%= @post.location %></p>
+                <p><strong>Description:</strong> <%= @post.description %></p>
+                <p><strong>Council pickup date:</strong> <%= @post.council_pickup_date %></p>
+            </div>
+            <h2>Photos</h2>
+            <div class="photos">
+                <% @post.images.each do |image| %>
+                    <%= image_tag image, class: "img-fluid" %>
+                <% end %>
+            </div>
+        </div>
+        <div class="card-footer">
+            <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary" %>
+            <%if @post.user == current_user %>
+            <%= link_to "Edit", edit_post_path(@post), class: "btn btn-warning" %>
+            <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Delete #{@post.name}?" }, class: 'btn btn-danger' do %>
+                Delete
+
+        </div>
+    </div>
+</div>
