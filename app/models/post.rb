@@ -3,4 +3,6 @@ class Post < ApplicationRecord
   has_many :treasures, dependent: :destroy
   validates :location, presence: true
   has_one :chatroom
+  has_many_attached :photos
+
 end

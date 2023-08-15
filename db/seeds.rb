@@ -6,17 +6,18 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require "open-uri"
+
 
 puts "clearing database"
 
 User.destroy_all
+Treasure.destroy_all
 TreasureType.destroy_all
 Post.destroy_all
-Treasure.destroy_all
 Chatroom.destroy_all
 
 puts "creating database"
-
 
 # Seed data for Users
 
@@ -35,7 +36,6 @@ admin_user = User.create!(
   password: 'adminpassword',
   first_name: 'Admin',
   last_name: 'User'
-
 )
 
 videos = [
@@ -50,7 +50,6 @@ treasure_types = [
   { treasure_type: 'Chair', video: videos[0] },
   { treasure_type: 'TV', video: videos[1] },
   { treasure_type: 'Sofa', video: videos[2] }
-
 ]
 TreasureType.create!(treasure_types)
 
@@ -65,8 +64,6 @@ posts = [
 ]
 
 posts = Post.create!(posts)
-
-
 
 # Seed data for Treasures
 treasures = [
@@ -88,3 +85,49 @@ chatroom_names = [
 ]
 chatrooms = chatroom_names.map { |name| { name: name } }
 Chatroom.create!(chatrooms)
+
+# seed data for photos
+
+file_1 = URI.open("https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60")
+treasure_1 = Treasure.new(description: "Chair")
+post_1 = Post.new(description: "Chair")
+# puts treasure_1
+# puts post_1
+treasure_1.photos.attach(io: file_1, filename: "nes.png", content_type: "image/png")
+post_1.photos.attach(io: file_1, filename: "nes.png", content_type: "image/png")
+# puts treasure_1.photos.attached?
+# puts post_1.photos.attached?
+treasure_1.save
+post_1.save
+
+file_2 = URI.open("https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60")
+treasure_2 = Treasure.new(description: "Table")
+post_2 = Post.new(description: "Table")
+treasure_2.photos.attach(io: file_2, filename: "nes.png", content_type: "image/png")
+post_2.photos.attach(io: file_2, filename: "nes.png", content_type: "image/png")
+treasure_2.save
+post_2.save
+
+file_3 = URI.open("https://images.unsplash.com/photo-1626806787426-5910811b6325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhc2hpbmclMjBtYWNoaW5lfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60")
+treasure_3 = Treasure.new(description: "Washing machine")
+post_3 = Post.new(description: "Washing machine")
+treasure_3.photos.attach(io: file_3, filename: "nes.png", content_type: "image/png")
+post_3.photos.attach(io: file_3, filename: "nes.png", content_type: "image/png")
+treasure_3.save
+post_3.save
+
+file_4 = URI.open("https://plus.unsplash.com/premium_photo-1673548917423-073963e7afc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60")
+treasure_4 = Treasure.new(description: "Couch")
+post_4 = Post.new(description: "Couch")
+treasure_4.photos.attach(io: file_4, filename: "nes.png", content_type: "image/png")
+post_4.photos.attach(io: file_4, filename: "nes.png", content_type: "image/png")
+treasure_4.save
+post_4.save
+
+file_5 = URI.open("https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60")
+treasure_5 = Treasure.new(description: "Bicycle")
+post_5 = Post.new(description: "Bicycle")
+treasure_5.photos.attach(io: file_5, filename: "nes.png", content_type: "image/png")
+post_5.photos.attach(io: file_5, filename: "nes.png", content_type: "image/png")
+treasure_5.save
+post_5.save

@@ -1,0 +1,7 @@
+<h1><%= @chatroom.name %></h1>
+<h2>Treasures:</h2>
+<ul>
+  <% @treasures.each do |treasure| %>
+    <li><%= treasure.description %> (Status: <%= treasure.status ? 'Available' : 'Not Available' %>)</li>
+  <% end %>
+</ul>
