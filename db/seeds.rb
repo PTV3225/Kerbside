@@ -61,7 +61,7 @@ posts = [
   { user_id: User.third.id, location: '789 Elm St', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-17' },
   { user_id: User.fourth.id, location: '101 Maple Ave', description: 'TV stand up for grabs on Maple Ave', council_pickup_date: '2023-09-18' },
   { user_id: User.fifth.id, location: '111 Pine St', description:'Cozy sofa looking for a new home on Pine St', council_pickup_date: '2023-09-25' },
-  { user_id: User.fifth.id, location: '222 Oak St', description: 'Learn how to restore furniture in our DIY workshop', council_pickup_date: '2023-09-30' }
+
 ]
 
 posts = Post.create!(posts)

@@ -1,0 +1,18 @@
+<!-- app/views/posts/show.html.erb -->
+
+<h1>Post Details</h1>
+
+<p><strong>Location:</strong> <%= @post.location %></p>
+<p><strong>Description:</strong> <%= @post.description %></p>
+<p><strong>Council Pickup Date:</strong> <%= @post.council_pickup_date %></p>
+
+
+<%# <p>  <%= @treasure %>
+
+
+
+<%= render partial: 'chatrooms/chatroom', locals: { chatroom: @post.chatroom } %>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back to List', posts_path %>
