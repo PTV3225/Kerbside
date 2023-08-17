@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   has_many :messages
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
 
   #might need to add first name and last name into the db for users and also photo for avatar

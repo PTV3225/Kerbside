@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "open-uri"
-
+require "pry-byebug"
 
 puts "clearing database"
 
@@ -50,21 +50,25 @@ video_data = [
 videos = []
 
 video_data.each do |data|
-  videos << Video.create(data)
+  videos << Video.create!(data)
 end
 
+
+
+
+
 treasure_type_data = [
-  { category: 'Chair', video: videos[0] },
-  { category: 'TV', video: videos[1] },
-  { category: 'Sofa', video: videos[2] }
+  { category: 'Chair', video_id: videos[0].id },
+  { category: 'TV', video_id: videos[1].id },
+  { category: 'Sofa', video_id: videos[2].id }
 ]
 
 treasure_types = []
 
+
 treasure_type_data.each do |data|
   treasure_types << TreasureType.create(data)
 end
-
 
 # Seed data for Posts (addresses for location)
 posts = [
@@ -80,7 +84,7 @@ posts.each do |post_params|
   Post.create!(post_params)
 end
 
-# Seed data for Treasures
+# Seed data for Treasures Fix this
 treasures = [
   { treasure_type_id: TreasureType.first.id, status: true, post_id: Post.first.id, description: 'High-quality chair' },
   { treasure_type_id: TreasureType.second.id, status: true, post_id: Post.second.id, description: 'Fully functional TV' }
@@ -98,8 +102,13 @@ chatroom_names = [
   'Sofa on Pine St',
   'DIY Furniture Restoration'
 ]
-chatrooms = chatroom_names.map { |name| { name: name } }
-Chatroom.create!(chatrooms)
+
+posts = Post.all
+
+
+chatroom_names.each_with_index do |chatroom_name, index|
+   Chatroom.create!(name: chatroom_name, post: posts[index])
+end
 
 # seed data for photos
 
