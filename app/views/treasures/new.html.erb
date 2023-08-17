@@ -1,0 +1,16 @@
+<%= form_for [@post, @treasure], url: post_treasures_path(@post) do |f| %>
+  <h3>Add Treasures</h3>
+  <div class="form-group">
+    <%= f.label :treasure_type_id, "Treasure Type" %>
+    <%= f.collection_select :treasure_type_id, TreasureType.all, :id, :category, prompt: "Select a type", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "Description" %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+    <div class="form-group">
+      <%= treasure_form.label :images, "Include a photo" %>
+      <%= treasure_form.file_field :images, class: "form-control"%>
+    </div>
+  <%= f.submit "Add Treasures", class: "btn btn-primary" %>
+<% end %>

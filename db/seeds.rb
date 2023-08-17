@@ -54,9 +54,9 @@ video_data.each do |data|
 end
 
 treasure_type_data = [
-  { category: 'Chair', video: video_data[0] },
-  { category: 'TV', video: video_data[1] },
-  { category: 'Sofa', video: video_data[2] }
+  { category: 'Chair', video: videos[0] },
+  { category: 'TV', video: videos[1] },
+  { category: 'Sofa', video: videos[2] }
 ]
 
 treasure_types = []
