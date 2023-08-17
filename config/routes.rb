@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  resources :chatrooms
+
   # Defines the root path route ("/")
   # root "articles#index"
 
