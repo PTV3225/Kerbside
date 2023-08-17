@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.image.attach(params[:post][:images])
+    # @post.image.attach(params[:post][:images])
     if @post.save
       redirect_to post_path(@post)
     else
