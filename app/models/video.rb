@@ -1,4 +1,4 @@
 class Video < ApplicationRecord
   validates :title, presence: true
-  has_many :treasure_type
+  belongs_to :treasure_type
 end
