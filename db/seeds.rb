@@ -17,9 +17,8 @@ TreasureType.destroy_all
 Post.destroy_all
 Chatroom.destroy_all
 
-puts "creating database"
-
 # Seed data for Users
+puts "creating users"
 
 40.times do
   User.create!(
@@ -30,6 +29,11 @@ puts "creating database"
   )
 end
 
+puts "users created"
+
+
+puts "creating admin user"
+
 # Seed data for Admin User
 admin_user = User.create!(
   email: 'admin@example.com',
@@ -37,9 +41,13 @@ admin_user = User.create!(
   first_name: 'Admin',
   last_name: 'User'
 )
+puts "admin created"
+
+
+
 #LOOOOOP throough it
 
-
+puts "creating videos"
 
 video_data = [
   { title: 'DIY Chair Restoration', description: Faker::Hobby.activity, url: 'https://youtu.be/Ek-EE37rPUQ' },
@@ -53,9 +61,9 @@ video_data.each do |data|
   videos << Video.create!(data)
 end
 
+puts "Videos created"
 
-
-
+puts "creating Treasure Type with attached videos"
 
 treasure_type_data = [
   { category: 'Chair', video_id: videos[0].id },
@@ -65,35 +73,64 @@ treasure_type_data = [
 
 treasure_types = []
 
-
 treasure_type_data.each do |data|
   treasure_types << TreasureType.create(data)
 end
 
+puts "Treasure Type and attached videos created"
+
 # Seed data for Posts (addresses for location)
-posts = [
-  { user_id: User.first.id, location: '123 Smith St', description: 'Great TV in working order at Smith St', council_pickup_date: '2023-09-10' },
-  { user_id: User.second.id, location: '456 Locke St', description: 'Comfy reclining sofa available on Locke St', council_pickup_date: '2023-09-15' },
-  { user_id: User.third.id, location: '789 Elm St', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-17' },
-  { user_id: User.fourth.id, location: '101 Maple Ave', description: 'TV stand up for grabs on Maple Ave', council_pickup_date: '2023-09-18' },
-  { user_id: User.fifth.id, location: '111 Pine St', description:'Cozy sofa looking for a new home on Pine St', council_pickup_date: '2023-09-25' },
-  { user_id: User.fifth.id, location: '222 Oak St', description: 'Learn how to restore furniture in our DIY workshop', council_pickup_date: '2023-09-30' }
+
+puts "creating posts and attaching photos"
+
+
+first_six_user_ids = User.limit(6).pluck(:id)
+
+posts_data = [
+  { user_id: first_six_user_ids[0], location: '123 Smith St Toorak', description: 'Great TV in working order at Smith St', council_pickup_date: '2023-09-10' },
+  { user_id: first_six_user_ids[1], location: '456 Locke St East Malvern', description: 'Comfy reclining sofa available on Locke St', council_pickup_date: '2023-09-15' },
+  { user_id: first_six_user_ids[2], location: '789 Elm St Maribyrnong', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-17' },
+  { user_id: first_six_user_ids[3], location: '101 Maple Ave Dandenong', description: 'TV stand up for grabs on Maple Ave', council_pickup_date: '2023-09-18' },
+  { user_id: first_six_user_ids[4], location: '111 Pine St St Albans', description:'Cozy sofa looking for a new home on Pine St', council_pickup_date: '2023-09-25' },
+  { user_id: first_six_user_ids[5], location: '222 Oak St St Kilda', description: 'Learn how to restore furniture in our DIY workshop', council_pickup_date: '2023-09-30' }
 ]
 
-posts.each do |post_params|
-  Post.create!(post_params)
-end
+post_photo_urls = [
+  "https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1626806787426-5910811b6325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhc2hpbmclMjBtYWNoaW5lfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+  "https://plus.unsplash.com/premium_photo-1673548917423-073963e7afc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+]
 
-# Seed data for Treasures Fix this
-treasures = [
+posts_data.each_with_index do |post_data, index|
+  post = Post.create!(post_data)
+  file = URI.open(post_photo_urls[index])
+  post.photos.attach(io: file, filename: "photo_#{index}.png", content_type: "image/png")
+end
+puts "Posts created"
+
+puts "creating Treasures and attaching photos"
+# Seed data for Treasures
+treasures_data = [
   { treasure_type_id: TreasureType.first.id, status: true, post_id: Post.first.id, description: 'High-quality chair' },
   { treasure_type_id: TreasureType.second.id, status: true, post_id: Post.second.id, description: 'Fully functional TV' }
 ]
 
-Treasure.create!(treasures)
+treasure_photo_urls = [
+  "https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+]
 
-
+treasures_data.each_with_index do |treasure_data, index|
+  treasure = Treasure.create!(treasure_data)
+  file = URI.open(treasure_photo_urls[index])
+ treasure.photos.attach(io: file, filename: "photo_#{index}.png", content_type: "image/png")
+end
+puts "Treasures created"
 # Seed data for Chatrooms
+
 chatroom_names = [
   'Television on Smith St',
   'Reclining Sofa on Locke St',
@@ -103,55 +140,11 @@ chatroom_names = [
   'DIY Furniture Restoration'
 ]
 
-posts = Post.all
+puts "creating chatrooms"
 
+posts = Post.all
 
 chatroom_names.each_with_index do |chatroom_name, index|
    Chatroom.create!(name: chatroom_name, post: posts[index])
 end
-
-# seed data for photos
-
-file_1 = URI.open("https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60")
-treasure_1 = Treasure.new(description: "Chair")
-post_1 = Post.new(description: "Chair")
-# puts treasure_1
-# puts post_1
-treasure_1.photos.attach(io: file_1, filename: "nes.png", content_type: "image/png")
-post_1.photos.attach(io: file_1, filename: "nes.png", content_type: "image/png")
-# puts treasure_1.photos.attached?
-# puts post_1.photos.attached?
-treasure_1.save
-post_1.save
-
-file_2 = URI.open("https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60")
-treasure_2 = Treasure.new(description: "Table")
-post_2 = Post.new(description: "Table")
-treasure_2.photos.attach(io: file_2, filename: "nes.png", content_type: "image/png")
-post_2.photos.attach(io: file_2, filename: "nes.png", content_type: "image/png")
-treasure_2.save
-post_2.save
-
-file_3 = URI.open("https://images.unsplash.com/photo-1626806787426-5910811b6325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhc2hpbmclMjBtYWNoaW5lfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60")
-treasure_3 = Treasure.new(description: "Washing machine")
-post_3 = Post.new(description: "Washing machine")
-treasure_3.photos.attach(io: file_3, filename: "nes.png", content_type: "image/png")
-post_3.photos.attach(io: file_3, filename: "nes.png", content_type: "image/png")
-treasure_3.save
-post_3.save
-
-file_4 = URI.open("https://plus.unsplash.com/premium_photo-1673548917423-073963e7afc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60")
-treasure_4 = Treasure.new(description: "Couch")
-post_4 = Post.new(description: "Couch")
-treasure_4.photos.attach(io: file_4, filename: "nes.png", content_type: "image/png")
-post_4.photos.attach(io: file_4, filename: "nes.png", content_type: "image/png")
-treasure_4.save
-post_4.save
-
-file_5 = URI.open("https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60")
-treasure_5 = Treasure.new(description: "Bicycle")
-post_5 = Post.new(description: "Bicycle")
-treasure_5.photos.attach(io: file_5, filename: "nes.png", content_type: "image/png")
-post_5.photos.attach(io: file_5, filename: "nes.png", content_type: "image/png")
-treasure_5.save
-post_5.save
+puts "chatrooms created"
