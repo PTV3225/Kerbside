@@ -4,13 +4,11 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :treasures, only: [:new, :create]
-
-  end
-
-
-  resources :chatrooms, only: :show do
+    resources :chatrooms, only: :show do
       resources :messages, only: [:create, :destroy]
     end
+  end
+
 
 
   # Defines the root path route ("/")
