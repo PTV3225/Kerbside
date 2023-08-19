@@ -1,45 +1,59 @@
-<div class="container">
-  <h1>Post Details</h1>
+<div class="container mt-5">
+  <h1 class="mb-4">Post Details</h1>
+
   <div class="card">
     <div class="card-body">
-      <div class="post-details">
+      <div class="post-details mb-4">
         <p><strong>Location:</strong> <%= @post.location %></p>
         <p><strong>Description:</strong> <%= @post.description %></p>
         <p><strong>Council pickup date:</strong> <%= @post.council_pickup_date %></p>
       </div>
 
-      <h2>Photos</h2>
-      <div class="photos">
-        <% @post.photos.each do |image| %>
-          <%= image_tag image, class: "img-fluid" %>
+      <h2 class="mb-3">Photos</h2>
+      <div class="row photos mb-4">
+        <% if @post.photos.attached? %>
+          <% @post.photos.each do |image| %>
+            <div class="col-md-4 mb-3">
+              <%= cl_image_tag image.key, height: 300, width: 300, crop: :fill,  class: "img-fluid rounded" %>
+            </div>
+          <% end %>
         <% end %>
       </div>
 
-      <h2>Treasures</h2>
+      <h2 class="mb-3">Treasures</h2>
       <div class="treasures">
         <% if @post.treasures.any? %>
           <% @post.treasures.each do |treasure| %>
-            <div class="treasure-item">
+            <div class="treasure-item mb-3" id="treasure-item-<%= treasure.id %>">
               <p><strong>Type:</strong> <%= treasure.treasure_type.category %></p>
               <p><strong>Description:</strong> <%= treasure.description %></p>
+              <p><strong>Status:</strong> <%= treasure.status ? "Available" : "Not Available" %></p>
+              <% if treasure.photo.attached? %>
+                <%= cl_image_tag treasure.photo.key, height: 300, width: 300, crop: :fill, class: "img-fluid mb-2 rounded" %>
+              <% end %>
+              <%= button_to 'Delete', delete_post_treasure_path(@post, treasure), method: :delete, data: {confirm: 'Are you sure?'}, remote: true, class: "btn btn-danger btn-sm" %>
             </div>
           <% end %>
         <% else %>
-          <p>No treasure has been added to this post.</p>
-          <%= link_to 'Add Treasures', new_post_treasure_path(@post), class: "btn btn-primary" %>
+          <p class="text-muted">No information for the individual items has been added.</p>
         <% end %>
       </div>
     </div>
 
     <div class="card-footer">
-      <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary" %>
-
-      <%# <% if @post.user == current_user %>
-        <%= link_to "Edit", edit_post_path(@post), class: "btn btn-warning" %>
-        <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Delete #{@post.description}?" }, class: 'btn btn-danger' do %>Delete
-        <%# <% end %>
+        <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary" %>
+        <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-warning" %>
+        <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Delete #{@post.description}?" }, class: 'btn btn-danger' do %> Delete Post
         <%= link_to 'Add Treasures', new_post_treasure_path(@post), class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
-</div>
+
+<script>
+    document.addEventListener('ajax:success', function(event) {
+        if (event.target.matches('.btn-danger')) {
+            var treasureId = event.detail[0].id;
+            document.getElementById('treasure-item-' + treasureId).remove();
+        }
+    });
+</script>

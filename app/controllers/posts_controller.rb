@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.photos.attach(params[:post][:photos])
+
     if @post.save
       redirect_to post_path(@post)
     else
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    render :new
+    render :edit
   end
 
   def update

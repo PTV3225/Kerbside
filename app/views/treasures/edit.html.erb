@@ -1,6 +1,6 @@
 <div class="container">
-  <h3>Add Treasures</h3>
-  <%= simple_form_for [@post, @treasure], url: post_treasures_path(@post) do |f| %>
+  <h3>Edit Treasure</h3>
+  <%= simple_form_for [@post, @treasure], url: post_treasure_path(@post, @treasure), method: :patch do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
       <%= f.association :treasure_type, label: "Treasure Type", collection: TreasureType.all, value_method: :id, label_method: :category, prompt: "Select a type" %>
@@ -8,7 +8,7 @@
       <%= f.input :photo, label: "Include a photo", as: :file %>
     </div>
     <div class="form-actions">
-      <%= f.button :submit, "Add Treasures", class: "btn btn-primary" %>
+      <%= f.button :submit, "Update Treasure", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>

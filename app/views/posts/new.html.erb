@@ -1,22 +1,15 @@
 <div class="container">
   <h1>Tell the world about your hard rubbish</h1>
-  <%= form_with(model: Post.new, local: true, html: { enctype: "multipart/form-data" }) do |form| %>
-    <div class="form-group">
-      <%= form.label :location, "Location" %>
-      <%= form.text_field :location, class: "form-control", required: true %>
+  <%= simple_form_for(Post.new) do |form| %>
+    <%= form.error_notification %>
+    <div class="form-inputs">
+      <%= form.input :location, required: true %>
+      <%= form.input :description, required: true, input_html: { rows: 3 } %>
+      <%= form.input :council_pickup_date, required: true, as: :date %>
+      <%= form.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
-    <div class="form-group">
-      <%= form.label :description, "Description" %>
-      <%= form.text_area :description, class: "form-control", rows: 3, required: true %>
+    <div class="form-actions">
+      <%= form.button :submit, "Submit", class: "btn btn-primary" %>
     </div>
-    <div class="form-group">
-      <%= form.label :council_pickup_date, "Council pickup date (if applicable)" %>
-      <%= form.date_field :council_pickup_date, class: "form-control", required: true %>
-    </div>
-    <div class="form-group">
-      <%= form.label :photos, "Photos" %>
-      <%= form.file_field :photos, class: "form-control", multiple: true, name: "photos[]" %>
-    </div>
-    <%= form.submit "Submit", class: "btn btn-primary"%>
-  <% end%>
+  <% end %>
 </div>
