@@ -43,8 +43,6 @@ admin_user = User.create!(
 )
 puts "admin created"
 
-
-
 #LOOOOOP throough it
 
 puts "creating videos"
@@ -53,7 +51,13 @@ video_data = [
   { title: 'DIY Chair Restoration', description: Faker::Hobby.activity, url: 'https://youtu.be/Ek-EE37rPUQ' },
   { title: 'Fixing a Broken TV', description: Faker::Hobby.activity, url: 'https://youtu.be/hJGmrQDbUOQ' },
   { title: 'Upcycling Old Sofas', description: Faker::Hobby.activity, url: 'https://youtu.be/BrjN4vmwbuw' },
-  { title: 'Most common fix of washing machine', description: Faker::Hobby.activity, url: 'https://youtu.be/KmPlBZ5nT1Q' }
+  { title: 'Most common fix of washing machine', description: Faker::Hobby.activity, url: 'https://youtu.be/KmPlBZ5nT1Q' },
+  { title: 'How to refinish a table // DIY Furniture Makeover', description: Faker::Hobby.activity, url: 'https://youtu.be/T1is7gKwkGA' },
+  { title: 'How to REUSE an Old Canvas Painting', description: Faker::Hobby.activity, url: 'https://youtu.be/KdX4REYfcuc' },
+  { title: 'DIY Dream Closet on a Budget', description: Faker::Hobby.activity, url: 'https://youtu.be/h-Lnx2_AZd4' },
+  { title: 'Unique Bike Restoration', description: Faker::Hobby.activity, url: 'https://youtu.be/Tw7XNRoSdSE' },
+  { title: 'Deep Cleaning Mattress', description: Faker::Hobby.activity, url: 'https://youtu.be/5ZYRGd0kblI' },
+  { title: 'Incredible Restoration Of An Old Fridges', description: Faker::Hobby.activity, url: 'https://youtu.be/zKsOIoR1HlM' }
 ]
 
 videos = []
@@ -70,7 +74,13 @@ treasure_type_data = [
   { category: 'Chair', video_id: videos[0].id },
   { category: 'TV', video_id: videos[1].id },
   { category: 'Sofa', video_id: videos[2].id },
-  { category: 'Washing machine', video_id: videos[3].id }
+  { category: 'Washing machine', video_id: videos[3].id },
+  { category: 'Table', video_id: videos[4].id },
+  { category: 'Painting', video_id: videos[5].id },
+  { category: 'Closet', video_id: videos[6].id },
+  { category: 'Bicycle', video_id: videos[7].id },
+  { category: 'Mattress', video_id: videos[8].id },
+  { category: 'Refrigerator', video_id: videos[9].id }
 ]
 
 treasure_types = []
@@ -122,18 +132,51 @@ puts "Posts created"
 
 puts "creating Treasures and attaching photos"
 # Seed data for Treasures
+
+# Creating records for treasures_data
+
+# Your existing data
 treasures_data = [
   { treasure_type_id: TreasureType.first.id, status: true, post_id: Post.first.id, description: 'High-quality chair' },
   { treasure_type_id: TreasureType.second.id, status: true, post_id: Post.second.id, description: 'Fully functional TV' },
   { treasure_type_id: TreasureType.third.id, status: true, post_id: Post.third.id, description: 'Comfy reclining sofa' },
   { treasure_type_id: TreasureType.fourth.id, status: true, post_id: Post.fourth.id, description: 'Washing machine in good condition' },
-  { treasure_type_id: TreasureType.fifth.id, status: true, post_id: Post.fifth.id, description: 'Almost brand new table' },
-  { treasure_type_id: TreasureType.sixth.id, status: true, post_id: Post.sixth.id, description: 'Beautiful painting for living room' },
-  { treasure_type_id: TreasureType.seventh.id, status: true, post_id: Post.seventh.id, description: 'Closet in great condition' },
-  { treasure_type_id: TreasureType.eighth.id, status: true, post_id: Post.eighth.id, description: 'Commuting bicycle with good seat' },
-  { treasure_type_id: TreasureType.ninth.id, status: true, post_id: Post.ninth.id, description: 'Sleepmaker queen size mattress' },
-  { treasure_type_id: TreasureType.tenth.id, status: true, post_id: Post.tenth.id, description: 'Hisense refrigerator in perfect condition' }
+  { treasure_type_id: TreasureType.fifth.id, status: true, post_id: Post.fifth.id, description: 'Almost brand new table' }
 ]
+
+# Descriptions for the new records treasures_data
+descriptions = [
+  'Beautiful painting for living room',
+  'Closet in great condition',
+  'Commuting bicycle with good seat',
+  'Sleepmaker queen size mattress',
+  'Hisense refrigerator in perfect condition'
+]
+
+(6..10).each_with_index do |type_id, index|
+  treasures_data << {
+    treasure_type_id: TreasureType.find(type_id).id,
+    status: true,
+    post_id: Post.find(type_id).id,
+    description: descriptions[index]
+  }
+end
+
+# Create the records in the database
+Treasure.create!(treasures_data)
+
+# treasures_data = [
+#   { treasure_type_id: TreasureType.first.id, status: true, post_id: Post.first.id, description: 'High-quality chair' },
+#   { treasure_type_id: TreasureType.second.id, status: true, post_id: Post.second.id, description: 'Fully functional TV' },
+#   { treasure_type_id: TreasureType.third.id, status: true, post_id: Post.third.id, description: 'Comfy reclining sofa' },
+#   { treasure_type_id: TreasureType.fourth.id, status: true, post_id: Post.fourth.id, description: 'Washing machine in good condition' },
+#   { treasure_type_id: TreasureType.fifth.id, status: true, post_id: Post.fifth.id, description: 'Almost brand new table' },
+#   { treasure_type_id: TreasureType.offset(5), status: true, post_id: Post.offset(5), description: 'Beautiful painting for living room' },
+  # { treasure_type_id: TreasureType.seventh.id, status: true, post_id: Post.seventh.id, description: 'Closet in great condition' },
+  # { treasure_type_id: TreasureType.eighth.id, status: true, post_id: Post.eighth.id, description: 'Commuting bicycle with good seat' },
+  # { treasure_type_id: TreasureType.ninth.id, status: true, post_id: Post.ninth.id, description: 'Sleepmaker queen size mattress' },
+  # { treasure_type_id: TreasureType.tenth.id, status: true, post_id: Post.tenth.id, description: 'Hisense refrigerator in perfect condition' }
+# ]
 
 treasure_photo_urls = [
   "https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
