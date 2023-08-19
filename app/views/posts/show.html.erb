@@ -35,18 +35,15 @@
             </div>
           <% end %>
         <% else %>
-          <p class="text-muted">No treasure has been added to this post.</p>
-          <%= link_to 'Add Treasures', new_post_treasure_path(@post), class: "btn btn-primary" %>
+          <p class="text-muted">No information for the individual items has been added.</p>
         <% end %>
       </div>
     </div>
 
     <div class="card-footer">
-         <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary" %>
-
+        <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary" %>
         <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-warning" %>
-        <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Delete Post#{@post.description}?" }, class: 'btn btn-danger' do %>Delete
-
+        <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Delete #{@post.description}?" }, class: 'btn btn-danger' do %> Delete Post
         <%= link_to 'Add Treasures', new_post_treasure_path(@post), class: "btn btn-primary" %>
       <% end %>
     </div>
