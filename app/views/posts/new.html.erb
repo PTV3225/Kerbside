@@ -6,7 +6,7 @@
       <%= form.input :location, required: true %>
       <%= form.input :description, required: true, input_html: { rows: 3 } %>
       <%= form.input :council_pickup_date, required: true, as: :date %>
-      <%= form.input :photos, as: :file, input_html: { multiple: true, name: "photos[]" } %>
+      <%= form.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
     <div class="form-actions">
       <%= form.button :submit, "Submit", class: "btn btn-primary" %>
