@@ -85,18 +85,19 @@ puts "Treasure Type and attached videos created"
 
 puts "creating posts and attaching photos"
 
-
-first_six_user_ids = User.limit(15).pluck(:id)
+first_ten_user_ids = User.limit(10).pluck(:id)
 
 posts_data = [
-  { user_id: first_six_user_ids[0], location: '789 Elm St Maribyrnong', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-10' },
-  { user_id: first_six_user_ids[1], location: '123 Smith St Toorak', description: 'Great TV in working order at Smith St', council_pickup_date: '2023-09-12' },
-  { user_id: first_six_user_ids[2], location: '456 Locke St East Malvern', description: 'Comfy reclining sofa available on Locke St', council_pickup_date: '2023-09-15' },
-  { user_id: first_six_user_ids[3], location: '101 Maple Ave Dandenong', description: 'Washing machine stand up for grabs on Maple Ave', council_pickup_date: '2023-09-17' },
-  { user_id: first_six_user_ids[4], location: '111 Pine St St Albans', description:'Almost brand new table looking for a new home on Pine St', council_pickup_date: '2023-09-19' },
-  { user_id: first_six_user_ids[5], location: '222 Oak St St Kilda', description: 'Beautiful painting that will brighten up any room on Oak St', council_pickup_date: '2023-09-21' },
-  { user_id: first_six_user_ids[6], location: '5 Davison Place South Yarra', description: 'Closet in great condition in South Yarra', council_pickup_date: '2023-09-23' },
-  { user_id: first_six_user_ids[7], location: '9/315 Flemington Rd North Melbourne', description: 'Commuting bicycle with good seat but with a bit of rust on chain on Flemington Rd', council_pickup_date: '2023-09-23' }
+  { user_id: first_ten_user_ids[0], location: '789 Elm St Maribyrnong', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-10' },
+  { user_id: first_ten_user_ids[1], location: '123 Smith St Toorak', description: 'Great TV in working order at Smith St', council_pickup_date: '2023-09-12' },
+  { user_id: first_ten_user_ids[2], location: '456 Locke St East Malvern', description: 'Comfy reclining sofa available on Locke St', council_pickup_date: '2023-09-15' },
+  { user_id: first_ten_user_ids[3], location: '101 Maple Ave Dandenong', description: 'Washing machine stand up for grabs on Maple Ave', council_pickup_date: '2023-09-17' },
+  { user_id: first_ten_user_ids[4], location: '111 Pine St St Albans', description:'Almost brand new table looking for a new home on Pine St', council_pickup_date: '2023-09-19' },
+  { user_id: first_ten_user_ids[5], location: '222 Oak St St Kilda', description: 'Beautiful painting that will brighten up any room on Oak St', council_pickup_date: '2023-09-21' },
+  { user_id: first_ten_user_ids[6], location: '5 Davison Place South Yarra', description: 'Closet in great condition in South Yarra', council_pickup_date: '2023-09-23' },
+  { user_id: first_ten_user_ids[7], location: '9/315 Flemington Rd North Melbourne', description: 'Commuting bicycle with good seat but with a bit of rust on chain on Flemington Rd', council_pickup_date: '2023-09-23' },
+  { user_id: first_ten_user_ids[8], location: '207/557 Little Lonsdale Street', description: 'Sleepmaker queen size mattress with bed frame on Little Lonsdale Street', council_pickup_date: '2023-09-25' },
+  { user_id: first_ten_user_ids[9], location: '336 Russell St Melbourne', description: 'Hisense refrigerator in perfect condition working perfectly order on Russell St,', council_pickup_date: '2023-09-27' }
 ]
 
 post_photo_urls = [
@@ -107,7 +108,9 @@ post_photo_urls = [
   "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
   "https://images.unsplash.com/photo-1674503718104-950f67b26f9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ3fHxwYWludGluZ3MlMjBsaXZpbmclMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
   "https://images.unsplash.com/photo-1558997519-83ea9252edf8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNsb3NldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1613688684609-f93cb0f5f73e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWF0dHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVmcmlnZXJhdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
 ]
 
 posts_data.each_with_index do |post_data, index|
@@ -122,7 +125,14 @@ puts "creating Treasures and attaching photos"
 treasures_data = [
   { treasure_type_id: TreasureType.first.id, status: true, post_id: Post.first.id, description: 'High-quality chair' },
   { treasure_type_id: TreasureType.second.id, status: true, post_id: Post.second.id, description: 'Fully functional TV' },
-  { treasure_type_id: TreasureType.third.id, status: true, post_id: Post.third.id, description: 'Washing machine in good condition' }
+  { treasure_type_id: TreasureType.third.id, status: true, post_id: Post.third.id, description: 'Comfy reclining sofa' },
+  { treasure_type_id: TreasureType.fourth.id, status: true, post_id: Post.fourth.id, description: 'Washing machine in good condition' },
+  { treasure_type_id: TreasureType.fifth.id, status: true, post_id: Post.fifth.id, description: 'Almost brand new table' },
+  { treasure_type_id: TreasureType.sixth.id, status: true, post_id: Post.sixth.id, description: 'Beautiful painting for living room' },
+  { treasure_type_id: TreasureType.seventh.id, status: true, post_id: Post.seventh.id, description: 'Closet in great condition' },
+  { treasure_type_id: TreasureType.eighth.id, status: true, post_id: Post.eighth.id, description: 'Commuting bicycle with good seat' },
+  { treasure_type_id: TreasureType.ninth.id, status: true, post_id: Post.ninth.id, description: 'Sleepmaker queen size mattress' },
+  { treasure_type_id: TreasureType.tenth.id, status: true, post_id: Post.tenth.id, description: 'Hisense refrigerator in perfect condition' }
 ]
 
 treasure_photo_urls = [
@@ -133,7 +143,9 @@ treasure_photo_urls = [
   "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
   "https://images.unsplash.com/photo-1674503718104-950f67b26f9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ3fHxwYWludGluZ3MlMjBsaXZpbmclMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
   "https://images.unsplash.com/photo-1558997519-83ea9252edf8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNsb3NldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1613688684609-f93cb0f5f73e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWF0dHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVmcmlnZXJhdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
 ]
 
 treasures_data.each_with_index do |treasure_data, index|
