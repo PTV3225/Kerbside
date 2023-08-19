@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :posts do
-    resources :treasures, only: [:new, :create]
 
+    resources :treasures, only: [:new, :create, :edit, :update] do
+      member do
+        delete 'delete'
+      end
+    end
   end
 
 

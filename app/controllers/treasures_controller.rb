@@ -1,5 +1,6 @@
 class TreasuresController < ApplicationController
   before_action :set_post
+  before_action :set_treasure, only: [:edit, :update]
 
   def new
     @treasure = @post.treasures.build
@@ -7,6 +8,8 @@ class TreasuresController < ApplicationController
 
   def create
     @treasure = @post.treasures.build(treasure_params)
+    @treasure.status = true
+
     if @treasure.save
       redirect_to @post, notice: 'Treasure was successfully added.'
     else
@@ -14,13 +17,46 @@ class TreasuresController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @treasure.update(treasure_params)
+      redirect_to @post, notice: 'Treasure was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def delete
+    @treasure = Treasure.find(params[:id])
+    @treasure.destroy
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  # def update_availability
+  #   @treasure = Treasure.find(params[:id])
+  #   @treasure.update(status: params[:status])
+
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  # end
+
   private
 
   def set_post
     @post = Post.find(params[:post_id])
   end
 
+  def set_treasure
+    @treasure = @post.treasures.find(params[:id])
+  end
+
   def treasure_params
-    params.require(:treasure).permit(:description, :treasure_type_id, :photo)
+    params.require(:treasure).permit(:description, :treasure_type_id, :photo, :status)
   end
 end
