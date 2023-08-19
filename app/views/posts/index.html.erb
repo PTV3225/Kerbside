@@ -12,11 +12,11 @@
                         <p class="card-text"><strong>Description:</strong> <%= post.description %></p>
                         <p class="card-text"><strong>Council pickup date:</strong> <%= post.council_pickup_date %></p>
                     </div>
-                    <% if post.photos.any? %>
+                    <% if post.photos.attached? %>
                         <div class="card-footer">
                             <h6>Photos:</h6>
                             <% post.photos.each do |image| %>
-                                <%= image_tag image, class: "img-fluid mb-2" %>
+                                <%= cl_image_tag image.key, class: "img-fluid mb-2" %>
                             <% end %>
                         </div>
                         <a href="<%= post_path(post) %>" class="btn btn-primary">More Info</a>
