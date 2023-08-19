@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= content_for(:navbar_class, "navbar-home") %>
+
+<div style="background-image: url('<%= asset_path('iStock-1262998444.jpg') %>'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 100vh; display: flex; justify-content: flex-start; align-items: flex-start; padding: 90px 100px; color: #37382D;">
+  <div>
+    <h1 class="display-2">Kerbside</h1>
+    <p class="fs-3 my-4">Helping people find the treasure in your trash</p>
+    <a href="/users/sign_in" class="btn btn-primary btn-lg mr-3">Log in</a>
+    <a href="/posts" class="btn btn-secondary btn-lg">Start looking</a>
+  </div>
+</div>
