@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @post.image.attach(params[:post][:images])
+    @post.photos.attach(params[:post][:photos])
     if @post.save
       redirect_to post_path(@post)
     else
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
     unless @post.user == current_user
       flash[:alert] = "You are not allowed to delete this post. For more information contact admin@admin.nz"
-      redirect_to @post
+      redirect_to @post and return
     end
 
     if @post.destroy
@@ -56,6 +56,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :location, :description, :council_pickup_date, images: [])
+    params.require(:post).permit(:location, :description, :council_pickup_date, photos: [])
   end
 end
