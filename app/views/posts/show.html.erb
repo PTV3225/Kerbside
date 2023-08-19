@@ -10,10 +10,14 @@
 
       <h2>Photos</h2>
       <div class="photos">
+      <% if @post.photos.attached? %>
         <% @post.photos.each do |image| %>
-          <%= image_tag image, class: "img-fluid" %>
+          <%= cl_image_tag image.key, height: 300, width: 300, crop: :fill,  class: "img-fluid" %>
+        <% end %>
         <% end %>
       </div>
+
+      <%raise%>
 
       <h2>Treasures</h2>
       <div class="treasures">
