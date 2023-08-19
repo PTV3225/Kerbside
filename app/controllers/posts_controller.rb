@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     @post.photos.attach(params[:post][:photos])
     if @post.save
       redirect_to post_path(@post)
