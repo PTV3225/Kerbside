@@ -126,7 +126,7 @@ treasure_photo_urls = [
 treasures_data.each_with_index do |treasure_data, index|
   treasure = Treasure.create!(treasure_data)
   file = URI.open(treasure_photo_urls[index])
- treasure.photos.attach(io: file, filename: "photo_#{index}.png", content_type: "image/png")
+ treasure.photo.attach(io: file, filename: "photo_#{index}.png", content_type: "image/png")
 end
 puts "Treasures created"
 # Seed data for Chatrooms
