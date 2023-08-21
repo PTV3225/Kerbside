@@ -18,6 +18,11 @@ class MessagesController < ApplicationController
     end
   end
 
+
+  def index
+    @messages = @chatroom.messages.order(created_at: :desc).limit(10) # Change the limit as needed
+  end
+
   private
 
   def message_params

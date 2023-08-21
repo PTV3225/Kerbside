@@ -19,3 +19,9 @@
 .receiver-style {
   background-color: #e0e0e0;
 }
+
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+}
