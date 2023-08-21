@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 89vh;
+}
+
+
+.container.chatroom {
+  /* Set a maximum height for the messages container */
+  max-height: 100h; /* Adjust this value as needed */
+
+  /* Enable vertical scrolling when content overflows */
+  overflow-y: auto;
+
+}
+
+
+.message-form {
+  position: fixed; /* Fix the position of the message input form */
+  bottom: 0; /* Place the form at the bottom of the chatroom container */
+  left: 0;
+  right: 0;
+  padding: 10px; /* Add some padding for spacing */
+  background-color: #fff; /* Set a background color for better visibility */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow to separate from messages */
+  display: flex; /* Align the form content horizontally */
+  flex-direction: column;
+}
