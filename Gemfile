@@ -83,3 +83,6 @@ end
 
 
 gem "pry-byebug"
+
+
+gem "geocoder"
