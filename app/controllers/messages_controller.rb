@@ -6,9 +6,11 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-      ChatroomChannel.broadcast_to(
-        @chatroom,
-       render_to_string(partial: "message", locals: { message: @message })
+
+  ChatroomChannel.broadcast_to(
+    @chatroom,
+    message: render_to_string(partial: "message", locals: { message: @message }),
+    sender_id: @message.user.id
   )
   head :ok
      else
@@ -16,9 +18,17 @@ class MessagesController < ApplicationController
     end
   end
 
+
+  def index
+    @messages = @chatroom.messages.order(created_at: :desc).limit(10) # Change the limit as needed
+  end
+
   private
 
   def message_params
     params.require(:message).permit(:content)
   end
+
+
+
 end
