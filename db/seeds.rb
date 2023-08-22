@@ -31,7 +31,6 @@ end
 
 puts "users created"
 
-
 puts "creating admin user"
 
 # Seed data for Admin User
@@ -53,21 +52,21 @@ video_data = [
   { title: 'Upcycling Old Sofas', description: Faker::Hobby.activity, url: 'https://youtu.be/BrjN4vmwbuw' },
   { title: 'Most common fix of washing machine', description: Faker::Hobby.activity, url: 'https://youtu.be/KmPlBZ5nT1Q' },
   { title: 'How to refinish a table // DIY Furniture Makeover', description: Faker::Hobby.activity, url: 'https://youtu.be/T1is7gKwkGA' },
-  # { title: 'How to REUSE an Old Canvas Painting', description: Faker::Hobby.activity, url: 'https://youtu.be/KdX4REYfcuc' },
-  # { title: 'DIY Dream Closet on a Budget', description: Faker::Hobby.activity, url: 'https://youtu.be/h-Lnx2_AZd4' },
-  # { title: 'Unique Bike Restoration', description: Faker::Hobby.activity, url: 'https://youtu.be/Tw7XNRoSdSE' },
-  # { title: 'Deep Cleaning Mattress', description: Faker::Hobby.activity, url: 'https://youtu.be/5ZYRGd0kblI' },
-  # { title: 'Incredible Restoration Of An Old Fridges', description: Faker::Hobby.activity, url: 'https://youtu.be/zKsOIoR1HlM' },
-  # { title: 'Bookshelf Makeover', description: Faker::Hobby.activity, url: 'https://youtu.be/U4SbxdcXf1Y' },
-  # { title: 'Easiest Way to Restore Rusty Garden Tools', description: Faker::Hobby.activity, url: 'https://youtu.be/nFFiqwKCZvM' },
-  # { title: 'How To Clean/Sanitize/Disinfect Kids Toys', description: Faker::Hobby.activity, url: 'https://youtu.be/aqPP-LmUwZA' },
-  # { title: 'DIY carpet cleaning solution', description: Faker::Hobby.activity, url: 'https://youtu.be/SYT-Jc0jAvc' },
-  # { title: 'How to repair fan - step by step instructions', description: Faker::Hobby.activity, url: 'https://youtu.be/i8fIXpSC28I' },
-  # { title: 'BEFORE and AFTER: lamp makeover from the thrift store', description: Faker::Hobby.activity, url: 'https://youtu.be/X4pc2Fef7Nk' },
-  # { title: 'How to restore outdoor furniture. A beginner guide', description: Faker::Hobby.activity, url: 'https://youtu.be/iHdfBVT_V0c' },
-  # { title: 'KitchenAid stand mixer wobble fix and tune up', description: Faker::Hobby.activity, url: 'https://youtu.be/DaC3ARrJ5yw' },
-  # { title: 'BOUGHT CHEAP PLASTIC BASKETS AND TURNED THEM INTO A TREASURE| DIY BASKET', description: Faker::Hobby.activity, url: 'https://youtu.be/O8WSCxXy2JA' },
-  # { title: 'How to clean up old weights - Restore them like NEW', description: Faker::Hobby.activity, url: 'https://youtu.be/Gfvfek0HIiA' }
+  { title: 'How to REUSE an Old Canvas Painting', description: Faker::Hobby.activity, url: 'https://youtu.be/KdX4REYfcuc' },
+  { title: 'DIY Dream Closet on a Budget', description: Faker::Hobby.activity, url: 'https://youtu.be/h-Lnx2_AZd4' },
+  { title: 'Unique Bike Restoration', description: Faker::Hobby.activity, url: 'https://youtu.be/Tw7XNRoSdSE' },
+  { title: 'Deep Cleaning Mattress', description: Faker::Hobby.activity, url: 'https://youtu.be/5ZYRGd0kblI' },
+  { title: 'Incredible Restoration Of An Old Fridges', description: Faker::Hobby.activity, url: 'https://youtu.be/zKsOIoR1HlM' },
+  { title: 'Bookshelf Makeover', description: Faker::Hobby.activity, url: 'https://youtu.be/U4SbxdcXf1Y' },
+  { title: 'Easiest Way to Restore Rusty Garden Tools', description: Faker::Hobby.activity, url: 'https://youtu.be/nFFiqwKCZvM' },
+  { title: 'How To Clean/Sanitize/Disinfect Kids Toys', description: Faker::Hobby.activity, url: 'https://youtu.be/aqPP-LmUwZA' },
+  { title: 'DIY carpet cleaning solution', description: Faker::Hobby.activity, url: 'https://youtu.be/SYT-Jc0jAvc' },
+  { title: 'How to repair fan - step by step instructions', description: Faker::Hobby.activity, url: 'https://youtu.be/i8fIXpSC28I' },
+  { title: 'BEFORE and AFTER: lamp makeover from the thrift store', description: Faker::Hobby.activity, url: 'https://youtu.be/X4pc2Fef7Nk' },
+  { title: 'How to restore outdoor furniture. A beginner guide', description: Faker::Hobby.activity, url: 'https://youtu.be/iHdfBVT_V0c' },
+  { title: 'KitchenAid stand mixer wobble fix and tune up', description: Faker::Hobby.activity, url: 'https://youtu.be/DaC3ARrJ5yw' },
+  { title: 'BOUGHT CHEAP PLASTIC BASKETS AND TURNED THEM INTO A TREASURE| DIY BASKET', description: Faker::Hobby.activity, url: 'https://youtu.be/O8WSCxXy2JA' },
+  { title: 'How to clean up old weights - Restore them like NEW', description: Faker::Hobby.activity, url: 'https://youtu.be/Gfvfek0HIiA' }
 ]
 
 videos = []
@@ -77,39 +76,6 @@ video_data.each do |data|
 end
 
 puts "Videos created"
-
-puts "creating Treasure Type with attached videos"
-
-treasure_type_data = [
-  { category: 'Chair', video_id: videos[0].id },
-  { category: 'TV', video_id: videos[1].id },
-  { category: 'Sofa', video_id: videos[2].id },
-  { category: 'Washing machine', video_id: videos[3].id },
-  { category: 'Table', video_id: videos[4].id },
-  # { category: 'Painting', video_id: videos[5].id },
-  # { category: 'Closet', video_id: videos[6].id },
-  # { category: 'Bicycle', video_id: videos[7].id },
-  # { category: 'Mattress', video_id: videos[8].id },
-  # { category: 'Refrigerator', video_id: videos[9].id },
-  # { category: 'Bookshelf', video_id: videos[10].id },
-  # { category: 'Garden Tools', video_id: videos[11].id },
-  # { category: 'Kids Toys', video_id: videos[12].id },
-  # { category: 'Carpet', video_id: videos[13].id },
-  # { category: 'Fan', video_id: videos[14].id },
-  # { category: 'Lamp', video_id: videos[15].id },
-  # { category: 'Outdoor furniture', video_id: videos[16].id },
-  # { category: 'Kitchen appliances', video_id: videos[17].id },
-  # { category: 'Storage containers', video_id: videos[18].id },
-  # { category: 'Exercise equipment', video_id: videos[19].id }
-]
-
-treasure_types = []
-
-treasure_type_data.each do |data|
-  treasure_types << TreasureType.create(data)
-end
-
-puts "Treasure Type and attached videos created"
 
 # Seed data for Posts (addresses for location)
 
@@ -170,50 +136,47 @@ posts_data.each_with_index do |post_data, index|
 end
 puts "Posts created"
 
-puts "creating Treasures and attaching photos"
 # Seed data for Treasures
 
-# Creating records for treasures_data
-
-# Your existing data
-treasures_data = [
-  { treasure_type_id: TreasureType.first.id, status: true, post_id: Post.first.id, description: 'High-quality chair' },
-  { treasure_type_id: TreasureType.second.id, status: true, post_id: Post.second.id, description: 'Fully functional TV' },
-  { treasure_type_id: TreasureType.third.id, status: true, post_id: Post.third.id, description: 'Comfy reclining sofa' },
-  { treasure_type_id: TreasureType.fourth.id, status: true, post_id: Post.fourth.id, description: 'Washing machine in good condition' },
-  { treasure_type_id: TreasureType.fifth.id, status: true, post_id: Post.fifth.id, description: 'Almost brand new table' }
+# Descriptions for the new records treasures_data
+descriptions = [
+  'High-quality chair',
+  'Fully functional TV',
+  'Comfy reclining sofa',
+  'Washing machine in good condition',
+  'Almost brand new table',
+  'Beautiful painting for living room',
+  'Closet in great condition',
+  'Commuting bicycle with good seat',
+  'Sleepmaker queen size mattress',
+  'Hisense refrigerator in perfect condition',
+  'Great condition IKEA bookshelf',
+  'Gardening equipment free to pick up',
+  'High quality kids toys',
+  'Modern carpet for bedroom or living area',
+  'High efficiency cooling fan',
+  'Floor lamp in excellent working order',
+  'Cute outdoor setting',
+  'Kitchen appliances. Mixer KSM150 with 4 attachments',
+  'Storage containers',
+  'Home gym equipment in great condition'
 ]
 
-# Descriptions for the new records treasures_data
-# descriptions = [
-#   'Beautiful painting for living room',
-#   'Closet in great condition',
-#   'Commuting bicycle with good seat',
-#   'Sleepmaker queen size mattress',
-#   'Hisense refrigerator in perfect condition',
-#   'Great condition IKEA bookshelf',
-#   'Gardening equipment free to pick up',
-#   'High quality kids toys',
-#   'Modern carpet for bedroom or living area',
-#   'High efficiency cooling fan',
-#   'Floor lamp in excellent working order',
-#   'Cute outdoor setting',
-#   'Kitchen appliances. Mixer KSM150 with 4 attachments',
-#   'Storage containers',
-#   'Home gym equipment in great condition'
-# ]
+categories = ['Chair', 'TV', 'Sofa', 'Washing machine', 'Table', 'Painting', 'Closet', 'Bicycle', 'Mattress', 'Refrigerator', 'Bookshelf', 'Garden Tools', 'Kids Toys', 'Carpet', 'Fan', 'Lamp', 'Kitchen appliances', 'Outdoor furniture', 'Storage containers', 'Exercise equipment' ]
 
-# (6..10).each_with_index do |type_id, index|
-#   treasures_data << {
-#     treasure_type_id: TreasureType.find(type_id).id,
-#     status: true,
-#     post_id: Post.find(type_id).id,
-#     description: descriptions[index]
-#   }
-# end
+puts "Creating Treasure Type with attached videos"
 
-# # Create the records in the database
-# Treasure.create!(treasures_data)
+20.times do |index|
+  TreasureType.create!(category: categories[index], video_id: Video.all[index].id)
+end
+
+puts "Treasure Type and attached videos created"
+
+puts "Creating Treasures and attaching photos"
+
+20.times do |index|
+  Treasure.create!(treasure_type_id: TreasureType.all[index].id, status: true, post_id: Post.all[index].id, description: descriptions[index])
+end
 
 treasure_photo_urls = [
   "https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
@@ -221,28 +184,28 @@ treasure_photo_urls = [
   "https://plus.unsplash.com/premium_photo-1673548917423-073963e7afc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
   "https://images.unsplash.com/photo-1626806787426-5910811b6325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhc2hpbmclMjBtYWNoaW5lfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
   "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1674503718104-950f67b26f9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ3fHxwYWludGluZ3MlMjBsaXZpbmclMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1558997519-83ea9252edf8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNsb3NldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1613688684609-f93cb0f5f73e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWF0dHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVmcmlnZXJhdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1528208079124-a2387f039c99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fEJvb2tzaGVsZnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1563210199-6ec2cfedd11e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2FyZGVuJTIwVG9vbHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1659652272218-c6cd2ae219a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDU1fHxLaWRzJyUyMFRveXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1621700052663-f1170e9b26ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fENhcnBldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1565151443833-29bf2ba5dd8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fEVsZWN0cm9uaWMlMjBXYXN0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1580130281320-0ef0754f2bf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGxhbXB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1617887021567-fe8d2480bd96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fG91dGRvb3IlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1583241475880-083f84372725?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8S2l0Y2hlbiUyMEFwcGxpYW5jZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1564995069826-6338a9192279?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGxhc3RpYyUyMGJveHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  # "https://images.unsplash.com/photo-1620188526357-ff08e03da266?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fEV4ZXJjaXNlJTIwRXF1aXBtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+  "https://images.unsplash.com/photo-1674503718104-950f67b26f9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ3fHxwYWludGluZ3MlMjBsaXZpbmclMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1558997519-83ea9252edf8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNsb3NldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1613688684609-f93cb0f5f73e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWF0dHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVmcmlnZXJhdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1528208079124-a2387f039c99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fEJvb2tzaGVsZnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1563210199-6ec2cfedd11e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2FyZGVuJTIwVG9vbHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1659652272218-c6cd2ae219a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDU1fHxLaWRzJyUyMFRveXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1621700052663-f1170e9b26ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fENhcnBldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1565151443833-29bf2ba5dd8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fEVsZWN0cm9uaWMlMjBXYXN0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1580130281320-0ef0754f2bf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGxhbXB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1617887021567-fe8d2480bd96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fG91dGRvb3IlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1583241475880-083f84372725?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8S2l0Y2hlbiUyMEFwcGxpYW5jZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1564995069826-6338a9192279?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGxhc3RpYyUyMGJveHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  "https://images.unsplash.com/photo-1620188526357-ff08e03da266?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fEV4ZXJjaXNlJTIwRXF1aXBtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
 ]
 
-treasures_data.each_with_index do |treasure_data, index|
-  treasure = Treasure.create!(treasure_data)
+Treasure.all.each_with_index do |treasure, index|
   file = URI.open(treasure_photo_urls[index])
- treasure.photo.attach(io: file, filename: "photo_#{index}.png", content_type: "image/png")
+ Treasure.all[index].photo.attach(io: file, filename: "photo_#{index}.png", content_type: "image/png")
 end
+
 puts "Treasures created"
 # Seed data for Chatrooms
 
