@@ -87,12 +87,12 @@ puts "creating posts and attaching photos"
 first_six_user_ids = User.limit(6).pluck(:id)
 
 posts_data = [
-  { user_id: first_six_user_ids[0], location: '123 Smith St Toorak', description: 'Great TV in working order at Smith St', council_pickup_date: '2023-09-10' },
-  { user_id: first_six_user_ids[1], location: '456 Locke St East Malvern', description: 'Comfy reclining sofa available on Locke St', council_pickup_date: '2023-09-15' },
-  { user_id: first_six_user_ids[2], location: '789 Elm St Maribyrnong', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-17' },
-  { user_id: first_six_user_ids[3], location: '101 Maple Ave Dandenong', description: 'TV stand up for grabs on Maple Ave', council_pickup_date: '2023-09-18' },
-  { user_id: first_six_user_ids[4], location: '111 Pine St St Albans', description:'Cozy sofa looking for a new home on Pine St', council_pickup_date: '2023-09-25' },
-  { user_id: first_six_user_ids[5], location: '222 Oak St St Kilda', description: 'Learn how to restore furniture in our DIY workshop', council_pickup_date: '2023-09-30' }
+  { user_id: first_six_user_ids[0], location: '360 Lygon St, Brunswick East VIC 3057', description: 'Great TV in working order at Smith St', council_pickup_date: '2023-09-10' },
+  { user_id: first_six_user_ids[1], location: '148 Sydney Rd, Brunswick VIC 3056', description: 'Comfy reclining sofa available on Locke St', council_pickup_date: '2023-09-15' },
+  { user_id: first_six_user_ids[2], location: '260 Barkly St, Brunswick VIC 3056', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-17' },
+  { user_id: first_six_user_ids[3], location: '528A Sydney Rd, Brunswick VIC 3056', description: 'TV stand up for grabs on Maple Ave', council_pickup_date: '2023-09-18' },
+  { user_id: first_six_user_ids[4], location: '644 Rathdowne St, Carlton North VIC 3054', description:'Cozy sofa looking for a new home on Pine St', council_pickup_date: '2023-09-25' },
+  { user_id: first_six_user_ids[5], location: '793 Rathdowne St, Carlton North VIC 3054', description: 'Learn how to restore furniture in our DIY workshop', council_pickup_date: '2023-09-30' }
 ]
 
 post_photo_urls = [
