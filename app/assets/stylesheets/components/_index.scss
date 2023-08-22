@@ -4,8 +4,13 @@
 @import "form_legend_clear";
 @import "navbar";
 
+@import "homepage";
+@import "_devise_login"
+
+
 
 
 // message styling
 @import 'components/_message';
 @import 'components/_chatroom';
+
