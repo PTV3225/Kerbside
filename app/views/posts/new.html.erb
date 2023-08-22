@@ -1,15 +1,17 @@
 <div class="container">
-  <h1>Tell the world about your hard rubbish</h1>
-  <%= simple_form_for(Post.new) do |form| %>
-    <%= form.error_notification %>
-    <div class="form-inputs">
-      <%= form.input :location, required: true %>
-      <%= form.input :description, required: true, input_html: { rows: 3 } %>
-      <%= form.input :council_pickup_date, required: true, as: :date %>
-      <%= form.input :photos, as: :file, input_html: { multiple: true } %>
-    </div>
-    <div class="form-actions">
-      <%= form.button :submit, "Submit", class: "btn btn-primary" %>
-    </div>
-  <% end %>
+ <div class="form-login">
+      <h1>Post hard rubbish</h1>
+      <%= simple_form_for(Post.new) do |form| %>
+        <%= form.error_notification %>
+        <div class="form-inputs">
+          <%= form.input :location, required: true %>
+          <%= form.input :description, required: true, input_html: { rows: 3 } %>
+          <%= form.input :council_pickup_date, required: true, as: :date %>
+          <%= form.input :photos, as: :file, input_html: { multiple: true } %>
+        </div>
+        <div class="form-actions">
+          <%= form.button :submit, "Submit", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
 </div>

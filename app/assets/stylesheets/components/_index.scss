@@ -1,9 +1,12 @@
-// Import your components CSS files here.
+// Base or generic components
 @import "alert";
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
 
+// Pages or specific views
+@import "homepage";
+@import "devise_login";
 
 
 // message styling
