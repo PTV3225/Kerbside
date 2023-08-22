@@ -147,4 +147,7 @@ posts = Post.all
 chatroom_names.each_with_index do |chatroom_name, index|
    Chatroom.create!(name: chatroom_name, post: posts[index])
 end
+
+#link your posts to a chatrooms
+
 puts "chatrooms created"
