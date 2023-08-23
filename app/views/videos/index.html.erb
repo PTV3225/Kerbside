@@ -1,13 +1,22 @@
-<div class="container">
-  <h1>All videos</h1>
-  <div class="row align-items-center">
-    <div class="col-lg-4 col-md-6 mb-4">
-      <% @videos.each do |video| %>
-        <h6 class="card-title"> <%= video.title %></h6>
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" width="900" height="500" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
-        </div>
-      <% end %>
-    </div>
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: videos_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search by video title"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
   </div>
+</div>
+
+<div class="container mx-auto d-flex align-items-center">
+<h2>Ideas for you to get inspired and create your own!</h2>
+  <% @videos.each do |video| %>
+    <h6 class="card-title mb-2 px-10"> <%= video.title %></h6>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" width="900" height="500" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <% end %>
 </div>

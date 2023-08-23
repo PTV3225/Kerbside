@@ -81,5 +81,7 @@ group :test do
   gem "webdrivers"
 end
 
+# full-text search
+gem 'pg_search'
 
 gem "pry-byebug"
