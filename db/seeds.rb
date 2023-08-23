@@ -42,7 +42,7 @@ admin_user = User.create!(
 )
 puts "admin created"
 
-#LOOOOOP throough it
+
 
 puts "creating videos"
 

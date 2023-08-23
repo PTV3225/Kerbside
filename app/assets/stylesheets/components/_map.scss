@@ -1,5 +1,6 @@
-.mapboxgl-popup {
-  max-width: 60px;
+.info-window {
+  max-width: 100px;
+  border-radius: 70%; /* Make the pop-up oval-shaped */
 }
 
 .mapboxgl-popup-content {
@@ -8,11 +9,23 @@
   font-size: smaller;
 }
 
+
 .small-text {
   font-size: smaller;
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // /* Set a minimum height for the entire page */
 // html, body {

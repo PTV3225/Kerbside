@@ -1,11 +1,14 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 
+
 <div style="background-image: url('<%= asset_path('iStock-1262998444.jpg') %>'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 50px 100px;">
 <div style="padding: 60px 200px; margin-top: -400px; text-align: center;">
+    <%= render 'pages/facts' %>
     <h1 class="display-2">Helping people find the treasure in your trash</h1>
 <a href="/posts" class="btn btn-secondary btn-lg col-6 mx-auto" style="font-size: 1.5em; margin-top: 20px;">Start your search</a>
   </div>
 </div>
+
 
 <div style="padding: 60px 200px; background-color: white; text-align: left;">
   <h2>Are you looking for bargain,  the chance to do something good for the environment?</h2>
