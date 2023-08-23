@@ -5,4 +5,12 @@ class Post < ApplicationRecord
   has_one :chatroom, dependent: :destroy
   has_many_attached :photos
 
+
+  after_create :create_chatroom
+
+  private
+
+  def create_chatroom
+    Chatroom.create(post: self, name: "Chatroom for Post ##{self.id}")
+  end
 end
