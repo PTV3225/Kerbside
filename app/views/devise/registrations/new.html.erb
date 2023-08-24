@@ -4,12 +4,12 @@
       <div class="form-login">
         <h2>Sign up</h2>
 
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-          <%= f.error_notification %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }, html: { class: 'needs-validation', novalidate: '' }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="form-group">
             <%= f.input :email,
-                        required: true,
+                        required: false,
                         autofocus: true,
                         input_html: { autocomplete: "email", class: 'form-control' },
                         wrapper_html: { class: 'form-group' } %>
@@ -17,15 +17,17 @@
 
           <div class="form-group">
             <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        required: false,
                         input_html: { autocomplete: "new-password", class: 'form-control' },
                         wrapper_html: { class: 'form-group' } %>
+            <% if @minimum_password_length %>
+              <small class="form-text text-muted"><em>(<%= @minimum_password_length %> characters minimum)</em></small>
+            <% end %>
           </div>
 
           <div class="form-group">
             <%= f.input :password_confirmation,
-                        required: true,
+                        required: false,
                         input_html: { autocomplete: "new-password", class: 'form-control' },
                         wrapper_html: { class: 'form-group' } %>
           </div>
@@ -33,6 +35,7 @@
           <div class="form-group">
             <%= f.button :submit, "Sign up", class: 'btn btn-primary btn-lg' %>
           </div>
+
         <% end %>
         <%= render "devise/shared/links" %>
       </div>
