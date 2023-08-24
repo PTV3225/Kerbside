@@ -14,6 +14,7 @@ puts "clearing database"
 User.destroy_all
 Treasure.destroy_all
 TreasureType.destroy_all
+Video.destroy_all
 Post.destroy_all
 Chatroom.destroy_all
 
