@@ -1,0 +1,30 @@
+<div id="recycling-facts-box">
+  <p id="fact-text" class="lead">
+“Hard Waste” means household waste items not suitable for collection in the regular kerbside bin garbage and recyclables collections.</p>
+</div>
+
+<script>
+  // JavaScript to rotate recycling facts every 10 seconds
+  const facts = [
+    "An Australian Household throws away as much as 24kg of wooden furniture annually",
+    "33% of furniture waste is textiles, sofas, and armchairs",
+    "Approximately 2 million households can generate as much as 48,000 tonnes of furniture waste yearly – both soft furnishings and wooden furniture.",
+    "$119 for on-the-spot fines for minor offences to $1,000,000 and/or seven years imprisonment for wilfully negligent dumping that causes environmental harm",
+    "make sure you're burying your treasure with respect to your neighbours and the environment"// Add more facts as needed
+  ];
+
+ let currentFactIndex = 0;
+  const factText = document.getElementById("fact-text");
+
+  function changeFact() {
+    factText.style.opacity = 0; // Fade out
+    setTimeout(() => {
+      factText.textContent = facts[currentFactIndex];
+      factText.style.opacity = 1; // Fade in
+    }, 2000); // Delay for smoother fade effect
+
+    currentFactIndex = (currentFactIndex + 1) % facts.length;
+  }
+
+  setInterval(changeFact, 10000); // Change fact every 10 seconds
+</script>

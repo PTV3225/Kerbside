@@ -10,6 +10,10 @@
 // Pages or specific views
 @import "devise_login";
 
-// Message styling
-@import "components/message";
-@import "components/chatroom";
+
+// message styling
+@import 'components/_message';
+@import 'components/_chatroom';
+
+//map styling//
+@import 'components/_map';

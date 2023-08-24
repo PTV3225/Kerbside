@@ -1,0 +1,73 @@
+.info-window {
+  max-width: 100px;
+  border-radius: 70%; /* Make the pop-up oval-shaped */
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: smaller;
+}
+
+
+.small-text {
+  font-size: smaller;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// /* Set a minimum height for the entire page */
+// html, body {
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+// }
+
+
+
+// /* Style the "Add New Post" button */
+// .add-post-button {
+//   margin-top: 60px; /* Adjust as needed to provide space for the button */
+// }
+
+// /* Use Flexbox to create the desired layout */
+// .container {
+//   display: flex;
+//   height: calc(100% - 60px); /* Subtract navbar height from full height */
+//   margin-top: 60px; /* Adjust to match navbar height */
+// }
+
+// /* Style for the left column (posts) */
+// .col-md-8 {
+//   flex: 1; /* Take up remaining available width */
+//   overflow-y: auto; /* Enable vertical scrolling */
+//   padding: 20px;
+// }
+
+// /* Style for the right column (map) */
+// .col-md-4 {
+//   width: 40%; /* Set width to 40% of the screen */
+//   background-color: grey; /* Example background color */
+//   position: fixed;
+//   top: 100px; /* Match navbar height */
+//   right: 0;
+//   bottom: 0;
+//   padding: 20px;
+// }
+
+// /* Style for the map container */
+// [data-controller="map"] {
+//   width: 100%;
+//   height: 100%;
+// }

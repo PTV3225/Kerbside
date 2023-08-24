@@ -42,7 +42,7 @@ admin_user = User.create!(
 )
 puts "admin created"
 
-#LOOOOOP throough it
+
 
 puts "creating videos"
 
@@ -88,19 +88,19 @@ posts_data = [
   { user_id: first_ten_user_ids[1], location: '123 Smith St Toorak', description: 'Great TV in working order at Smith St', council_pickup_date: '2023-09-12' },
   { user_id: first_ten_user_ids[2], location: '456 Locke St East Malvern', description: 'Comfy reclining sofa available on Locke St', council_pickup_date: '2023-09-15' },
   { user_id: first_ten_user_ids[3], location: '101 Maple Ave Dandenong', description: 'Washing machine stand up for grabs on Maple Ave', council_pickup_date: '2023-09-17' },
-  { user_id: first_ten_user_ids[4], location: '111 Pine St St Albans', description:'Almost brand new table looking for a new home on Pine St', council_pickup_date: '2023-09-19' },
+  { user_id: first_ten_user_ids[4], location: '111 Pine St St Albans, Melbourne', description:'Almost brand new table looking for a new home on Pine St', council_pickup_date: '2023-09-19' },
   { user_id: first_ten_user_ids[5], location: '222 Oak St St Kilda', description: 'Beautiful painting that will brighten up any room on Oak St', council_pickup_date: '2023-09-21' },
   { user_id: first_ten_user_ids[6], location: '5 Davison Place South Yarra', description: 'Closet in great condition in South Yarra', council_pickup_date: '2023-09-23' },
   { user_id: first_ten_user_ids[7], location: '9/315 Flemington Rd North Melbourne', description: 'Commuting bicycle with good seat but with a bit of rust on chain on Flemington Rd', council_pickup_date: '2023-09-23' },
   { user_id: first_ten_user_ids[8], location: '207/557 Little Lonsdale Street', description: 'Sleepmaker queen size mattress with bed frame on Little Lonsdale Street', council_pickup_date: '2023-09-25' },
   { user_id: first_ten_user_ids[9], location: '336 Russell St Melbourne', description: 'Hisense refrigerator in perfect condition working perfectly order on Russell St,', council_pickup_date: '2023-09-27' },
-  { user_id: first_ten_user_ids[0], location: '207/422-428 Collins Street', description: 'Great condition IKEA bookshelf, nothing cracked and broken issues on Collins St,', council_pickup_date: '2023-09-29' },
+  { user_id: first_ten_user_ids[0], location: '207/422-428 Collins, Street Melboune', description: 'Great condition IKEA bookshelf, nothing cracked and broken issues on Collins St,', council_pickup_date: '2023-09-29' },
   { user_id: first_ten_user_ids[1], location: '109/91 Dow Street, Port Melbourne', description: 'Gardening equipment free to pick up in Port Melbourne', council_pickup_date: '2023-09-11' },
   { user_id: first_ten_user_ids[2], location: '902/33 Rose Lane Melbourne', description: 'Kids toys mini cute miniatures high quality animals models figures on Rose Lane St', council_pickup_date: '2023-09-13' },
   { user_id: first_ten_user_ids[3], location: '902/259-273 Normanby Rd, South Melbourne', description: 'Modern fluffy carpet for bedroom or living area in South Melbourne', council_pickup_date: '2023-09-14' },
   { user_id: first_ten_user_ids[4], location: '908/65 Coventry Street, Southbank', description: 'High efficiency cooling fan in Southbank', council_pickup_date: '2023-09-15' },
   { user_id: first_ten_user_ids[5], location: '924/199 William Street', description: 'Floor lamp in excellent working order pick up on William St', council_pickup_date: '2023-09-16' },
-  { user_id: first_ten_user_ids[6], location: '2802/327 La Trobe Street', description: 'Cute outdoor setting. Was in shade so still looks new. Pick up on La Trobe St', council_pickup_date: '2023-09-18' },
+  { user_id: first_ten_user_ids[6], location: '2802/327 La Trobe Street, Melbourne', description: 'Cute outdoor setting. Was in shade so still looks new. Pick up on La Trobe St', council_pickup_date: '2023-09-18' },
   { user_id: first_ten_user_ids[7], location: '7/15 Cromwell Road, South Yarra', description: 'Kitchen appliances. Kitchenaid stand mixer KSM150 with 4 attachments in South Yarra', council_pickup_date: '2023-09-20' },
   { user_id: first_ten_user_ids[8], location: '22 Collins Street, Essendon', description: 'Plastic storage containers available in Essendon', council_pickup_date: '2023-09-22' },
   { user_id: first_ten_user_ids[9], location: '82 Raglan Street, Preston', description: 'Home gym equipment in great condition in Preston', council_pickup_date: '2023-09-24' }
