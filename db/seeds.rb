@@ -47,26 +47,26 @@ puts "admin created"
 puts "creating videos"
 
 video_data = [
-  { title: 'DIY Chair Restoration', description: Faker::Hobby.activity, url: 'https://youtu.be/Ek-EE37rPUQ' },
-  { title: 'Fixing a Broken TV', description: Faker::Hobby.activity, url: 'https://youtu.be/hJGmrQDbUOQ' },
-  { title: 'Upcycling Old Sofas', description: Faker::Hobby.activity, url: 'https://youtu.be/BrjN4vmwbuw' },
-  { title: 'Most common fix of washing machine', description: Faker::Hobby.activity, url: 'https://youtu.be/KmPlBZ5nT1Q' },
-  { title: 'How to refinish a table // DIY Furniture Makeover', description: Faker::Hobby.activity, url: 'https://youtu.be/T1is7gKwkGA' },
-  { title: 'How to REUSE an Old Canvas Painting', description: Faker::Hobby.activity, url: 'https://youtu.be/KdX4REYfcuc' },
-  { title: 'DIY Dream Closet on a Budget', description: Faker::Hobby.activity, url: 'https://youtu.be/h-Lnx2_AZd4' },
-  { title: 'Unique Bike Restoration', description: Faker::Hobby.activity, url: 'https://youtu.be/Tw7XNRoSdSE' },
-  { title: 'Deep Cleaning Mattress', description: Faker::Hobby.activity, url: 'https://youtu.be/5ZYRGd0kblI' },
-  { title: 'Incredible Restoration Of An Old Fridges', description: Faker::Hobby.activity, url: 'https://youtu.be/zKsOIoR1HlM' },
-  { title: 'Bookshelf Makeover', description: Faker::Hobby.activity, url: 'https://youtu.be/U4SbxdcXf1Y' },
-  { title: 'Easiest Way to Restore Rusty Garden Tools', description: Faker::Hobby.activity, url: 'https://youtu.be/nFFiqwKCZvM' },
-  { title: 'How To Clean/Sanitize/Disinfect Kids Toys', description: Faker::Hobby.activity, url: 'https://youtu.be/aqPP-LmUwZA' },
-  { title: 'DIY carpet cleaning solution', description: Faker::Hobby.activity, url: 'https://youtu.be/SYT-Jc0jAvc' },
-  { title: 'How to repair fan - step by step instructions', description: Faker::Hobby.activity, url: 'https://youtu.be/i8fIXpSC28I' },
-  { title: 'BEFORE and AFTER: lamp makeover from the thrift store', description: Faker::Hobby.activity, url: 'https://youtu.be/X4pc2Fef7Nk' },
-  { title: 'How to restore outdoor furniture. A beginner guide', description: Faker::Hobby.activity, url: 'https://youtu.be/iHdfBVT_V0c' },
-  { title: 'KitchenAid stand mixer wobble fix and tune up', description: Faker::Hobby.activity, url: 'https://youtu.be/DaC3ARrJ5yw' },
-  { title: 'BOUGHT CHEAP PLASTIC BASKETS AND TURNED THEM INTO A TREASURE| DIY BASKET', description: Faker::Hobby.activity, url: 'https://youtu.be/O8WSCxXy2JA' },
-  { title: 'How to clean up old weights - Restore them like NEW', description: Faker::Hobby.activity, url: 'https://youtu.be/Gfvfek0HIiA' }
+  { title: 'DIY Chair Restoration', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/Ek-EE37rPUQ' },
+  { title: 'Fixing a Broken TV', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/hJGmrQDbUOQ' },
+  { title: 'Upcycling Old Sofas', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/BrjN4vmwbuw' },
+  { title: 'Most common fix of washing machine', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/KmPlBZ5nT1Q' },
+  { title: 'How to refinish a table // DIY Furniture Makeover', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/T1is7gKwkGA' },
+  { title: 'How to REUSE an Old Canvas Painting', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/KdX4REYfcuc' },
+  { title: 'DIY Dream Closet on a Budget', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/h-Lnx2_AZd4' },
+  { title: 'Unique Bike Restoration', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/Tw7XNRoSdSE' },
+  { title: 'Deep Cleaning Mattress', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/5ZYRGd0kblI' },
+  { title: 'Incredible Restoration Of An Old Fridges', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/zKsOIoR1HlM' },
+  { title: 'Bookshelf Makeover', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/U4SbxdcXf1Y' },
+  { title: 'Easiest Way to Restore Rusty Garden Tools', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/nFFiqwKCZvM' },
+  { title: 'How To Clean/Sanitize/Disinfect Kids Toys', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/aqPP-LmUwZA' },
+  { title: 'DIY carpet cleaning solution', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/SYT-Jc0jAvc' },
+  { title: 'How to repair fan - step by step instructions', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/i8fIXpSC28I' },
+  { title: 'BEFORE and AFTER: lamp makeover from the thrift store', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/X4pc2Fef7Nk' },
+  { title: 'How to restore outdoor furniture. A beginner guide', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/iHdfBVT_V0c' },
+  { title: 'KitchenAid stand mixer wobble fix and tune up', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/DaC3ARrJ5yw' },
+  { title: 'BOUGHT CHEAP PLASTIC BASKETS AND TURNED THEM INTO A TREASURE| DIY BASKET', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/O8WSCxXy2JA' },
+  { title: 'How to clean up old weights - Restore them like NEW', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/Gfvfek0HIiA' }
 ]
 
 videos = []
