@@ -1,1 +1,80 @@
 // Specific CSS for your home-page
+.background-container {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 100px;
+}
+
+.inner-content {
+   padding: 180px;
+  text-align: center;
+  margin-top: -200px;
+}
+
+.header-title {
+  font-weight: bold;
+  padding: 20px
+}
+
+.custom-btn {
+  font-size: 1.5em;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: $yellow;
+  &:hover, &:focus {
+      background-color: darken($yellow, 10%);
+  }
+}
+
+.breakout_container{
+  padding: 20px 200px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  }
+
+
+.breakout_flexbox {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+  background-color: #F4F4F4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+
+.centered-icon {
+  display: flex;
+  justify-content: center;
+    margin-bottom: 20px;
+}
+
+// .uniform-image {
+//   height: 200px;
+//   object-fit: cover;
+//   width: 100%;
+// }
+
+.uniform-image {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .breakout_container {
+    flex-direction: column;
+  }
+}

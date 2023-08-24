@@ -1,48 +1,51 @@
 <div class="container mt-5">
   <h1 class="mb-4">Post Details</h1>
 
-<div class="card mb-4">
-    <div class="card-body">
-        <div class="row photos mb-4">
-            <% if @post.photos.attached? %>
-                <% @post.photos.each do |image| %>
-                    <div class="col-md-4 mb-3">
-                        <%= cl_image_tag image.key, height: 300, width: 300, crop: :fill, class: "img-fluid rounded" %>
-                    </div>
-                <% end %>
-            <% else %>
-                <p class="text-muted">No photos uploaded.</p>
-            <% end %>
-        </div>
+  <div class="card mb-4">
+      <div class="card-body">
+          <div class="row photos mb-4">
+              <% if @post.photos.attached? %>
+                  <% @post.photos.each do |image| %>
+                      <div class="col-md-4 mb-3">
+                          <%= cl_image_tag image.key, height: 300, width: 300, crop: :fill, class: "img-fluid rounded" %>
+                      </div>
+                  <% end %>
+              <% else %>
+                  <p class="text-muted">No photos uploaded.</p>
+              <% end %>
+          </div>
 
-        <h4>Post Info</h4>
-        <p><strong>Location:</strong> <%= @post.location %></p>
-        <p><strong>Description:</strong> <%= @post.description %></p>
-        <p><strong>Council pickup date:</strong> <%= @post.council_pickup_date %></p>
+          <h4>Post Info</h4>
+          <p><strong>Location:</strong> <%= @post.location %></p>
+          <p><strong>Description:</strong> <%= @post.description %></p>
+          <p><strong>Council pickup date:</strong> <%= @post.council_pickup_date %></p>
 
-        <hr class="my-4">
+          <hr class="my-4">
 
-        <h4>Individual items</h4>
-        <div class="treasures">
-            <% if @post.treasures.any? %>
+            <h4>Individual items</h4>
+            <div class="treasures row">
+              <% if @post.treasures.any? %>
                 <% @post.treasures.each do |treasure| %>
+                  <div class="col-md-4">
                     <div class="treasure-item mb-3" id="treasure-item-<%= treasure.id %>">
-                        <p><strong>Type:</strong> <%= treasure.treasure_type.category %></p>
-                        <p><strong>Description:</strong> <%= treasure.description %></p>
-                        <p><strong>Status:</strong> <%= treasure.status ? "Available" : "Not Available" %></p>
-                        <% if treasure.photo.attached? %>
-                            <%= cl_image_tag treasure.photo.key, height: 300, width: 300, crop: :fill, class: "img-fluid mb-2 rounded" %>
-                        <% end %>
-                        <%= button_to 'Delete', delete_post_treasure_path(@post, treasure), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-danger btn-sm" %>
+                      <p><strong>Type:</strong> <%= treasure.treasure_type.category %></p>
+                      <p><strong>Description:</strong> <%= treasure.description %></p>
+                      <p><strong>Status:</strong> <%= treasure.status ? "Available" : "Not Available" %></p>
+                      <% if treasure.photo.attached? %>
+                        <%= cl_image_tag treasure.photo.key, height: 300, width: 300, crop: :fill, class: "img-fluid mb-2 rounded" %>
+                      <% end %>
+                      <%= button_to 'Delete', delete_post_treasure_path(@post, treasure), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-danger btn-sm" %>
                     </div>
+                  </div>
                 <% end %>
-            <% else %>
-              <p class="text-muted">No information for the individual items has been added.</p>
-            <% end %>
+              <% else %>
+                <div class="col">
+                  <p class="text-muted">No information for the individual items has been added.</p>
+                </div>
+              <% end %>
+            </div>
             <%= link_to 'Add item', new_post_treasure_path(@post), class: "btn btn-primary" %>
-        </div>
-    </div>
-</div>
+            </div>
 
 <div class="card">
     <div class="card-footer d-flex justify-content-start">

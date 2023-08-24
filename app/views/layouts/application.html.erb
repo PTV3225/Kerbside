@@ -6,13 +6,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.x/css/all.min.css">
+
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body>
+
+    <%= render "shared/navbar"%>
 
     <%= yield %>
+
     <%= render "shared/flashes" %>
+    <%= render 'shared/footer' %>
+
   </body>
 </html>
