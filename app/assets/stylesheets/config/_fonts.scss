@@ -1,9 +1,16 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Open+Sans:wght@300&display=swap');
 
+// @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300&family=Roboto:wght@300;400;500;700&display=swap');
+
+  // @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300;400&family=Jua&family=Roboto:wght@300;400;500;700&display=swap');
+
+  // @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300;500;700&family=Roboto:wght@300;400;500;700&family=Taviraj:ital,wght@0,200;1,300&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 // Define fonts for body and headers
-$body-font: 'Open Sans', sans-serif;
+$body-font: 'Hind', sans-serif;
 $headers-font: 'Montserrat', sans-serif;
 
 // To use a font file (.woff) uncomment following lines

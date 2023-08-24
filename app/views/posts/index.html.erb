@@ -1,38 +1,36 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1>All Posts</h1>
-        <%= link_to 'Add New Post', new_post_path, class: 'btn btn-primary' %>
+        <%= link_to 'Add New Post', new_post_path, class: "btn btn-flat"  %>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            <div class="row row-cols-1 row-cols-md-4 g-4">
-                <% @posts.each do |post| %>
-                    <div class="col">
-                        <%= link_to post_path(post), class: 'text-decoration-none' do %>
-                            <div class="card h-100" style="font-size: 0.9em;">
-                                <% if post.photos.attached? %>
-                                    <div class="card-img-index">
-                                        <% post.photos.each do |image| %>
-                                            <%= cl_image_tag image.key, class: "img-fluid uniform-image", style: "width: 100%;" %>
-                                        <% end %>
-                                    </div>
-                                <% else %>
-                                    <p>No photos available.</p>
-                                <% end %>
-                                <div class="card-body" style="min-height: 200px;">
-                                    <h5 class="card-title" style="font-size: 1.2em;"><strong><%= post.location %></strong></h5>
-                                    <p class="card-text" style="font-size: 0.9em;"><%= post.description %></p>
-                                    <p class="card-text" style="font-size: 0.9em;"><strong>Council pickup date:</strong> <%= post.council_pickup_date %></p>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <% @posts.each do |post| %>
+                <div class="col">
+                    <%= link_to post_path(post), class: 'text-decoration-none text-dark' do %>
+                        <div class="card h-100">
+                            <% if post.photos.attached? %>
+                                <div class="card-img-index">
+                                    <% post.photos.each do |image| %>
+                                        <%= cl_image_tag image.key, class: "img-fluid uniform_image_card", style: "width: 100%;" %>
+                                    <% end %>
                                 </div>
+                            <% else %>
+                                <p>No photos available.</p>
+                            <% end %>
+                            <div class="card-body" style="min-height: 200px;">
+                                <h5 class="card-title" ><strong><%= post.location %></strong></h5>
+                                <p class="card-text"><%= post.description %></p>
+                                  <% if post.council_pickup_date? %>
+                                    <p class="card-text"><strong>Council pickup date:</strong> <%= post.council_pickup_date %></p>
+                                  <% else %>
+                                    <p>No council pickup date available.</p>
+                                  <% end %>
                             </div>
-                        <% end %>
-                    </div>
-                <% end %>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div style="width: 100%; height: 600px; background-color: grey;"></div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>
