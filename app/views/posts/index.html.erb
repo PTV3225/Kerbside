@@ -35,6 +35,15 @@
                                   <% else %>
                                     <p>No council pickup date available.</p>
                                   <% end %>
+                          <div>
+                            <% if current_user.favorited?(post) %>
+                              <%= link_to unfavorite_post_path(post), method: :delete %>
+                            <% else %>
+                              <%= link_to favorite_post_path(post), method: :post do %>
+                                <i class="fa-solid fa-heart fa-lg" style="color: red;"></i>
+                              <% end %>
+                            <% end %>
+                          </div>
                             </div>
                         </div>
                     <% end %>

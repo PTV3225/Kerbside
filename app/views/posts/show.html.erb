@@ -52,12 +52,7 @@
 
 <div class="card">
     <div class="card-footer d-flex justify-content-start">
-        <% if current_user.favorited?(@post) %>
-          <%= link_to "Unfavorite", unfavorite_post_path(@post), method: :delete, class: "btn btn-warning" %>
-        <% else %>
-          <%= link_to "Favorite", favorite_post_path(@post), method: :post, class: "btn btn-warning" %>
-        <% end %>
-        <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-primary" %>
+        <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-warning" %>
         <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Delete #{@post.description}?" }, class: 'btn btn-danger' do %> Delete Post <% end %>
         <%# <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary" %>
 
