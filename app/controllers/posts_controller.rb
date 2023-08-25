@@ -12,18 +12,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def favorite
-    @post = Post.find(params[:id])
-    current_user.favorite(@post)
-    redirect_to @post, notice: 'Post favorited!'
-  end
-
-  def unfavorite
-    @post = Post.find(params[:id])
-    current_user.unfavorite(@post)
-    redirect_to @post, notice: 'Post unfavorited!'
-  end
-
   def new
     @post = Post.new
   end
@@ -37,6 +25,18 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def favorite
+    @post = Post.find(params[:id])
+    current_user.favorite(@post)
+    redirect_to post_path, notice: 'Post favorited!'
+  end
+
+  def unfavorite
+    @post = Post.find(params[:id])
+    current_user.unfavorite(@post)
+    redirect_to post_path, notice: 'Post unfavorited!'
   end
 
   def show
