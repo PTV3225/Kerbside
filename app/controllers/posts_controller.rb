@@ -1,7 +1,17 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        posts.location ILIKE :query
+        OR posts.description ILIKE :query
+        OR posts.council_pickup_date::TEXT LIKE :query
+      SQL
+
+      @posts = Post.where(sql_subquery, query: "%#{params[:query]}%")
+    else
+      @posts = Post.all
+    end
   end
 
   def new
