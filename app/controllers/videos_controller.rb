@@ -1,5 +1,9 @@
 class VideosController < ApplicationController
   def index
-    @videos = Video.all
+    if params[:query].present?
+      @videos = Video.global_search(params[:query])
+    else
+      @videos = Video.all
+    end
   end
 end
