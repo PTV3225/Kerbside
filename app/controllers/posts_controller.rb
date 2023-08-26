@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @chatroom = Chatroom.new
 
     if @post.save
       redirect_to post_path(@post)
@@ -21,6 +22,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @chatroom = Chatroom.new
+    @chatroom.post_id = @post.id
+    @chatroom.name = "chatroom for #{@post.description}"
+    @chatroom.save
+    @message = Message.new
   end
 
   def edit
