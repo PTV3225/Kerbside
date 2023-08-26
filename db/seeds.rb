@@ -92,7 +92,7 @@ posts_data = [
   { user_id: first_ten_user_ids[4], location: '111 Pine St St Albans, Melbourne', description:'Almost brand new table looking for a new home on Pine St', council_pickup_date: '2023-09-19' },
   { user_id: first_ten_user_ids[5], location: '222 Oak St St Kilda', description: 'Beautiful painting that will brighten up any room on Oak St', council_pickup_date: '2023-09-21' },
   { user_id: first_ten_user_ids[6], location: '5 Davison Place South Yarra', description: 'Closet in great condition in South Yarra', council_pickup_date: '2023-09-23' },
-  { user_id: first_ten_user_ids[7], location: '9/315 Flemington Rd North Melbourne', description: 'Commuting bicycle with good seat but with a bit of rust on chain on Flemington Rd', council_pickup_date: '2023-09-23' },
+  { user_id: first_ten_user_ids[7], location: '9/315 Flemington Rd North Melbourne', description:  'Commuting bicycle with good seat but with a bit of rust on chain on Flemington Rd', council_pickup_date: '2023-09-23' },
   { user_id: first_ten_user_ids[8], location: '207/557 Little Lonsdale Street', description: 'Sleepmaker queen size mattress with bed frame on Little Lonsdale Street', council_pickup_date: '2023-09-25' },
   { user_id: first_ten_user_ids[9], location: '336 Russell St Melbourne', description: 'Hisense refrigerator in perfect condition working perfectly order on Russell St,', council_pickup_date: '2023-09-27' },
   { user_id: first_ten_user_ids[0], location: '207/422-428 Collins, Street Melboune', description: 'Great condition IKEA bookshelf, nothing cracked and broken issues on Collins St,', council_pickup_date: '2023-09-29' },
@@ -211,13 +211,28 @@ puts "Treasures created"
 # Seed data for Chatrooms
 
 chatroom_names = [
-  'Television on Smith St',
-  'Reclining Sofa on Locke St',
-  'Chair on Elm St',
-  'TV Stand on Maple Ave',
-  'Sofa on Pine St',
-  'DIY Furniture Restoration'
+  "Sturdy chair ready for pickup on Elm St",
+  "Great TV in working order at Smith St",
+  "Comfy reclining sofa available on Locke St",
+  "Washing machine stand up for grabs on Maple Ave",
+  "Almost brand new table looking for a new home on Pine St",
+  "Beautiful painting that will brighten up any room on Oak St",
+  "Closet in great condition in South Yarra",
+  "Commuting bicycle with good seat but with a bit of rust on chain on Flemington Rd",
+  "Sleepmaker queen size mattress with bed frame on Little Lonsdale Street",
+  "Hisense refrigerator in perfect condition working perfectly order on Russell St",
+  "Great condition IKEA bookshelf, nothing cracked and broken issues on Collins St",
+  "Gardening equipment free to pick up in Port Melbourne",
+  "Kids toys mini cute miniatures high quality animals models figures on Rose Lane St",
+  "Modern fluffy carpet for bedroom or living area in South Melbourne",
+  "High efficiency cooling fan in Southbank",
+  "Floor lamp in excellent working order pick up on William St",
+  "Cute outdoor setting. Was in shade so still looks new. Pick up on La Trobe St",
+  "Kitchen appliances. Kitchenaid stand mixer KSM150 with 4 attachments in South Yarra",
+  "Plastic storage containers available in Essendon",
+  "Home gym equipment in great condition in Preston"
 ]
+
 
 puts "creating chatrooms"
 
