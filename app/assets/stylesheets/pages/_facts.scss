@@ -1,6 +1,19 @@
-.fact-text {
-  font-style: italic; /* Apply italic style */
-  opacity: 1; /* Initial opacity */
-  transition: opacity 0.5s ease; /* Smooth fading transition */
-  font-size: xx-large;
+
+#recycling-facts-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+#fact-text {
+  font-weight: 500;
+  font-size: 1.2rem;
+  transition: opacity 1s ease-in-out;
+}
+
+
+.scrolling-text {
+  margin: 20px;
 }

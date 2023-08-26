@@ -1,10 +1,3 @@
-
-<div class = "peter-fix-css">
- <%= render 'pages/facts' %>
- </div>
-
-
-
 <div class="background-container" style="background-image: url('<%= asset_path('iStock-1262998444.jpg') %>');">
     <div class="inner-content">
         <h1 class="display-2 header-title">Helping people find the treasure in your trash</h1>
@@ -15,9 +8,9 @@
 </div>
 
 <section style="padding: 40px 200px; background-color: white; text-align: center;">
-    <h2 style="font-weight: lighter;">Are you looking for a bargain while wanting to do something good for the environment?</h2>
-    <h2 style="font-weight: lighter;">or</h2>
-    <h2 style="font-weight: lighter;">Are you pressed for time, needing more motivation, or wondering how to best recycle your hard rubbish?</h2>
+    <h3 style="font-weight: lighter;">Are you looking for a bargain while wanting to do something good for the environment?</h3>
+    <h3 style="font-weight: lighter;">or</h3>
+    <h3 style="font-weight: lighter;">Are you pressed for time, needing more motivation, or wondering how to best recycle your hard rubbish?</h3>
     <br>
     <h2>Then Kerbside is for you.</h2>
 </section>
@@ -27,7 +20,7 @@
 
   <div class="breakout_flexbox" style="background-color: $gray;">
     <div class="centered-icon">
-      <i class="fa-light fa-cloud-arrow-up fa-6x"></i>
+      <i class="fa-solid fa-cloud-arrow-up fa-6x"></i>
     </div>
     <h2>Easy to use</h2>
       <p class="lead">Quickly upload photos of your hard rubbish and let seekers know what it is, where it is and how long they have until is gone.</p>
@@ -35,7 +28,7 @@
 
   <div class="breakout_flexbox" style="background-color:#FFDD81;">
     <div class="centered-icon">
-     <i class="fa-light fa-map-location-dot fa-6x"></i>
+     <i class="fa-solid fa-map-location-dot fa-6x"></i>
     </div>
       <h2>Interactive maps</h2>
       <p class="lead">Never miss out on a find! Our comprehensive map keeps track of all individual and council-wide hard rubbish collections, both current and those on the horizon.</p>
@@ -43,7 +36,7 @@
 
   <div class="breakout_flexbox"style="background-color: #FFAEAE;">
     <div class="centered-icon">
-      <i class="fa-light fa-seedling fa-6x"></i>
+      <i class= "fa-solid fa-recycle fa-6x"></i>
     </div>
       <h2>Be a super saver!</h2>
       <p class="lead">Defend the environment by diverting hard rubbish from landfill and save money in the process.</p>
@@ -54,7 +47,7 @@
 
   <div class="breakout_flexbox" style="background-color: #FFDD81;">
     <div class="centered-icon">
-       <i class="fa-light fa-cloud-arrow-up fa-6x"></i>
+    <i class="fa-solid fa-photo-film fa-6x"></i>
        </div>
       <h2>Educate & navigate</h2>
       <p class="lead">Dive into our rich collection of resources – from upcycling tutorial videos to our 'picker' code of conduct, council regulations, and alternative recycling services/options.</p>
@@ -62,7 +55,7 @@
 
   <div class="breakout_flexbox"style="background-color: #FFAEAE;">
     <div class="centered-icon">
-     <i class="fa-light fa-comments fa-6x"></i>
+     <i class="fa-solid fa-comments fa-6x"></i>
     </div>
       <h2>Chat away</h2>
       <p class="lead">Owners and pickers can directly interact, making pickups and coordination seamless and efficient.</p>
@@ -70,7 +63,7 @@
 
   <div class="breakout_flexbox" style="background-color: $gray;">
     <div class="centered-icon">
-      <i class="fa-light fa-photo-film fa-6x"></i>
+      <i class="fa-solid fa-road fa-6x"></i>
     </div>
       <h2>Plan your route</h2>
       <p class="lead">Utilize our mapping tool to chart the fastest route from one hard rubbish location to the next. This ensures you stay on track and don't miss out on any treasures.</p>
@@ -78,6 +71,10 @@
 </div>
 
 <div style="padding: 40px 100px; background-color: white; text-align: center;">
-   <p class="lead">Join our mission to transform hard rubbish recycling.</p>
-   <p class="lead">Use Kerbside today and find the treasure in your backyard.</p>
+    <p class="lead">Join our mission to transform hard rubbish recycling.</p>
+    <p class="lead">Use Kerbside today and find the treasure in your backyard.</p>
+
+    <%# <div class="scrolling-text" style="margin-top: 40px; margin-bottom: -40px">
+        <%= render 'pages/facts' %>
+    <%# </div> %>
 </div>

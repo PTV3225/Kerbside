@@ -7,5 +7,19 @@ class Post < ApplicationRecord
   geocoded_by :location
   after_validation :geocode    #, if: :will_save_change_to_location?
 
+
   acts_as_favoritable
+
+
+
+
+
+  # after_create :create_chatroom
+
+  private
+
+  # def create_chatroom
+  #   Chatroom.create(post: self, user: user, name: "Chatroom for Post ##{self.id}")
+  # end
+
 end
