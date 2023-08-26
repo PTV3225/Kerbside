@@ -31,6 +31,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @chatroom = Chatroom.new
+    @chatroom.post_id = @post.id
+    @chatroom.name = "chatroom for #{@post.description}"
+    @post.chatroom = @chatroom
+    @chatroom.save
 
     if @post.save
       redirect_to post_path(@post)
@@ -41,6 +46,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @chatroom = @post.chatroom
+    @message = Message.new
   end
 
   def edit
@@ -76,7 +83,7 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:location, :description, :council_pickup_date, photos: [])
-  end
+    def post_params
+      params.require(:post).permit(:location, :description, :council_pickup_date, photos: [])
+    end
 end

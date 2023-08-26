@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :videos
 
   resources :posts do
-    resources :chatrooms, only: :show do
+    resources :chatrooms do
       resources :messages, only: [:create, :destroy]
     end
 
