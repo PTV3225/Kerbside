@@ -6,20 +6,21 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-
-  ChatroomChannel.broadcast_to(
-    @chatroom,
-    message: render_to_string(partial: "message", locals: { message: @message }),
-    sender_id: @message.user.id
-  )
-  head :ok
-     else
-      render "chatrooms/chatroom", status: :unprocessable_entity
+      if @message.content.present?
+        ChatroomChannel.broadcast_to(
+          @chatroom,
+          message: render_to_string(partial: "message", locals: { message: @message }),
+          sender_id: @message.user.id
+        )
+        head :ok
+      else
+        render "chatrooms/chatroom", status: :unprocessable_entity
+      end
     end
   end
 
-
   def index
+    @chatroom = Chatroom.find(params[:chatroom_id])
     @messages = @chatroom.messages.order(created_at: :desc).limit(10) # Change the limit as needed
   end
 
@@ -28,7 +29,4 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content)
   end
-
-
-
 end
