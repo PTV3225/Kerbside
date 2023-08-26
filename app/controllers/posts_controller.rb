@@ -12,15 +12,15 @@ class PostsController < ApplicationController
       @posts = Post.where(sql_subquery, query: "%#{params[:query]}%")
     else
 
-    @posts = Post.all
+      @posts = Post.all
 
-    @markers = @posts.geocoded.map do |post|
-      {
-        lat: post.latitude,
-        lng: post.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {post: post})
-      }
-
+      @markers = @posts.geocoded.map do |post|
+        {
+          lat: post.latitude,
+          lng: post.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {post: post})
+        }
+      end
     end
   end
 
@@ -76,7 +76,7 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:location, :description, :council_pickup_date, photos: [])
-  end
+    def post_params
+      params.require(:post).permit(:location, :description, :council_pickup_date, photos: [])
+    end
 end
