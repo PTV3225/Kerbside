@@ -8,7 +8,7 @@
             <% @posts.each do |post| %>
                 <div class="col">
                     <%= link_to post_path(post), class: 'text-decoration-none text-dark' do %>
-                        <div class="card h-100">
+                       <div class="card h-100 no-outline-shadow-card">
                             <% if post.photos.attached? %>
                                 <div class="card-img-index">
                                     <% post.photos.each do |image| %>
@@ -23,15 +23,15 @@
                                 <p class="card-text"><%= post.description %></p>
                                   <% if post.council_pickup_date? %>
                                    <p class="card-text" style="font-size: 0.9em;">
-                    <% days_remaining = (post.council_pickup_date - Date.today).to_i %>
-                      <% if days_remaining <= 5 %>
-                        <strong><span class="text-danger"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
-                      <% elsif days_remaining <= 15 %>
-                        <strong><span class="text-warning"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
-                      <% else %>
-                        <strong><span class="text-success"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
-                      <% end %>
-                    </p>
+                                      <% days_remaining = (post.council_pickup_date - Date.today).to_i %>
+                                        <% if days_remaining <= 5 %>
+                                          <strong><span class="text-danger"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
+                                        <% elsif days_remaining <= 15 %>
+                                          <strong><span class="text-warning"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
+                                        <% else %>
+                                          <strong><span class="text-success"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
+                                        <% end %>
+                                      </p>
                                   <% else %>
                                     <p>No council pickup date available.</p>
                                   <% end %>
