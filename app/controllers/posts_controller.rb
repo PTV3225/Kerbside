@@ -20,7 +20,7 @@ class PostsController < ApplicationController
         lng: post.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {post: post})
       }
-
+    end
     end
   end
 

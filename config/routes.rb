@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/show'
   devise_for :users
   root to: "pages#home"
 
@@ -17,4 +18,12 @@ Rails.application.routes.draw do
 
     end
   end
+
+
+
+# Define the route for the dashboard
+get '/dashboard', to: 'dashboard#show', as: :dashboard
+
+
+
 end
