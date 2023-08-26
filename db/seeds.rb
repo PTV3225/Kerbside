@@ -44,7 +44,6 @@ admin_user = User.create!(
 puts "admin created"
 
 
-
 puts "creating videos"
 
 video_data = [

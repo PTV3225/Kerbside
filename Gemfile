@@ -86,5 +86,6 @@ gem 'pg_search'
 
 gem "pry-byebug"
 
+gem 'acts_as_favoritor'
 
 gem 'geocoder'
