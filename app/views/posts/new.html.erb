@@ -1,15 +1,4 @@
-<%= simple_form_for(Post.new,
-      data: {
-        controller: "alert",
-        alert_icon_value: "warning",
-        alert_title_value: "Before we continue..",
-        alert_html_value: "Have you checked your local council's website for their rules and guidelines regarding hard rubbish? Not abiding by these rules may result in financial penalties. Also, please visit our Resource page for alternative recycling solutions for items that might not be kerb quality."
-        confirm_button_text: "All good!",
-        show_cancel_button: true,
-        cancel_button_text: "Cancel",
-        action: "submit->alert#initSweetalert",
-        turbo: false
-      }) do |form| %>
+<%= simple_form_for(Post.new) do |form| %>
 
   <div class="container">
     <div class="row justify-content-center">
