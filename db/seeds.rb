@@ -97,7 +97,7 @@ posts_data = [
   { user_id: first_ten_user_ids[9], location: '336 Russell St Melbourne', description: 'Hisense refrigerator in perfect condition working perfectly order on Russell St,', council_pickup_date: '2023-09-27' },
   { user_id: first_ten_user_ids[0], location: '207/422-428 Collins, Street Melboune', description: 'Great condition IKEA bookshelf, nothing cracked and broken issues on Collins St,', council_pickup_date: '2023-09-29' },
   { user_id: first_ten_user_ids[1], location: '109/91 Dow Street, Port Melbourne', description: 'Gardening equipment free to pick up in Port Melbourne', council_pickup_date: '2023-09-11' },
-  { user_id: first_ten_user_ids[2], location: '902/33 Rose Lane Melbourne', description: 'Kids toys mini cute miniatures high quality animals models figures on Rose Lane St', council_pickup_date: '2023-09-13' },
+  { user_id: first_ten_user_ids[2], location: '902/33 Rose Lane, Melbourne, Australia', description: 'Kids toys mini cute miniatures high quality animals models figures on Rose Lane St', council_pickup_date: '2023-09-13' },
   { user_id: first_ten_user_ids[3], location: '902/259-273 Normanby Rd, South Melbourne', description: 'Modern fluffy carpet for bedroom or living area in South Melbourne', council_pickup_date: '2023-09-14' },
   { user_id: first_ten_user_ids[4], location: '908/65 Coventry Street, Southbank', description: 'High efficiency cooling fan in Southbank', council_pickup_date: '2023-09-15' },
   { user_id: first_ten_user_ids[5], location: '924/199 William Street', description: 'Floor lamp in excellent working order pick up on William St', council_pickup_date: '2023-09-16' },
