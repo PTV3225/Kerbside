@@ -55,6 +55,19 @@
     </div>
 </div>
 
+
+  <!-- Chatroom section basically trying to render a chatroom partial here -->
+  <div class="card">
+    <div class="card-body">
+      <!-- Render the chatroom content -->
+      <%= render "chatrooms/chatroom", chatroom: @post.chatroom, current_user: current_user %>
+    </div>
+  </div>
+
+
+
+
+
   <script>
     document.addEventListener('ajax:success', function(event) {
       if (event.target.matches('.btn-danger')) {
