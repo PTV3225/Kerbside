@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :posts, dependent: :destroy
 
+  acts_as_favoritor
 
   #might need to add first name and last name into the db for users and also photo for avatar
 
@@ -13,7 +14,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-
 
 end
