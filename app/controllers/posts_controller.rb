@@ -56,6 +56,10 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: 'Post unfavorited!'
   end
 
+  def favorites
+    @favorite_posts = current_user.favorited_posts
+  end
+
   def show
     @post = Post.find(params[:id])
     @chatroom = @post.chatroom

@@ -13,5 +13,12 @@
 
 
 <div>
-<h1> Favourited Items </h1>
-<li> </li>
+
+
+<h1>Your Favorite Posts</h1>
+
+<% @favorite_posts.each do |post| %>
+  <div>
+    <%= link_to post.description, post_path(post) %>
+  </div>
+<% end %>
