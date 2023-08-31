@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
       put :mark_as_pending, on: :member, action: :mark_as_pending
       put :mark_as_collected, on: :member, action: :mark_as_collected
-
+      put :mark_as_available, on: :member, action: :mark_as_available
 
 
       member do

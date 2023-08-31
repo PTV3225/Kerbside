@@ -1,5 +1,0 @@
-<% if @treasure.status %>
-    document.querySelector("#treasure-status-<%= @treasure.id %>").innerText = "Available";
-<% else %>
-    document.querySelector("#treasure-status-<%= @treasure.id %>").innerText = "No Longer Available";
-<% end %>

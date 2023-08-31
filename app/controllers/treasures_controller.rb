@@ -24,6 +24,13 @@ class TreasuresController < ApplicationController
     redirect_to dashboard_path, notice: "Treasure marked as collected."
   end
 
+  def mark_as_available
+    treasure = Treasure.find(params[:id])
+    treasure.update(status: :available)
+    redirect_to dashboard_path, notice: "Treasure marked as available."
+  end
+
+
 
   def new
     @treasure = @post.treasures.build
@@ -31,7 +38,7 @@ class TreasuresController < ApplicationController
 
   def create
     @treasure = @post.treasures.build(treasure_params)
-    @treasure.status = true
+    @treasure.status = :available
 
     if @treasure.save
       redirect_to @post, notice: 'Treasure was successfully added.'
@@ -60,14 +67,7 @@ class TreasuresController < ApplicationController
     end
   end
 
-  # def update_availability
-  #   @treasure = Treasure.find(params[:id])
-  #   @treasure.update(status: params[:status])
 
-  #   respond_to do |format|
-  #     format.js
-  #   end
-  # end
 
   private
 

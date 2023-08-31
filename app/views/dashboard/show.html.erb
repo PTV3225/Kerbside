@@ -15,34 +15,42 @@
 <div>
 
 
-<h1>Your Favorite Posts</h1>
+<h1>Your Favorites</h1>
 
 <% @favorite_posts.each do |post| %>
   <div>
     <%= link_to post.description, post_path(post) %>
 
     <% post.treasures.each do |treasure| %>
-      <div>
-        <%= treasure.description %>
+      <% unless current_user.treasures.collected.include?(treasure) %>
+        <div>
+          <%= treasure.description %>
 
-        <% if treasure.available? %>
-          <%= button_to "Mark as Pending", mark_as_pending_post_treasure_path(post, treasure), method: "put" %>
-        <% end %>
-
-      </div>
+          <% if treasure.available? %>
+            <%= button_to "Mark as Pending", mark_as_pending_post_treasure_path(post, treasure), method: :put %>
+          <% elsif treasure.collected? %>
+            <%= button_to "Unavailable", '#', disabled: true, class: 'unavailable-button' %>
+          <% elsif treasure.pending? %>
+            <%= button_to "Notified Poster", '#', disabled: true, class: 'unavailable-button' %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
 
   </div>
 <% end %>
 
 
-
 <div>
-  <h1>Your Posts THAT YOU OWN</h1>
+  <h1>Your Posts</h1>
 
   <% current_user.posts.each do |post| %>
     <div>
       <%= link_to post.description, post_path(post) %>
+      <!-- Display the heart icon with the count of users who have favorited the post -->
+      <i class="fa-solid fa-heart fa-lg" style="color: red;">
+        <%= post.favoritors.size %>
+      </i>
 
       <% post.treasures.each do |treasure| %>
         <div>
@@ -50,6 +58,7 @@
 
           <% if treasure.pending? %>
             <%= button_to "Mark as Collected", mark_as_collected_post_treasure_path(post, treasure), method: "put" %>
+            <%= button_to "Mark as Available", mark_as_available_post_treasure_path(post, treasure), method: "put" %>
           <% end %>
 
         </div>
@@ -64,7 +73,17 @@
 
 
 
+
 <div id="instructions"></div>
 
 
 <div id="favorite-posts" data-favorite-posts="<%= @favorite_posts.to_json %>"></div>
+
+
+<h1>Your Treasures</h1>
+
+<% current_user.treasures.collected.each do |treasure| %>
+  <div>
+    <%= treasure.description %>
+  </div>
+<% end %>

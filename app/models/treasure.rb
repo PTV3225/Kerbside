@@ -12,4 +12,6 @@ class Treasure < ApplicationRecord
   has_one_attached :photo
 
   # validates :status, inclusion: { in: [true, false] }
+
+
 end
