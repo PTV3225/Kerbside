@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
 
     resources :treasures, only: [:new, :create, :edit, :update] do
+      put :update_status, on: :member
       member do
         delete 'delete'
       end

@@ -20,5 +20,30 @@
 <% @favorite_posts.each do |post| %>
   <div>
     <%= link_to post.description, post_path(post) %>
+
+    <% post.treasures.each do |treasure| %>
+      <div>
+        <%= treasure.description %>
+
+        <% if treasure.status %>
+          <%= button_to "Mark as Collected", update_status_post_treasure_path(post, treasure), method: "put" %>
+        <% else %>
+          <%= button_to "Mark as Available", update_status_post_treasure_path(post, treasure), method: "put" %>
+        <% end %>
+
+      </div>
+    <% end %>
+
   </div>
 <% end %>
+
+
+
+
+
+
+
+<div id="instructions"></div>
+
+
+<div id="favorite-posts" data-favorite-posts="<%= @favorite_posts.to_json %>"></div>

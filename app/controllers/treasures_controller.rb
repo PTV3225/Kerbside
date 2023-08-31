@@ -2,6 +2,15 @@ class TreasuresController < ApplicationController
   before_action :set_post
   before_action :set_treasure, only: [:edit, :update]
 
+
+
+  def update_status
+    @treasure = Treasure.find(params[:id])
+    @treasure.update(status: !@treasure.status)
+    redirect_to dashboard_path # Redirect to the appropriate path after updating
+  end
+
+
   def new
     @treasure = @post.treasures.build
   end
