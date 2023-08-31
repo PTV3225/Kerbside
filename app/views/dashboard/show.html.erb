@@ -112,6 +112,8 @@
 <% current_user.treasures.collected.each do |treasure| %>
   <div>
     <%= treasure.description %>
+    <%raise %>
+    <%= treasure.treasure_type.first.cagtegory%>
 
   </div>
 <% end %>
