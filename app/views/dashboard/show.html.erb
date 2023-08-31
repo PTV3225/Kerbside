@@ -6,6 +6,7 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+      <button data-action="click->map-directions#getDirections">Get Directions</button>
     </div>
 
 
@@ -13,6 +14,25 @@
 
 
 <div>
+
+
+
+
+
+
+
+<div id="instructions"></div>
+
+
+<div id="favorite-posts" data-favorite-posts="<%= @favorite_posts.to_json %>"></div>
+
+
+
+
+
+
+
+
 
 
 <h1>Your Favorites</h1>
@@ -81,10 +101,7 @@
 
 
 
-<div id="instructions"></div>
 
-
-<div id="favorite-posts" data-favorite-posts="<%= @favorite_posts.to_json %>"></div>
 
 
 <h1>Your Treasures</h1>
