@@ -1,4 +1,11 @@
 class Treasure < ApplicationRecord
+  enum status: {
+    available: 0,
+    collected: 1,
+    pending: 2
+  }
+
+
   belongs_to :treasure_type
   belongs_to :post
 

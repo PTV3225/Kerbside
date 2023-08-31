@@ -4,10 +4,24 @@ class TreasuresController < ApplicationController
 
 
 
-  def update_status
-    @treasure = Treasure.find(params[:id])
-    @treasure.update(status: !@treasure.status)
-    redirect_to dashboard_path # Redirect to the appropriate path after updating
+  # def update_status
+  #   @treasure = Treasure.find(params[:id])
+  #   @treasure.update(status: !@treasure.status)
+  #   redirect_to dashboard_path # Redirect to the appropriate path after updating
+  # end
+
+
+
+  def mark_as_pending
+    treasure = Treasure.find(params[:id])
+    treasure.update(status: :pending)
+    redirect_to dashboard_path, notice: "Treasure marked as pending."
+  end
+
+  def mark_as_collected
+    treasure = Treasure.find(params[:id])
+    treasure.update(status: :collected)
+    redirect_to dashboard_path, notice: "Treasure marked as collected."
   end
 
 

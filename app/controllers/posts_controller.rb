@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+
+
   def index
 
     if params[:query].present?

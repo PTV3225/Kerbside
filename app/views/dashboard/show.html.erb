@@ -25,10 +25,8 @@
       <div>
         <%= treasure.description %>
 
-        <% if treasure.status %>
-          <%= button_to "Mark as Collected", update_status_post_treasure_path(post, treasure), method: "put" %>
-        <% else %>
-          <%= button_to "Mark as Available", update_status_post_treasure_path(post, treasure), method: "put" %>
+        <% if treasure.available? %>
+          <%= button_to "Mark as Pending", mark_as_pending_post_treasure_path(post, treasure), method: "put" %>
         <% end %>
 
       </div>
@@ -37,6 +35,29 @@
   </div>
 <% end %>
 
+
+
+<div>
+  <h1>Your Posts THAT YOU OWN</h1>
+
+  <% current_user.posts.each do |post| %>
+    <div>
+      <%= link_to post.description, post_path(post) %>
+
+      <% post.treasures.each do |treasure| %>
+        <div>
+          <%= treasure.description %>
+
+          <% if treasure.pending? %>
+            <%= button_to "Mark as Collected", mark_as_collected_post_treasure_path(post, treasure), method: "put" %>
+          <% end %>
+
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
+</div>
 
 
 
