@@ -1,80 +1,96 @@
 <div class="container mt-5">
-  <h1 class="mb-4">Post Details</h1>
+<h2 class="mb-4">Hard rubbish details: <%= @post.location %></h2>
+  <div class="row">
+    <div class="col-md-8">
 
-  <div class="card no-outline-shadow-card_ok mb-4">
-      <div class="card-body">
-          <div class="row photos mb-4">
-              <% if @post.photos.attached? %>
-                  <% @post.photos.each do |image| %>
-                      <div class="col-md-4 mb-3">
-                          <%= cl_image_tag image.key, height: 300, width: 300, crop: :fill, class: "img-fluid rounded" %>
-                      </div>
-                  <% end %>
-              <% else %>
-                  <p class="text-muted">No photos uploaded.</p>
-              <% end %>
-          </div>
+      <!-- Post Section -->
+        <div class="card no-outline-shadow-card_ok mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 position-relative">
+                        <% if @post.photos.attached? %>
+                            <% @post.photos.each do |image| %>
+                                <%= cl_image_tag image.key, height: 200, width: 200, crop: :fill, class: "show_image_card " %>
+                            <% end %>
 
-          <h4>Post Info</h4>
-          <p><strong>Location:</strong> <%= @post.location %></p>
-          <p><strong>Description:</strong> <%= @post.description %></p>
-          <p><strong>Council pickup date:</strong> <%= @post.council_pickup_date %></p>
+                            <div class="position-absolute top-0 start-1 p-2">
+                                <% if current_user.favorited?(@post) %>
+                                    <%= link_to unfavorite_post_path(@post), data: {turbo_method: :delete} do %>
+                                        <i class="fa-solid fa-heart fa-lg"></i>
+                                    <% end %>
+                                <% else %>
+                                    <%= link_to favorite_post_path(@post), data: {turbo_method: :post} do %>
+                                        <i class="fa-regular fa-heart"></i>
+                                    <% end %>
+                                <% end %>
+                            </div>
 
-          <hr class="my-4">
+                        <% else %>
+                            <p class="text-muted">No photos uploaded.</p>
+                        <% end %>
 
-            <h4>Individual items</h4>
-            <div class="treasures row">
-              <% if @post.treasures.any? %>
-                <% @post.treasures.each do |treasure| %>
-                  <div class="col-md-4">
-                    <div class="treasure-item mb-3" id="treasure-item-<%= treasure.id %>">
-                      <p><strong>Type:</strong> <%= treasure.treasure_type.category %></p>
-                      <p><strong>Description:</strong> <%= treasure.description %></p>
-                      <p><strong>Status:</strong> <%= treasure.status ? "Available" : "Not Available" %></p>
-                      <% if treasure.photo.attached? %>
-                        <%= cl_image_tag treasure.photo.key, height: 300, width: 300, crop: :fill, class: "img-fluid mb-2 rounded" %>
-                      <% end %>
-                      <%= button_to 'Delete', delete_post_treasure_path(@post, treasure), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-danger btn-sm" %>
+                        <% if @post.user == current_user %>
+                            <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-outline-secondary btn-sm mt-2" %>
+                            <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Delete #{@post.description}?" }, class: "btn btn-outline-danger btn-sm mt-2" do %> Delete Post <% end %>
+                        <% end %>
                     </div>
-                  </div>
-                <% end %>
-              <% else %>
-                <div class="col">
-                  <p class="text-muted">No information for the individual items has been added.</p>
+                    <div class="col-md-8">
+                        <p><strong>Description:</strong> <%= @post.description %></p>
+                        <p><strong>Council pickup date:</strong> <%= @post.council_pickup_date %></p>
+                    </div>
                 </div>
-              <% end %>
             </div>
-            <%= link_to 'Add item', new_post_treasure_path(@post), class: "btn btn-primary" %>
-              <div>
-                <% if current_user.favorited?(@post) %>
-                  <%= link_to favorite_post_path(@post), data: {turbo_method: :post} do %>
-                    <i class="fa-solid fa-heart fa-lg" style="color: red;"></i>
-                  <% end %>
-                <% end %>
+        </div>
+
+
+
+                <!-- Treasures Section -->
+              <div class="card no-outline-shadow-card_ok mb-4">
+                  <div class="card-body">
+                    <h4>Individual items</h4>
+                    <div class="treasures">
+                      <% if @post.treasures.any? %>
+                        <% @post.treasures.each do |treasure| %>
+                          <div class="row mb-1 treasure-item" id="treasure-item-<%= treasure.id %>">
+                            <div class="col-md-4">
+                              <% if treasure.photo.attached? %>
+                                <%= cl_image_tag treasure.photo.key, height: 200, width: 200, crop: :fill, class: "show_image_card" %>
+                              <% end %>
+                                <% if @post.user == current_user %>
+                                  <%= link_to delete_post_treasure_path(@post, treasure), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-outline-danger btn-sm" do %> Delete item<% end %>
+                                <% end %>
+                            </div>
+                            <div class="col-md-8">
+                            <p><strong>Type:</strong> <%= treasure.treasure_type.category%></p>
+                              <p><strong>Description:</strong> <%= treasure.description %></p>
+                              <p><strong>Status:</strong> <%= treasure.status ? "Available" : "Not Available" %></p>
+                            </div>
+                          </div>
+                        <% end %>
+                      <% else %>
+                        <div class="col">
+                          <p class="text-muted">No information for the individual items has been added.</p>
+                        </div>
+                      <% end %>
+                    </div>
+                    <% if @post.user == current_user %>
+                      <%= link_to 'Add item', new_post_treasure_path(@post), class: "btn btn-primary btn-sm" %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
 
-            </div>
-
-<div class="card no-outline-shadow-card_ok">
-    <div class="card-footer d-flex justify-content-start">
-        <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-warning" %>
-        <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Delete #{@post.description}?" }, class: 'btn btn-danger' do %> Delete Post <% end %>
-        <%# <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary" %>
-    </div>
-</div>
-
-
-  <!-- Chatroom section basically trying to render a chatroom partial here -->
-  <div class="card">
-    <div class="card-body">
-      <!-- Render the chatroom content -->
-      <%= render "chatrooms/chatroom", chatroom: @post.chatroom, current_user: current_user %>
-    </div>
+          <!-- Chatroom section -->
+          <div class="col-md-4">
+              <div class="card" style="border-radius: 15px;">
+                  <div class="card-body">
+                      <!-- Render the chatroom content -->
+                      <%= render "chatrooms/chatroom", chatroom: @post.chatroom, current_user: current_user %>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
-
-
-
-
 
   <script>
     document.addEventListener('ajax:success', function(event) {
