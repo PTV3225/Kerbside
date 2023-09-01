@@ -84,49 +84,49 @@ puts "creating posts and attaching photos"
 first_ten_user_ids = User.limit(10).pluck(:id)
 
 posts_data = [
-  { user_id: first_ten_user_ids[0], location: '789 Elm St Maribyrnong', description: 'Sturdy chair ready for pickup on Elm St', council_pickup_date: '2023-09-10' },
-  { user_id: first_ten_user_ids[1], location: '123 Smith St Toorak', description: 'Great TV in working order at Smith St', council_pickup_date: '2023-09-12' },
-  { user_id: first_ten_user_ids[2], location: '456 Locke St East Malvern', description: 'Comfy reclining sofa available on Locke St', council_pickup_date: '2023-09-15' },
-  { user_id: first_ten_user_ids[3], location: '101 Maple Ave Dandenong', description: 'Washing machine stand up for grabs on Maple Ave', council_pickup_date: '2023-09-17' },
+  { user_id: first_ten_user_ids[0], location: '503/9 Eades Street, East Melbourne', description: 'Sturdy chair ready for pickup in East Melbourne', council_pickup_date: '2023-09-10' },
+  { user_id: first_ten_user_ids[1], location: '803a/609 Victoria Street, Abbotsford', description: 'Great TV in working order in Abbotsford', council_pickup_date: '2023-09-12' },
+  { user_id: first_ten_user_ids[2], location: '136 Nicholson Street, Fitzroy', description: 'Comfy reclining sofa available in Fitzroy', council_pickup_date: '2023-09-15' },
+  { user_id: first_ten_user_ids[3], location: '42/1 Queensberry Street, Carlton', description: 'Washing machine stand up for grabs in Carlton', council_pickup_date: '2023-09-17' },
   { user_id: first_ten_user_ids[4], location: '111 Pine St St Albans, Melbourne', description:'Almost brand new table looking for a new home on Pine St', council_pickup_date: '2023-09-19' },
-  { user_id: first_ten_user_ids[5], location: '222 Oak St St Kilda', description: 'Beautiful painting that will brighten up any room on Oak St', council_pickup_date: '2023-09-21' },
+  { user_id: first_ten_user_ids[5], location: '7/14-22 Waterloo Street, Carlton', description: 'Beautiful painting that will brighten up any room in Carlton', council_pickup_date: '2023-09-21' },
   { user_id: first_ten_user_ids[6], location: '5 Davison Place South Yarra', description: 'Closet in great condition in South Yarra', council_pickup_date: '2023-09-23' },
   { user_id: first_ten_user_ids[7], location: '9/315 Flemington Rd North Melbourne', description:  'Commuting bicycle with good seat but with a bit of rust on chain on Flemington Rd', council_pickup_date: '2023-09-23' },
-  { user_id: first_ten_user_ids[8], location: '207/557 Little Lonsdale Street', description: 'Sleepmaker queen size mattress with bed frame on Little Lonsdale Street', council_pickup_date: '2023-09-25' },
+  { user_id: first_ten_user_ids[8], location: '605/60 Stanley Street, Collingwood', description: 'Sleepmaker queen size mattress with bed frame in Collingwood', council_pickup_date: '2023-09-25' },
   { user_id: first_ten_user_ids[9], location: '336 Russell St Melbourne', description: 'Hisense refrigerator in perfect condition working perfectly order on Russell St,', council_pickup_date: '2023-09-27' },
-  { user_id: first_ten_user_ids[0], location: '207/422-428 Collins, Street Melboune', description: 'Great condition IKEA bookshelf, nothing cracked and broken issues on Collins St,', council_pickup_date: '2023-09-29' },
+  { user_id: first_ten_user_ids[0], location: '11 Sherwin Street, Kensington', description: 'Great condition IKEA bookshelf, nothing cracked and broken issues in Kensington,', council_pickup_date: '2023-09-29' },
   { user_id: first_ten_user_ids[1], location: '109/91 Dow Street, Port Melbourne', description: 'Gardening equipment free to pick up in Port Melbourne', council_pickup_date: '2023-09-11' },
   { user_id: first_ten_user_ids[2], location: '902/33 Rose Lane, Melbourne, Australia', description: 'Kids toys mini cute miniatures high quality animals models figures on Rose Lane St', council_pickup_date: '2023-09-13' },
-  { user_id: first_ten_user_ids[3], location: '902/259-273 Normanby Rd, South Melbourne', description: 'Modern fluffy carpet for bedroom or living area in South Melbourne', council_pickup_date: '2023-09-14' },
+  { user_id: first_ten_user_ids[3], location: '1504/392 Spencer Street, West Melbourne', description: 'Modern fluffy carpet for bedroom or living area in West Melbourne', council_pickup_date: '2023-09-14' },
   { user_id: first_ten_user_ids[4], location: '908/65 Coventry Street, Southbank', description: 'High efficiency cooling fan in Southbank', council_pickup_date: '2023-09-15' },
-  { user_id: first_ten_user_ids[5], location: '924/199 William Street', description: 'Floor lamp in excellent working order pick up on William St', council_pickup_date: '2023-09-16' },
+  { user_id: first_ten_user_ids[5], location: '26 Rowena Parade, Richmond', description: 'Table lamp in excellent working order pick up in Richmond', council_pickup_date: '2023-09-16' },
   { user_id: first_ten_user_ids[6], location: '2802/327 La Trobe Street, Melbourne', description: 'Cute outdoor setting. Was in shade so still looks new. Pick up on La Trobe St', council_pickup_date: '2023-09-18' },
-  { user_id: first_ten_user_ids[7], location: '7/15 Cromwell Road, South Yarra', description: 'Kitchen appliances. Kitchenaid stand mixer KSM150 with 4 attachments in South Yarra', council_pickup_date: '2023-09-20' },
+  { user_id: first_ten_user_ids[7], location: '7/557 Glenferrie Road, Hawthorn', description: 'Kitchen appliances. Kitchenaid stand mixer KSM150 with 4 attachments in Hawthorn', council_pickup_date: '2023-09-20' },
   { user_id: first_ten_user_ids[8], location: '22 Collins Street, Essendon', description: 'Plastic storage containers available in Essendon', council_pickup_date: '2023-09-22' },
   { user_id: first_ten_user_ids[9], location: '82 Raglan Street, Preston', description: 'Home gym equipment in great condition in Preston', council_pickup_date: '2023-09-24' }
 ]
 
 post_photo_urls = [
-  "https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://plus.unsplash.com/premium_photo-1661497658228-cd6f13a4d39c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ4fHxtb2Rlcm4lMjB0dnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://plus.unsplash.com/premium_photo-1673548917423-073963e7afc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1626806787426-5910811b6325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhc2hpbmclMjBtYWNoaW5lfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1674503718104-950f67b26f9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ3fHxwYWludGluZ3MlMjBsaXZpbmclMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1558997519-83ea9252edf8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNsb3NldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1613688684609-f93cb0f5f73e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWF0dHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVmcmlnZXJhdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1528208079124-a2387f039c99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fEJvb2tzaGVsZnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60 ",
-  "https://images.unsplash.com/photo-1563210199-6ec2cfedd11e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2FyZGVuJTIwVG9vbHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60 ",
-  "https://images.unsplash.com/photo-1659652272218-c6cd2ae219a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDU1fHxLaWRzJyUyMFRveXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1621700052663-f1170e9b26ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fENhcnBldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1565151443833-29bf2ba5dd8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fEVsZWN0cm9uaWMlMjBXYXN0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1580130281320-0ef0754f2bf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGxhbXB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1617887021567-fe8d2480bd96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fG91dGRvb3IlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1583241475880-083f84372725?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8S2l0Y2hlbiUyMEFwcGxpYW5jZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1564995069826-6338a9192279?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGxhc3RpYyUyMGJveHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60 ",
-  "https://images.unsplash.com/photo-1620188526357-ff08e03da266?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fEV4ZXJjaXNlJTIwRXF1aXBtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+  "https://th.bing.com/th/id/OIP.H2eTStrsHTEh4RkmG_ckxQHaHa?w=203&h=203&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/K88AAOSwoxlc66fa/$_86.JPG",
+  "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/tewAAOSw2Zld5xfC/$_86.JPG",
+  "https://i.ebayimg.com/00/s/MTAyNFg5MTE=/z/gjMAAOSwUCpfCdRh/$_86.JPG",
+  "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/X1cAAOSwSutaOQf7/$_86.JPG",
+  "https://dygtyjqp7pi0m.cloudfront.net/i/27574/24467966_1.jpg?v=8D35B1EECE4B550",
+  "https://www.antiquers.com/attachments/closet-2-jpg.286501/",
+  "https://th.bing.com/th/id/R.047f09255e63aea658fe8f424c1620cc?rik=z6%2faJPPnHWJUTA&pid=ImgRaw&r=0",
+  "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/YAoAAOSwZnlbYK2b/$_86.JPG",
+  "https://www.payyattention.com/wp-content/uploads/2018/07/cheap-used-refrigerator-for-sale-near-me-768x707.jpg",
+  "https://th.bing.com/th/id/R.ee423ebccecb6c471739cd1ebde972f1?rik=XZ9izONQjEDZcQ&pid=ImgRaw&r=0",
+  "https://th.bing.com/th/id/OIP.mJ3w5513LkvMbdYp0R_xxgHaFj?w=259&h=194&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.MKEtdURyNxIan2wBofwKGAHaHa?w=187&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.R86JZcUNOODP3VWd0y8vFQHaJ4?w=122&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.T-FwPSVE79ji6LzhkkPa7wHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.ICjbT5XzNmPhoydJk7gnVgHaLI?w=203&h=306&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.5CQbzeKZneqP6MsONyCXkgHaE8?w=301&h=201&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.anmmspPFykZxjuc37908SgHaJ4?w=152&h=203&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.ZhVj9HpFWixdf7_iVflAXwHaHa?w=175&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.EHUs6VbBRATJTayQBPuUMQHaGr?w=234&h=210&c=7&r=0&o=5&dpr=1.5&pid=1.7"
 ]
 
 posts_data.each_with_index do |post_data, index|
@@ -155,14 +155,14 @@ descriptions = [
   'High quality kids toys',
   'Modern carpet for bedroom or living area',
   'High efficiency cooling fan',
-  'Floor lamp in excellent working order',
+  'Table lamp in excellent working order',
   'Cute outdoor setting',
   'Kitchen appliances. Mixer KSM150 with 4 attachments',
   'Storage containers',
   'Home gym equipment in great condition'
 ]
 
-categories = ['Chair', 'TV', 'Sofa', 'Washing machine', 'Table', 'Painting', 'Closet', 'Bicycle', 'Mattress', 'Refrigerator', 'Bookshelf', 'Garden Tools', 'Kids Toys', 'Carpet', 'Fan', 'Lamp', 'Kitchen appliances', 'Outdoor furniture', 'Storage containers', 'Exercise equipment' ]
+categories = ['Chair', 'TV', 'Sofa', 'Washing machine', 'Table', 'Painting', 'Closet', 'Bicycle', 'Mattress', 'Refrigerator', 'Bookshelf', 'Garden Tools', 'Kids Toys', 'Carpet', 'Fan', 'Lamp', 'Outdoor furniture', 'Kitchen appliances', 'Storage containers', 'Exercise equipment' ]
 
 puts "Creating Treasure Type with attached videos"
 
@@ -179,55 +179,55 @@ puts "Creating Treasures and attaching photos"
 end
 
 treasure_photo_urls = [
-  "https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://plus.unsplash.com/premium_photo-1661497658228-cd6f13a4d39c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ4fHxtb2Rlcm4lMjB0dnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://plus.unsplash.com/premium_photo-1673548917423-073963e7afc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1626806787426-5910811b6325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdhc2hpbmclMjBtYWNoaW5lfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1674503718104-950f67b26f9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ3fHxwYWludGluZ3MlMjBsaXZpbmclMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1558997519-83ea9252edf8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNsb3NldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1613688684609-f93cb0f5f73e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWF0dHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVmcmlnZXJhdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1528208079124-a2387f039c99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fEJvb2tzaGVsZnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1563210199-6ec2cfedd11e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2FyZGVuJTIwVG9vbHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1659652272218-c6cd2ae219a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDU1fHxLaWRzJyUyMFRveXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1621700052663-f1170e9b26ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fENhcnBldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1565151443833-29bf2ba5dd8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fEVsZWN0cm9uaWMlMjBXYXN0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1580130281320-0ef0754f2bf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGxhbXB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1617887021567-fe8d2480bd96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fG91dGRvb3IlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1583241475880-083f84372725?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8S2l0Y2hlbiUyMEFwcGxpYW5jZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1564995069826-6338a9192279?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGxhc3RpYyUyMGJveHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-  "https://images.unsplash.com/photo-1620188526357-ff08e03da266?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fEV4ZXJjaXNlJTIwRXF1aXBtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+  "https://th.bing.com/th/id/OIP.H2eTStrsHTEh4RkmG_ckxQHaHa?w=203&h=203&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/K88AAOSwoxlc66fa/$_86.JPG",
+  "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/tewAAOSw2Zld5xfC/$_86.JPG",
+  "https://i.ebayimg.com/00/s/MTAyNFg5MTE=/z/gjMAAOSwUCpfCdRh/$_86.JPG",
+  "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/X1cAAOSwSutaOQf7/$_86.JPG",
+  "https://dygtyjqp7pi0m.cloudfront.net/i/27574/24467966_1.jpg?v=8D35B1EECE4B550",
+  "https://www.antiquers.com/attachments/closet-2-jpg.286501/",
+  "https://th.bing.com/th/id/R.047f09255e63aea658fe8f424c1620cc?rik=z6%2faJPPnHWJUTA&pid=ImgRaw&r=0",
+  "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/YAoAAOSwZnlbYK2b/$_86.JPG",
+  "https://www.payyattention.com/wp-content/uploads/2018/07/cheap-used-refrigerator-for-sale-near-me-768x707.jpg",
+  "https://th.bing.com/th/id/R.ee423ebccecb6c471739cd1ebde972f1?rik=XZ9izONQjEDZcQ&pid=ImgRaw&r=0",
+  "https://th.bing.com/th/id/OIP.mJ3w5513LkvMbdYp0R_xxgHaFj?w=259&h=194&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.MKEtdURyNxIan2wBofwKGAHaHa?w=187&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.R86JZcUNOODP3VWd0y8vFQHaJ4?w=122&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.T-FwPSVE79ji6LzhkkPa7wHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.ICjbT5XzNmPhoydJk7gnVgHaLI?w=203&h=306&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.5CQbzeKZneqP6MsONyCXkgHaE8?w=301&h=201&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.anmmspPFykZxjuc37908SgHaJ4?w=152&h=203&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.ZhVj9HpFWixdf7_iVflAXwHaHa?w=175&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  "https://th.bing.com/th/id/OIP.EHUs6VbBRATJTayQBPuUMQHaGr?w=234&h=210&c=7&r=0&o=5&dpr=1.5&pid=1.7"
 ]
 
 Treasure.all.each_with_index do |treasure, index|
   file = URI.open(treasure_photo_urls[index])
- Treasure.all[index].photo.attach(io: file, filename: "photo_#{index}.png", content_type: "image/png")
+  treasure.photo.attach(io: file, filename: "photo_#{index}.png", content_type: "image/png")
 end
 
 puts "Treasures created"
 # Seed data for Chatrooms
 
 chatroom_names = [
-  "Sturdy chair ready for pickup on Elm St",
-  "Great TV in working order at Smith St",
-  "Comfy reclining sofa available on Locke St",
-  "Washing machine stand up for grabs on Maple Ave",
+  "Sturdy chair ready for pickup in East Melbourne",
+  "Great TV in working order in Abbotsford",
+  "Comfy reclining sofa available in Fitzroy",
+  "Washing machine stand up for grabs in Carlton",
   "Almost brand new table looking for a new home on Pine St",
-  "Beautiful painting that will brighten up any room on Oak St",
+  "Beautiful painting that will brighten up any room in Carlton",
   "Closet in great condition in South Yarra",
   "Commuting bicycle with good seat but with a bit of rust on chain on Flemington Rd",
-  "Sleepmaker queen size mattress with bed frame on Little Lonsdale Street",
+  "Sleepmaker queen size mattress with bed frame in Collingwood",
   "Hisense refrigerator in perfect condition working perfectly order on Russell St",
-  "Great condition IKEA bookshelf, nothing cracked and broken issues on Collins St",
+  "Great condition IKEA bookshelf, nothing cracked and broken issues in Kensington",
   "Gardening equipment free to pick up in Port Melbourne",
   "Kids toys mini cute miniatures high quality animals models figures on Rose Lane St",
-  "Modern fluffy carpet for bedroom or living area in South Melbourne",
+  "Modern fluffy carpet for bedroom or living area in West Melbourne",
   "High efficiency cooling fan in Southbank",
-  "Floor lamp in excellent working order pick up on William St",
+  "Table lamp in excellent working order pick up in Richmond",
   "Cute outdoor setting. Was in shade so still looks new. Pick up on La Trobe St",
-  "Kitchen appliances. Kitchenaid stand mixer KSM150 with 4 attachments in South Yarra",
+  "Kitchen appliances. Kitchenaid stand mixer KSM150 with 4 attachments in Hawthorn",
   "Plastic storage containers available in Essendon",
   "Home gym equipment in great condition in Preston"
 ]
