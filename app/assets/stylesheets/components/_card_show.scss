@@ -1,5 +1,11 @@
 .no-outline-shadow-card_ok {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
+  border-radius: 15px;
+}
+
+.show_image_card {
+  height: auto;
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 15px;
+  margin-bottom: 0.3rem;
 }

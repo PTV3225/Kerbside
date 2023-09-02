@@ -1,73 +1,91 @@
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1>All Posts</h1>
-        <%= link_to 'Add New Post', new_post_path, class: "btn btn-flat"  %>
+  <h1 class="mb-3">All Posts</h1>
+
+
+    <hr>
+
+<div class="row align-items-center mb-3">
+    <!-- search bar -->
+    <div class="col-md-8">
+        <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", style: "width: 70%;", placeholder: "Search by location, item or days to council pickup" %>
+        <% end %>
     </div>
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search by location, item or days to council pickup"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+  <!--"Add New Post" button -->
+    <div class="col-md-4 text-end">
+      <%= link_to 'Add New Post', new_post_path, class: "btn btn-flat" %>
+    </div>
+    </div>
 
-    <div class="row">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <% @posts.each do |post| %>
-                <div class="col">
-                    <%= link_to post_path(post), class: 'text-decoration-none text-dark' do %>
-                       <div class="card h-100 no-outline-shadow-card">
-                            <% if post.photos.attached? %>
-                                <div class="card-img-index">
-                                    <% post.photos.each do |image| %>
-                                        <%= cl_image_tag image.key, class: "img-fluid uniform_image_card", style: "width: 100%;" %>
-                                    <% end %>
-                                </div>
-                            <% else %>
-                                <p>No photos available.</p>
-                            <% end %>
-                            <div class="card-body" style="min-height: 200px;">
-                                <h5 class="card-title" ><strong><%= post.location %></strong></h5>
-                                <p class="card-text"><%= post.description %></p>
-                                  <% if post.council_pickup_date? %>
-                                   <p class="card-text" style="font-size: 0.9em;">
-                                      <% days_remaining = (post.council_pickup_date - Date.today).to_i %>
-                                        <% if days_remaining <= 5 %>
-                                          <strong><span class="text-danger"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
-                                        <% elsif days_remaining <= 15 %>
-                                          <strong><span class="text-warning"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
-                                        <% else %>
-                                          <strong><span class="text-success"><%= pluralize(days_remaining, 'day') %></span></strong> till council pickup
-                                        <% end %>
-                                      </p>
-                                  <% else %>
-                                    <p>No council pickup date available.</p>
-                                  <% end %>
-                          <div>
-                            <% if current_user.favorited?(post) %>
-                              <%= link_to unfavorite_post_path(post), data: {turbo_method: :delete} do %>
-                               <i class="fa-solid fa-heart fa-lg" style="color: red;"></i>
-                              <% end %>
-                            <% else %>
-                              <%= link_to favorite_post_path(post), data: {turbo_method: :post} do %>
-                                <i class="fa-regular fa-heart"></i>
-                              <% end %>
-                            <% end %>
-                          </div>
-                            </div>
-                        </div>
+
+  <div class="row">
+
+    <!-- Posts Column -->
+    <div class="col-md-8">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <% @posts.each do |post| %>
+          <div class="col">
+            <%= link_to post_path(post), class: 'text-decoration-none text-dark' do %>
+              <div class="card outline-card fixed-height-card">
+                <% if post.photos.attached? %>
+                  <div class="card-img-index position-relative">
+                    <% post.photos.each do |image| %>
+                      <%= cl_image_tag image.key, class: "img-fluid uniform_image_card", style: "width: 100%;" %>
                     <% end %>
-                </div>
-            <% end %>
-        </div>
+                  </div>
+                <% else %>
+                  <p>No photos available.</p>
+                <% end %>
 
+                  <div class="card-body" style="min-height: 200px;">
+                        <h6 class="card-title"><strong><%= post.location %></strong></h6>
+
+                        <% if post.description.length > 60 %>
+                            <p class="card-text"><%= "#{post.description[0..59]}..." %></p>
+                        <% else %>
+                            <p class="card-text"><%= post.description %></p>
+                        <% end %>
+
+
+                  <!-- Council Pickup Positioning -->
+                        <div class="position-absolute bottom-0 start-1 p-1">
+                          <% if post.council_pickup_date? %>
+                            <p class="card-text" style="font-size: 0.9em;">
+                              <% days_remaining = (post.council_pickup_date - Date.today).to_i %>
+                              <% if days_remaining <= 5 %>
+                                <strong style="color: #FF5C5C;"><%= pluralize(days_remaining, 'day') %></strong> till council pickup
+                              <% else %>
+                                <strong style="color: black;"><%= pluralize(days_remaining, 'day') %></strong> till council pickup
+                              <% end %>
+                            </p>
+                          <% else %>
+                            <p>No council pickup date available.</p>
+                          <% end %>
+                        </div>
+
+
+                  <!-- Heart Icon Positioning -->
+                <div class="position-absolute top-0 end-0 p-2" >
+                    <% if current_user.favorited?(post) %>
+                      <%= link_to unfavorite_post_path(post), data: {turbo_method: :delete} do %>
+                        <i class="fa-solid fa-heart fa-lg"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to favorite_post_path(post), data: {turbo_method: :post} do %>
+                        <i class="fa-regular fa-heart"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
+
+<!-- Map box Positioning -->
 
     <div class="col-md-4 map-container sticky-map">
       <div style="width: 100%; height: 1150px;"

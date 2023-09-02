@@ -1,18 +1,23 @@
-.no-outline-shadow-card {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
+.outline-card {
+  border-radius: 15px;
 }
 
-.no-outline-shadow-card:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
+  .uniform_image_card {
+    height: 120px;
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
 
-.uniform_image_card {
-  height: 200px;
-  object-fit: cover;
-  width: 100%;
-  // border-radius: 10px;
-  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  // border: 1px solid #e0e0e0;
-}
+
+  .fixed-height-card {
+    height: 350px; /* Adjust as per your design preference */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fixed-height-card .card-body {
+    // overflow-y: auto; /* Enables vertical scrolling if content overflows */
+    flex: 1; /* Ensures the card body takes the remaining space in the card */
+  }

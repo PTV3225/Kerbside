@@ -1,28 +1,45 @@
-.container {
+.row {
   display: flex;
+  flex-direction: row; /* No need to set this as row is default */
+  align-items: start; /* To make sure the columns align to the top */
+}
+
+.container {
+  // display: flex;
   flex-direction: column;
-  height: 89vh;
+  height: auto;
 }
 
 
 .container.chatroom {
   /* Set a maximum height for the messages container */
-  max-height: 100h; /* Adjust this value as needed */
+  max-height: auto; /* Adjust this value as needed */
 
-  /* Enable vertical scrolling when content overflows */
-  overflow-y: auto;
-
+  // /* Enable vertical scrolling when content overflows */
+  // overflow-y: auto;
 }
 
+.messages {
+  height: 55vh;
+  overflow-y: auto;
+}
+
+// .message-form {
+//   position: fixed; /* Fix the position of the message input form */
+//   bottom: 0; /* Place the form at the bottom of the chatroom container */
+//   left: 0;
+//   right: 0;
+//   padding: 10px; /* Add some padding for spacing */
+//   background-color: #fff; /* Set a background color for better visibility */
+//   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow to separate from messages */
+//   display: flex; /* Align the form content horizontally */
+//   flex-direction: column;
+// }
 
 .message-form {
-  position: fixed; /* Fix the position of the message input form */
-  bottom: 0; /* Place the form at the bottom of the chatroom container */
-  left: 0;
-  right: 0;
-  padding: 10px; /* Add some padding for spacing */
-  background-color: #fff; /* Set a background color for better visibility */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow to separate from messages */
-  display: flex; /* Align the form content horizontally */
+  padding: 10px;
+  background-color: #fff;
+  // box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
   flex-direction: column;
 }
