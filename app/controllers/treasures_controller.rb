@@ -2,13 +2,43 @@ class TreasuresController < ApplicationController
   before_action :set_post
   before_action :set_treasure, only: [:edit, :update]
 
+
+
+  # def update_status
+  #   @treasure = Treasure.find(params[:id])
+  #   @treasure.update(status: !@treasure.status)
+  #   redirect_to dashboard_path # Redirect to the appropriate path after updating
+  # end
+
+
+
+  def mark_as_pending
+    treasure = Treasure.find(params[:id])
+    treasure.update(status: :pending)
+    redirect_to dashboard_path, notice: "Treasure marked as pending."
+  end
+
+  def mark_as_collected
+    treasure = Treasure.find(params[:id])
+    treasure.update(status: :collected)
+    redirect_to dashboard_path, notice: "Treasure marked as collected."
+  end
+
+  def mark_as_available
+    treasure = Treasure.find(params[:id])
+    treasure.update(status: :available)
+    redirect_to dashboard_path, notice: "Treasure marked as available."
+  end
+
+
+
   def new
     @treasure = @post.treasures.build
   end
 
   def create
     @treasure = @post.treasures.build(treasure_params)
-    @treasure.status = true
+    @treasure.status = :available
 
     if @treasure.save
       redirect_to @post, notice: 'Treasure was successfully added.'
@@ -37,14 +67,7 @@ class TreasuresController < ApplicationController
     end
   end
 
-  # def update_availability
-  #   @treasure = Treasure.find(params[:id])
-  #   @treasure.update(status: params[:status])
 
-  #   respond_to do |format|
-  #     format.js
-  #   end
-  # end
 
   private
 

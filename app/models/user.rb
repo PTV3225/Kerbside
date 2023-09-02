@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :posts, dependent: :destroy
+  has_many :treasures, through: :posts
 
   acts_as_favoritor
 

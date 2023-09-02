@@ -175,7 +175,7 @@ puts "Treasure Type and attached videos created"
 puts "Creating Treasures and attaching photos"
 
 20.times do |index|
-  Treasure.create!(treasure_type_id: TreasureType.all[index].id, status: true, post_id: Post.all[index].id, description: descriptions[index])
+  Treasure.create!(treasure_type_id: TreasureType.all[index].id, status: :available, post_id: Post.all[index].id, description: descriptions[index])
 end
 
 treasure_photo_urls = [

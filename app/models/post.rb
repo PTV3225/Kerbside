@@ -14,12 +14,5 @@ class Post < ApplicationRecord
 
 
 
-  # after_create :create_chatroom
-
-  private
-
-  # def create_chatroom
-  #   Chatroom.create(post: self, user: user, name: "Chatroom for Post ##{self.id}")
-  # end
 
 end

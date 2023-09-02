@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+
+
   def index
 
     if params[:query].present?
@@ -50,10 +52,19 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: 'Post favorited!'
   end
 
-  def unfavorite
-    @post = Post.find(params[:id])
-    current_user.unfavorite(@post)
+ def unfavorite
+  @post = Post.find(params[:id])
+  current_user.unfavorite(@post)
+
+  if request.referer.include?('dashboard') # check if current page is dashboard
+    redirect_to dashboard_path, notice: 'Post unfavorited!'
+  else # assume current page is post index
     redirect_to posts_path, notice: 'Post unfavorited!'
+  end
+end
+
+  def favorites
+    @favorite_posts = current_user.favorited_posts
   end
 
   def show
