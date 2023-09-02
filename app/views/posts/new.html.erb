@@ -1,4 +1,4 @@
-<%= simple_form_for(Post.new) do |form| %>
+<%= simple_form_for(Post.new, data: { controller: "sweet-alert", action: "submit->sweet-alert#confirmSubmit" }) do |form| %>
 
   <div class="container">
     <div class="row justify-content-center">

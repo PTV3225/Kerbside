@@ -37,11 +37,6 @@
 
 <h1>Your Favorites</h1>
 
-
-
-
-
-
 <% @favorite_posts.each do |post| %>
 <%= link_to unfavorite_post_path(post), data: {turbo_method: :delete} do %>
                                <i class="fa-solid fa-heart fa-lg" style="color: red;"></i>
