@@ -7,6 +7,7 @@
     "@popperjs/core": "^2.11.8",
     "@rails/actioncable": "^7.0.7",
     "bootstrap": "^5.3.1",
+    "sweetalert2": "^11.7.27",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },

@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   async confirmSubmit(event) {
-    event.preventDefault(); // Stop the form submission
+    event.preventDefault();
 
     const result = await Swal.fire({
       title: 'Have you checked?',
@@ -22,7 +22,7 @@ export default class extends Controller {
     });
 
     if (result.isConfirmed) {
-      this.element.submit(); // This refers to the form element itself
+      this.element.submit();
     }
   }
 }
