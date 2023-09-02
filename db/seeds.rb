@@ -232,7 +232,6 @@ chatroom_names = [
   "Home gym equipment in great condition in Preston"
 ]
 
-
 puts "creating chatrooms"
 
 posts = Post.all
@@ -244,3 +243,23 @@ end
 #link your posts to a chatrooms
 
 puts "chatrooms created"
+
+# Seed data for Messages
+puts "creating messages"
+
+messages_data = [
+  { user_id: first_ten_user_ids[0], chatroom_id: 1, content: 'Hi, is this chair still available?' },
+  { user_id: first_ten_user_ids[1], chatroom_id: 1, content: 'Yep' },
+  { user_id: first_ten_user_ids[0], chatroom_id: 1, content: 'On my way' },
+  { user_id: first_ten_user_ids[2], chatroom_id: 2, content: 'Hey, can I pick up TV around lunch time today?' },
+  { user_id: first_ten_user_ids[3], chatroom_id: 2, content: 'sure' },
+  { user_id: first_ten_user_ids[2], chatroom_id: 2, content: 'IM COMING!!!' }
+]
+
+messages = []
+
+messages_data.each do |data|
+  messages << Message.create!(data)
+end
+
+puts "messages created"
