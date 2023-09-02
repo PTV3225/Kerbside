@@ -1,9 +1,15 @@
 class DashboardController < ApplicationController
   def show
 
+
+
+
+
+
     @user = current_user
     @posts = @user.posts
     @favorite_posts = current_user.favorited_posts
+    @collected_treasures =  current_user.treasures.collected
 
     @markers = @favorite_posts.geocoded.map do |post|
       {
@@ -14,4 +20,12 @@ class DashboardController < ApplicationController
     end
 
   end
+
+
+
+
+
+
+
+
 end

@@ -86,8 +86,8 @@
           <%= treasure.description %>
 
           <% if treasure.pending? %>
-            <%= button_to "Mark as Collected", mark_as_collected_post_treasure_path(post, treasure), method: "put" %>
-            <%= button_to "Mark as Available", mark_as_available_post_treasure_path(post, treasure), method: "put" %>
+            <%= button_to "Confirm Collection", mark_as_collected_post_treasure_path(post, treasure), method: "put" %>
+            <%= button_to "Still Available", mark_as_available_post_treasure_path(post, treasure), method: "put" %>
           <% end %>
 
         </div>
@@ -108,12 +108,29 @@
 
 
 <h1>Your Treasures</h1>
-
-<% current_user.treasures.collected.each do |treasure| %>
+<% @collected_treasures.each do |treasure| %>
   <div>
     <%= treasure.description %>
-    <%raise %>
-    <%= treasure.treasure_type.first.cagtegory%>
+    <%= treasure.treasure_type%>
+    <% video = Video.find(treasure.treasure_type.video_id)%>
+    <%= video.url%>
+
+<%# video block %>
+
+<%= link_to video_path(video), class: 'text-decoration-none text-dark' do %>
+                        <div class="card h-100">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" ><strong><%= video.title %></strong></h5>
+                                <%# <p class="card-text"><%= video.description %>
+                            </div>
+                        </div>
+                    <% end %>
+
+
+
 
   </div>
 <% end %>
