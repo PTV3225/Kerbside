@@ -1,131 +1,120 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const getDirectionsButton = document.getElementById('get-directions-button');
+  const mapElement = document.querySelector('[data-controller="map"]');
+  const mapMarkers = JSON.parse(mapElement.getAttribute('data-map-markers-value'));
+  const apiKey = mapElement.getAttribute('data-map-api-key-value');
+  getDirectionsButton.addEventListener('click', function() {
+    const directionsRequest = {
+      waypoints: mapMarkers.map(marker => ({
+        coordinates: [marker.lng, marker.lat],
+        name: 'Waypoint ' + (mapMarkers.indexOf(marker) + 1)
+      })),
+      profile: 'mapbox/driving',
+      steps: true,
+      language: 'en',
+      accessToken: apiKey
+    };
+    mapboxgl.accessToken = apiKey;
+    const directions = new MapboxDirections(directionsRequest);
+    const map = new mapboxgl.Map({
+      container: mapElement,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [mapMarkers[0].lng, mapMarkers[0].lat],
+      zoom: 10
+    });
+    map.addControl(directions, 'top-left');
+  });
+});
 
 
+</script>
 <div class="col-md-4 map-container sticky-map">
-      <div style="width: 100%; height: 1150px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-
-    </div>
-
-
-    </div>
-
-
-<div>
-
-
-
-
-
-
+  <div style="width: 150%; height: 1150px;"
+       data-controller="map"
+       data-map-markers-value="<%= @markers.to_json %>"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <button id="get-directions-button">Get Directions</button>
+</div>
 
 <div id="instructions"></div>
 
-
 <div id="favorite-posts" data-favorite-posts="<%= @favorite_posts.to_json %>"></div>
-
-
-
-
-
-
-
-
-
 
 <h1>Your Favorites</h1>
 
 <% @favorite_posts.each do |post| %>
-<%= link_to unfavorite_post_path(post), data: {turbo_method: :delete} do %>
-                               <i class="fa-solid fa-heart fa-lg" style="color: red;"></i>
-  <div>
-    <%= link_to post.description, post_path(post) %>
-
-    <% post.treasures.each do |treasure| %>
-      <% unless current_user.treasures.collected.include?(treasure) %>
-        <div>
-          <%= treasure.description %>
-
-          <% if treasure.available? %>
-            <%= button_to "I have collected this item", mark_as_pending_post_treasure_path(post, treasure), method: :put %>
-          <% elsif treasure.collected? %>
-            <%= button_to "Unavailable", '#', disabled: true, class: 'unavailable-button' %>
-          <% elsif treasure.pending? %>
-            <%= button_to "Notified Poster", '#', disabled: true, class: 'unavailable-button' %>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
-
-  </div>
-<% end %>
-<% end %>
-
-<div>
-<% if current_user.posts.present? %>
-  <h1>Your Posts</h1>
-<% end %>
- <% if current_user.posts.present? %>
-  <% current_user.posts.each do |post| %>
+  <%= link_to unfavorite_post_path(post), data: {turbo_method: :delete} do %>
+    <i class="fa-solid fa-heart fa-lg" style="color: red;"></i>
     <div>
       <%= link_to post.description, post_path(post) %>
 
-      <i class="fa-solid fa-heart fa-lg" style="color: red;">
-        <%= post.favoritors.size %>
-      </i>
-
       <% post.treasures.each do |treasure| %>
-        <div>
-          <%= treasure.description %>
+        <% unless current_user.treasures.collected.include?(treasure) %>
+          <div>
+            <%= treasure.description %>
 
-          <% if treasure.pending? %>
-            <%= button_to "Confirm Collection", mark_as_collected_post_treasure_path(post, treasure), method: "put" %>
-            <%= button_to "Still Available", mark_as_available_post_treasure_path(post, treasure), method: "put" %>
-          <% end %>
-
-        </div>
+            <% if treasure.available? %>
+              <%= button_to "I have collected this item", mark_as_pending_post_treasure_path(post, treasure), method: :put %>
+            <% elsif treasure.collected? %>
+              <%= button_to "Unavailable", '#', disabled: true, class: 'unavailable-button' %>
+            <% elsif treasure.pending? %>
+              <%= button_to "Notified Poster", '#', disabled: true, class: 'unavailable-button' %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
-
     </div>
   <% end %>
 <% end %>
+
+<div>
+  <% if current_user.posts.present? %>
+    <h1>Your Posts</h1>
+  <% end %>
+  <% if current_user.posts.present? %>
+    <% current_user.posts.each do |post| %>
+      <div>
+        <%= link_to post.description, post_path(post) %>
+
+        <i class="fa-solid fa-heart fa-lg" style="color: red;">
+          <%= post.favoritors.size %>
+        </i>
+
+        <% post.treasures.each do |treasure| %>
+          <div>
+            <%= treasure.description %>
+
+            <% if treasure.pending? %>
+              <%= button_to "Confirm Collection", mark_as_collected_post_treasure_path(post, treasure), method: "put" %>
+              <%= button_to "Still Available", mark_as_available_post_treasure_path(post, treasure), method: "put" %>
+            <% end %>
+
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-
-
-
-
-
-
-
-
-
 
 <h1>Your Treasures</h1>
 <% @collected_treasures.each do |treasure| %>
   <div>
     <%= treasure.description %>
-    <%= treasure.treasure_type%>
-    <% video = Video.find(treasure.treasure_type.video_id)%>
-    <%= video.url%>
+    <%= treasure.treasure_type %>
+    <% video = Video.find(treasure.treasure_type.video_id) %>
 
-<%# video block %>
-
-<%= link_to video_path(video), class: 'text-decoration-none text-dark' do %>
-                        <div class="card h-100">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title" ><strong><%= video.title %></strong></h5>
-                                <%# <p class="card-text"><%= video.description %>
-                            </div>
-                        </div>
-                    <% end %>
-
-
-
-
+    <%= link_to video_path(video), class: 'text-decoration-none text-dark' do %>
+      <div class="card h-100">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" ><strong><%= video.title %></strong></h5>
+          <%# <p class="card-text"><%= video.description %>
+        </div>
+      </div>
+    <% end %>
   </div>
 <% end %>
