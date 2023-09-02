@@ -65,7 +65,7 @@ video_data = [
   { title: 'BEFORE and AFTER: lamp makeover from the thrift store', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/X4pc2Fef7Nk' },
   { title: 'How to restore outdoor furniture. A beginner guide', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/iHdfBVT_V0c' },
   { title: 'KitchenAid stand mixer wobble fix and tune up', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/DaC3ARrJ5yw' },
-  { title: 'BOUGHT CHEAP PLASTIC BASKETS AND TURNED THEM INTO A TREASURE| DIY BASKET', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/O8WSCxXy2JA' },
+  { title: 'Bought Cheap Plastic Baskets and turned them into a treasure | DIY BASKET', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/O8WSCxXy2JA' },
   { title: 'How to clean up old weights - Restore them like NEW', description: Faker::Hobby.activity, url: 'https://www.youtube.com/embed/Gfvfek0HIiA' }
 ]
 
