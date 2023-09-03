@@ -1,0 +1,52 @@
+<h3 class="mb-4">Your hard rubbish posts</h3>
+
+<% if current_user.posts.present? %>
+    <% current_user.posts.each do |post| %>
+        <div class="favorite-post mb-4"> <!-- Increased bottom margin for spacing -->
+            <div class="row align-items-center mb-2"> <!-- Added a bottom margin -->
+                <!-- Location Column -->
+                <div class="col-md-4">
+                    <h6 class="mb-2">
+                        <%= link_to post.location, post_path(post), class: "custom-link" %>
+                    </h6>
+                </div>
+
+                <!-- Favorites Column -->
+                  <div class="col-md-6">
+                      <h6 class="d-inline-block mb-0"><%= post.favoritors.size %></h6>
+
+                      <% if post.favoritors.size == 0 %>
+                          <span class="ml-2">pickers</span>
+                      <% elsif post.favoritors.size == 1 %>
+                          <span class="ml-2">picker</span>
+                      <% else %>
+                          <span class="ml-2">pickers</span>
+                      <% end %>
+
+                      <i class="fa-solid fa-heart fa-lg d-inline-block ml-2" style="color: #FFBB02;"></i>
+                      <span class="ml-2"> your rubbish</span>
+                  </div>
+
+
+            <!-- Treasures Section -->
+            <% post.treasures.each do |treasure| %>
+                <div class="row mb-2 treasure-item align-items-center">
+                    <!-- Description Column -->
+                    <div class="col-md-6">
+                        <strong>Item:</strong> <%= treasure.description %>
+                        <% if treasure.pending? %>
+                        <div class="d-flex mt-1"> <!-- Flexbox for alignment -->
+                          <%= button_to "Yes, item has been collected", mark_as_collected_post_treasure_path(post, treasure), method: "put", class: 'btn btn-outline-danger btn-sm' %>
+                            <div style= "width: 20px; display: inline-block;"></div>
+                          <%= button_to "No, item is still available", mark_as_available_post_treasure_path(post, treasure), method: "put", class: 'btn btn-outline-info btn-sm' %>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <hr>
+    <% end %>
+<% else %>
+    <p>You haven't uploaded any hard rubbish to Kerbside.</p>
+<% end %>
