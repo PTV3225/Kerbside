@@ -12,6 +12,14 @@ class PostsController < ApplicationController
       SQL
 
       @posts = Post.where(sql_subquery, query: "%#{params[:query]}%")
+      @markers = @posts.geocoded.map do |post|
+        {
+          lat: post.latitude,
+          lng: post.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {post: post})
+        }
+      end
+
     else
 
     @posts = Post.all
@@ -49,7 +57,15 @@ class PostsController < ApplicationController
   def favorite
     @post = Post.find(params[:id])
     current_user.favorite(@post)
-    redirect_to posts_path, notice: 'Post favorited!'
+
+    if request.referer.include?(request.path_parameters[:id])
+
+      redirect_to post_path, notice: 'Post favorited!'
+    else
+
+      redirect_to posts_path, notice: 'Post favorited!'
+    end
+
   end
 
  def unfavorite
@@ -58,6 +74,9 @@ class PostsController < ApplicationController
 
   if request.referer.include?('dashboard') # check if current page is dashboard
     redirect_to dashboard_path, notice: 'Post unfavorited!'
+
+  elsif request.referer.include?(request.path_parameters[:id]) # check if current page is post/:id
+    redirect_to post_path, notice: 'Post unfavorited!'
   else # assume current page is post index
     redirect_to posts_path, notice: 'Post unfavorited!'
   end
