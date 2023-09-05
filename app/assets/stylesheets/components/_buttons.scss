@@ -43,8 +43,15 @@
 .custom-btn {
   font-size: 1.5em;
   margin-top: 20px;
+  max-width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: $yellow;
+  &:hover, &:focus {
+      background-color: darken($yellow, 10%);
+  }
 }
+
+
 
 .btn-logout {
   background-color: #f8f9fa; /* Light grey background */
