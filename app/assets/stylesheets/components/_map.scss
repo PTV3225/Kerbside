@@ -4,23 +4,16 @@
 // }
 
 .mapboxgl-popup-content {
-  text-align: center;
-  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  /* font-family: "Open Sans", sans-serif; */
   font-size: smaller;
-  background: rgb(255, 183, 0) !important;
-  max-width: 150px !important;
+  background: #FFF0A0 !important;
+  max-width: 150px;
   border-radius: 10px !important;
-  font-size: smaller!important;
-  font-weight: 300 !important;
+  font-weight: 300;
 }
 
 
-.bold-text {
-
-
-
-
-}
 
 
 

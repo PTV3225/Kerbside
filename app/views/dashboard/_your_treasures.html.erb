@@ -1,0 +1,45 @@
+<%# <h3 class="mb-4">The hard rubbish you've saved from landfill</h3>
+
+<% if @collected_treasures.empty? %>
+    <%# <p>Nothing (yet). Today is a good day to start picking</p>
+<% else %>
+    <%# <% @collected_treasures.each do |treasure| %>
+            <%# <%= treasure.description
+            <%= treasure.treasure_type
+            <% video = Video.find(treasure.treasure_type.video_id) %>
+            <%# <%= video.url
+
+            <%= link_to video_path(video), class: 'text-decoration-none text-dark' do %>
+                <%# <div class="card h-100">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="<%= video.url %>
+                        <%# " frameborder="0" allowfullscreen></iframe> %>
+                    <%# </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><strong><%= video.title %>
+                        <%# </strong></h5> %>
+                    <%# </div>
+                </div>
+            <% end %>
+        <%# </div>
+    <% end %>
+<%# <% end %>
+<%# </div> %>
+
+<h3 class="mb-4">Your 'picks' and helpful DIY videos</h3>
+
+<% if @collected_treasures.empty? %>
+    <p>Nothing (yet). Today is a good day to start picking</p>
+<% else %>
+    <% @collected_treasures.each do |treasure| %>
+        <strong>Item:</strong> <%= treasure.description %>
+
+        <% video = Video.find(treasure.treasure_type.video_id) %>
+
+        <div class="embed-responsive embed-responsive-16by9 mt-3">
+            <iframe class="embed-responsive-item" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h5 class="card-title"><strong><%= video.title %></strong></h5>
+    <% end %>
+<% end %>
+</div>

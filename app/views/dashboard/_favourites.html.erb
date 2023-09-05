@@ -1,0 +1,31 @@
+<div class="row">
+<div class="col-md-6">
+  <h3 class="mb-4">Your 'pick' list</h3>
+  <% @favorite_posts.each do |post| %>
+      <div class="favorite-post mb-3">
+        <h6 class="mb-2">
+        <%= link_to post.location, post_path(post), class: "custom-link" %>
+        </h6>
+
+          <% post.treasures.each do |treasure| %>
+          <% unless current_user.treasures.collected.include?(treasure) %>
+          <div class="row mb-1 treasure-item align-items-center">
+              <div class="col-md-6">
+                  <strong>Item:</strong> <%= treasure.description %>
+              </div>
+              <div class="col-md-5 text-right">
+                  <% if treasure.available? %>
+                  <%= button_to "Click when collected", mark_as_pending_post_treasure_path(post, treasure), method: :put, class: 'btn btn-outline-success btn-sm' %>
+                  <% elsif treasure.collected? %>
+                  <%= button_to "Item is no longer available", '#', disabled: true, class: 'btn btn-outline-danger btn-sm' %>
+                  <% elsif treasure.pending? %>
+                  <%= button_to "Owner has been notified", '#', disabled: true, class: 'btn btn-outline-info btn-sm' %>
+                  <% end %>
+              </div>
+          </div>
+            <hr>
+          <% end %>
+          <% end %>
+      </div>
+  <% end %>
+</div>
