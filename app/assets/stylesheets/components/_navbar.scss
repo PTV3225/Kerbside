@@ -9,6 +9,11 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  transition: transform 0.3s;
+}
+
+.navbar-lewagon .navbar-brand img:hover {
+  transform: scale(1.05);
 }
 
 .navbar-home {
