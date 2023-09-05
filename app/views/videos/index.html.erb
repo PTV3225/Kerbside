@@ -1,38 +1,36 @@
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: videos_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search by video title"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+<div class="container mt-4">
+  <h1 class="mb-3">Videos</h1>
+
+
+    <hr>
+
+  <div class="row align-items-center mb-3">
+      <!-- search bar -->
+      <%= form_with url: videos_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              style: "width: 46%;",
+              placeholder: "Search by video title"
+          %>
+        <%# <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <% @videos.each do |video| %>
+      <div class="col">
+        <div class="card h-100 video_card">
+          <div class="embed-responsive embed-responsive-16by9 rounded-video">
+             <iframe class="embed-responsive-item" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h6 class="card-title"><strong><%= video.title %></strong></h6>
+            <%# <p class="card-text"><%= video.description %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
-</div>
-
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1>All Videos</h1>
-        <%# <%= link_to 'Add New Video', new_video_path, class: "btn btn-flat"  %>
-    </div>
-    <div class="row">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <% @videos.each do |video| %>
-                <div class="col">
-                    <%= link_to video_path(video), class: 'text-decoration-none text-dark' do %>
-                        <div class="card h-100">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title" ><strong><%= video.title %></strong></h5>
-                                <%# <p class="card-text"><%= video.description %>
-                            </div>
-                        </div>
-                    <% end %>
-                </div>
-            <% end %>
-        </div>
-    </div>
 </div>

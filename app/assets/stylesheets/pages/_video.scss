@@ -1,0 +1,22 @@
+.video_card {
+  border: none
+}
+
+.video_image_card {
+  height: auto;
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 15px;
+  margin-bottom: 0.3rem;
+}
+
+.rounded-video {
+  border-top-left-radius: 15px; /* Adjust the value as necessary */
+  border-top-right-radius: 15px;
+  overflow: hidden; /* This ensures the video inside respects the border-radius */
+}
+
+.rounded-video .embed-responsive-item {
+  border-top-left-radius: 15px; /* Adjust the value as necessary */
+  border-top-right-radius: 15px;
+}
