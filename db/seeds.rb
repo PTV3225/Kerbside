@@ -103,7 +103,7 @@ posts_data = [
   { user_id: first_ten_user_ids[6], location: '2802/327 La Trobe Street, Melbourne', description: 'Hard rubbish furniture. Pick up on La Trobe St', council_pickup_date: '2023-09-18' },
   { user_id: first_ten_user_ids[7], location: '7/557 Glenferrie Road, Hawthorn', description: 'Out on the curb in Hawthorn', council_pickup_date: '2023-09-20' },
   { user_id: first_ten_user_ids[8], location: '22 Collins Street, Essendon', description: 'House renovation leftovers available in Essendon', council_pickup_date: '2023-09-22' },
-  { user_id: first_ten_user_ids[9], location: '82 Raglan Street, Preston', description: 'Kerbside rubbish waiting for collection in Preston', council_pickup_date: '2023-09-24' }
+  { user_id: first_ten_user_ids[9], location: '82 Raglan Street, Preston, Melbourne', description: 'Kerbside rubbish waiting for collection in Preston', council_pickup_date: '2023-09-24' }
 ]
 
 post_photo_urls = [
