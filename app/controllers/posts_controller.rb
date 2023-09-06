@@ -74,7 +74,6 @@ class PostsController < ApplicationController
 
   if request.referer.include?('dashboard') # check if current page is dashboard
     redirect_to dashboard_path, notice: 'Post unfavorited!'
-
   elsif request.referer.include?(request.path_parameters[:id]) # check if current page is post/:id
     redirect_to post_path, notice: 'Post unfavorited!'
   else # assume current page is post index
