@@ -7,9 +7,6 @@ import { application } from "./application"
 import AdviceController from "./advice_controller"
 application.register("advice", AdviceController)
 
-// import AlertController from "./alert_controller"
-// application.register("alert", AlertController)
-
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -22,11 +19,14 @@ application.register("home", HomeController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-// import PostNewPopUpController from "./post_new_pop_up_controller"
-// application.register("post-new-pop-up", PostNewPopUpController)
+import MapDirectionsController from "./map_directions_controller"
+application.register("map-directions", MapDirectionsController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
 
 import SweetAlertController from "./sweet_alert_controller"
 application.register("sweet-alert", SweetAlertController)
 
-// import TypewriterController from "./typewriter_controller"
-// application.register("typewriter", TypewriterController)
+import TypedJsController from "./typed_js_controller"
+application.register("typed-js", TypedJsController)
