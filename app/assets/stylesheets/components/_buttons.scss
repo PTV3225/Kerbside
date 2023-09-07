@@ -2,7 +2,7 @@
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 4px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -48,7 +48,7 @@
 
 .btn-logout {
   background-color: #f8f9fa; /* Light grey background */
-  border: 1px solid #ced4da; /* Grey border */
+  // border: 1px solid #ced4da; /* Grey border */
   color: #495057; /* Dark grey text */
   padding: 5px 10px; /* Padding to increase size */
   border-radius: 5px; /* Rounded corners for a modern look */
