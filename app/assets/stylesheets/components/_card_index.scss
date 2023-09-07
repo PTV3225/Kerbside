@@ -2,22 +2,24 @@
   border-radius: 15px;
 }
 
-  .uniform_image_card {
-    height: 120px;
-    object-fit: cover;
-    width: 100%;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-  }
+.uniform_image_card {
+  height: 120px;
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: none;
+}
 
+.fixed-height-card {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+  border: none;
+}
 
-  .fixed-height-card {
-    height: 350px; /* Adjust as per your design preference */
-    display: flex;
-    flex-direction: column;
-  }
-
-  .fixed-height-card .card-body {
-    // overflow-y: auto; /* Enables vertical scrolling if content overflows */
-    flex: 1; /* Ensures the card body takes the remaining space in the card */
-  }
+.fixed-height-card .card-body {
+  flex: 1;
+  border: none;
+}

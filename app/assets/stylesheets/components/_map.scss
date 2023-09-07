@@ -10,18 +10,25 @@
   background: #FFF0A0 !important;
   max-width: 150px;
   border-radius: 10px !important;
-  font-weight: 300;
+  font-weight: 320;
 }
 
 
 
 
 
+.map-container {
+  margin-bottom: 300px;
+}
 
 
 
 
-
+.sticky-map {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
 
 
 

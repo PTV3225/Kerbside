@@ -15,7 +15,7 @@
               </div>
               <div class="col-md-5 text-right">
                   <% if treasure.available? %>
-                  <%= button_to "Click when collected", mark_as_pending_post_treasure_path(post, treasure), method: :put, class: 'btn btn-outline-success btn-sm' %>
+                  <%= button_to "Click when collected", mark_as_pending_post_treasure_path(post, treasure), method: :put, class: 'btn btn-success btn-sm' %>
                   <% elsif treasure.collected? %>
                   <%= button_to "Item is no longer available", '#', disabled: true, class: 'btn btn-outline-danger btn-sm' %>
                   <% elsif treasure.pending? %>

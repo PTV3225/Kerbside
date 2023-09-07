@@ -2,8 +2,8 @@
 
 <% if current_user.posts.present? %>
     <% current_user.posts.each do |post| %>
-        <div class="favorite-post mb-4"> <!-- Increased bottom margin for spacing -->
-            <div class="row align-items-center mb-2"> <!-- Added a bottom margin -->
+        <div class="favorite-post mb-4">
+            <div class="row align-items-center mb-2">
                 <!-- Location Column -->
                 <div class="col-md-4">
                     <h6 class="mb-2">
@@ -35,7 +35,7 @@
                     <div class="col-md-6">
                         <strong>Item:</strong> <%= treasure.description %>
                         <% if treasure.pending? %>
-                        <div class="d-flex mt-1"> <!-- Flexbox for alignment -->
+                        <div class="d-flex mt-1">
                           <%= button_to "Yes, item has been collected", mark_as_collected_post_treasure_path(post, treasure), method: "put", class: 'btn btn-outline-danger btn-sm' %>
                             <div style= "width: 20px; display: inline-block;"></div>
                           <%= button_to "No, item is still available", mark_as_available_post_treasure_path(post, treasure), method: "put", class: 'btn btn-outline-info btn-sm' %>
