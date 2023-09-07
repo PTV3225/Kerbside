@@ -474,15 +474,9 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30001517:
-# <<<<<<< nav-bar
-#   version "1.0.30001527"
-#   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001527.tgz#813826554828245ccee776c850566dce12bdeaba"
-#   integrity sha512-YkJi7RwPgWtXVSgK4lG9AHH57nSzvvOp9MesgXmw4Q7n0C3H04L0foHqfxcmSAm5AcWb8dW9AYj2tR7/5GnddQ==
-# =======
   version "1.0.30001528"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001528.tgz#479972fc705b996f1114336c0032418a215fd0aa"
   integrity sha512-0Db4yyjR9QMNlsxh+kKWzQtkyflkG/snYheSzkjmvdEtEXB1+jt7A2HmSEiO6XIJPIbo92lHNGNySvE5pZcs5Q==
-
 
 chalk@^2.4.2:
   version "2.4.2"
@@ -588,15 +582,9 @@ delayed-stream@~1.0.0:
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
 
 electron-to-chromium@^1.4.477:
-# <<<<<<< nav-bar
-#   version "1.4.508"
-#   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.508.tgz#5641ff2f5ba11df4bd960fe6a2f9f70aa8b9af96"
-#   integrity sha512-FFa8QKjQK/A5QuFr2167myhMesGrhlOBD+3cYNxO9/S4XzHEXesyTD/1/xF644gC8buFPz3ca6G1LOQD0tZrrg==
-# =======
   version "1.4.510"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.510.tgz#446c50d7533c1e71a84b00a3b37ab06dd601d890"
   integrity sha512-xPfLIPFcN/WLXBpQ/K4UgE98oUBO5Tia6BD4rkSR0wE7ep/PwBVlgvPJQrIBpmJGVAmUzwPKuDbVt9XV6+uC2g==
-
 
 end-of-stream@^1.1.0:
   version "1.4.4"

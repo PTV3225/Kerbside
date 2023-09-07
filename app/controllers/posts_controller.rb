@@ -79,8 +79,8 @@ class PostsController < ApplicationController
     redirect_to post_path, notice: 'Post unfavorited!'
   else # assume current page is post index
     redirect_to posts_path, notice: 'Post unfavorited!'
-
   end
+end
 
   def favorites
     @favorite_posts = current_user.favorited_posts

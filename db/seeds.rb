@@ -16,6 +16,7 @@ Treasure.destroy_all
 TreasureType.destroy_all
 Video.destroy_all
 Post.destroy_all
+Message.destroy_all
 Chatroom.destroy_all
 
 # Seed data for Users
@@ -248,27 +249,37 @@ puts "chatrooms created"
 puts "creating messages"
 
 messages_data = [
-  { user_id: first_ten_user_ids[0], chatroom_id: 1, content: 'Hi, is this chair still available??' },
-  { user_id: first_ten_user_ids[1], chatroom_id: 1, content: 'Im interested in plastic containers, will pick it up today.' },
-  { user_id: first_ten_user_ids[2], chatroom_id: 1, content: 'Great stuff, going to stop by in 2 hrs, thanks!' },
-  { user_id: first_ten_user_ids[3], chatroom_id: 2, content: 'Hey, can I pick up TV around lunch time today?' },
-  { user_id: first_ten_user_ids[4], chatroom_id: 2, content: 'Great TV! Urgently need one toooo' },
-  { user_id: first_ten_user_ids[3], chatroom_id: 2, content: 'IM COMING!!!' },
-  { user_id: first_ten_user_ids[5], chatroom_id: 3, content: 'Hello, im looking for sofa, can you please keep it for me for tomorrow? Just need to organize a truck, thanks a lot!' },
-  { user_id: first_ten_user_ids[6], chatroom_id: 3, content: 'Is that TV still available?' },
-  { user_id: first_ten_user_ids[7], chatroom_id: 3, content: 'I will come over after work to look at mattress …' },
-  { user_id: first_ten_user_ids[8], chatroom_id: 4, content: 'Hi there. Washing machine looks great! Please keep it for me for few hrs …' },
-  { user_id: first_ten_user_ids[9], chatroom_id: 4, content: 'Im also interested in washing machine … Can I get it asap?' },
-  { user_id: first_ten_user_ids[8], chatroom_id: 4, content: 'IM ON MY WAY!' },
-  { user_id: first_ten_user_ids[1], chatroom_id: 5, content: 'Hey, im coming now to get the table! Thanks' },
-  { user_id: first_ten_user_ids[2], chatroom_id: 5, content: 'Hi, is kids bicycle in working condition?' },
-  { user_id: first_ten_user_ids[1], chatroom_id: 5, content: 'Im trying to find your house but got lost, could you please call me at +61 456457179' }
+  { user_id: first_ten_user_ids[0], content: 'Hi, is this chair still available??' },
+  { user_id: first_ten_user_ids[1], content: 'Im interested in plastic containers, will pick it up today.' },
+  { user_id: first_ten_user_ids[2], content: 'Great stuff, going to stop by in 2 hrs, thanks!' },
+  { user_id: first_ten_user_ids[3], content: 'Hey, can I pick up TV around lunch time today?' },
+  { user_id: first_ten_user_ids[4], content: 'Great TV! Urgently need one toooo' },
+  { user_id: first_ten_user_ids[3], content: 'IM COMING!!!' },
+  { user_id: first_ten_user_ids[5], content: 'Hello, im looking for sofa, can you please keep it for me for tomorrow? Just need to organize a truck, thanks a lot!' },
+  { user_id: first_ten_user_ids[6], content: 'Is that TV still available?' },
+  { user_id: first_ten_user_ids[7], content: 'I will come over after work to look at mattress …' },
+  { user_id: first_ten_user_ids[8], content: 'Hi there. Washing machine looks great! Please keep it for me for few hrs …' },
+  { user_id: first_ten_user_ids[9], content: 'Im also interested in washing machine … Can I get it asap?' },
+  { user_id: first_ten_user_ids[8], content: 'IM ON MY WAY!' },
+  { user_id: first_ten_user_ids[1], content: 'Hey, im coming now to get the table! Thanks' },
+  { user_id: first_ten_user_ids[2], content: 'Hi, is kids bicycle in working condition?' },
+  { user_id: first_ten_user_ids[1], content: 'Im trying to find your house but got lost, could you please call me at +61 456457179' }
 ]
 
 messages = []
 
 messages_data.each do |data|
-  messages << Message.create!(data)
+  messages << Message.new(data)
+end
+
+messages.each_slice(3).with_index do |message, i|
+  message.each do |m|
+    m.chatroom_id = Chatroom.all[i].id
+  end
+end
+
+messages.each do |message|
+  message.save!
 end
 
 puts "messages created"
