@@ -84,26 +84,26 @@ puts "creating posts and attaching photos"
 first_ten_user_ids = User.limit(10).pluck(:id)
 
 posts_data = [
-  { user_id: first_ten_user_ids[0], location: '503/9 Eades Street, East Melbourne', description: 'Hard waste collection in East Melbourne', council_pickup_date: '2023-09-10' },
-  { user_id: first_ten_user_ids[1], location: '803a/609 Victoria Street, Abbotsford', description: 'Free kerbside hard rubbish in Abbotsford', council_pickup_date: '2023-09-12' },
-  { user_id: first_ten_user_ids[2], location: '136 Nicholson Street, Fitzroy', description: 'Bulky rubbish in Fitzroy', council_pickup_date: '2023-09-15' },
-  { user_id: first_ten_user_ids[3], location: '42/1 Queensberry Street, Carlton', description: 'Useful recycling stuff in Carlton', council_pickup_date: '2023-09-17' },
+  { user_id: first_ten_user_ids[0], location: '503/9 Eades Street, East Melbourne, Melbourne', description: 'Hard waste collection in East Melbourne', council_pickup_date: '2023-09-10' },
+  { user_id: first_ten_user_ids[1], location: '609 Victoria Street, Abbotsford, Melbourne', description: 'Free kerbside hard rubbish in Abbotsford', council_pickup_date: '2023-09-12' },
+  { user_id: first_ten_user_ids[2], location: '136 Nicholson Street, Fitzroy, Melbourne', description: 'Bulky rubbish in Fitzroy', council_pickup_date: '2023-09-15' },
+  { user_id: first_ten_user_ids[3], location: '42/1 Queensberry Street, Carlton, Melbourne', description: 'Useful recycling stuff in Carlton', council_pickup_date: '2023-09-17' },
   { user_id: first_ten_user_ids[4], location: '111 Pine St Albans, Melbourne', description: 'Free pick ups due to relocation on Pine St', council_pickup_date: '2023-09-19' },
-  { user_id: first_ten_user_ids[5], location: '7/14-22 Waterloo Street, Carlton', description: 'Stuff to be rescued from trash in Carlton', council_pickup_date: '2023-09-21' },
-  { user_id: first_ten_user_ids[6], location: '5 Davison Place South Yarra', description: 'Old furniture pick up in South Yarra', council_pickup_date: '2023-09-23' },
-  { user_id: first_ten_user_ids[7], location: '9/315 Flemington Rd North Melbourne', description: 'Free annual hard waste on Flemington Rd', council_pickup_date: '2023-09-23' },
-  { user_id: first_ten_user_ids[8], location: '605/60 Stanley Street, Collingwood', description: 'Bulky waste in Collingwood', council_pickup_date: '2023-09-25' },
+  { user_id: first_ten_user_ids[5], location: '14 Waterloo Street, Carlton, Melbourne', description: 'Stuff to be rescued from trash in Carlton', council_pickup_date: '2023-09-21' },
+  { user_id: first_ten_user_ids[6], location: '5 Davison Place South Yarra, Melbourne', description: 'Old furniture pick up in South Yarra', council_pickup_date: '2023-09-23' },
+  { user_id: first_ten_user_ids[7], location: '9/315 Flemington Rd North Melbourne, Melbourne', description: 'Free annual hard waste on Flemington Rd', council_pickup_date: '2023-09-23' },
+  { user_id: first_ten_user_ids[8], location: '605/60 Stanley Street, Collingwood, Melbourne', description: 'Bulky waste in Collingwood', council_pickup_date: '2023-09-25' },
   { user_id: first_ten_user_ids[9], location: '336 Russell St Melbourne', description: 'Waste & Rubbish removal on Russell St', council_pickup_date: '2023-09-27' },
-  { user_id: first_ten_user_ids[0], location: '11 Sherwin Street, Kensington', description: 'Curbside furniture in Kensington', council_pickup_date: '2023-09-29' },
-  { user_id: first_ten_user_ids[1], location: '109/91 Dow Street, Port Melbourne', description: 'Free recycling items in Port Melbourne', council_pickup_date: '2023-09-11' },
+  { user_id: first_ten_user_ids[0], location: '11 Sherwin Street, Kensington, Melbourne', description: 'Curbside furniture in Kensington', council_pickup_date: '2023-09-29' },
+  { user_id: first_ten_user_ids[1], location: '109/91 Dow Street, Port Melbourne, Melbourne', description: 'Free recycling items in Port Melbourne', council_pickup_date: '2023-09-11' },
   { user_id: first_ten_user_ids[2], location: '902/33 Rose Lane, Melbourne, Australia', description: 'Useful free items on Rose Lane St', council_pickup_date: '2023-09-13' },
-  { user_id: first_ten_user_ids[3], location: '1504/392 Spencer Street, West Melbourne', description: 'Moving house leftovers in West Melbourne', council_pickup_date: '2023-09-14' },
+  { user_id: first_ten_user_ids[3], location: '392 Spencer Street, West Melbourne', description: 'Moving house leftovers in West Melbourne', council_pickup_date: '2023-09-14' },
   { user_id: first_ten_user_ids[4], location: '908/65 Coventry Street, Southbank', description: 'Junk removal in Southbank', council_pickup_date: '2023-09-15' },
   { user_id: first_ten_user_ids[5], location: '26 Rowena Parade, Richmond', description: 'Hard rubbish cleanup, pick up in Richmond', council_pickup_date: '2023-09-16' },
   { user_id: first_ten_user_ids[6], location: '2802/327 La Trobe Street, Melbourne', description: 'Hard rubbish furniture. Pick up on La Trobe St', council_pickup_date: '2023-09-18' },
-  { user_id: first_ten_user_ids[7], location: '7/557 Glenferrie Road, Hawthorn', description: 'Out on the curb in Hawthorn', council_pickup_date: '2023-09-20' },
-  { user_id: first_ten_user_ids[8], location: '22 Collins Street, Essendon', description: 'House renovation leftovers available in Essendon', council_pickup_date: '2023-09-22' },
-  { user_id: first_ten_user_ids[9], location: '82 Raglan Street, Preston', description: 'Kerbside rubbish waiting for collection in Preston', council_pickup_date: '2023-09-24' }
+  { user_id: first_ten_user_ids[7], location: '7/557 Glenferrie Road, Hawthorn, Melbourne', description: 'Out on the curb in Hawthorn', council_pickup_date: '2023-09-20' },
+  { user_id: first_ten_user_ids[8], location: '22 Collins Street, Essendon, Melbourne', description: 'House renovation leftovers available in Essendon', council_pickup_date: '2023-09-22' },
+  { user_id: first_ten_user_ids[9], location: '82 Raglan Street, Preston, Melbourne', description: 'Kerbside rubbish waiting for collection in Preston', council_pickup_date: '2023-09-24' }
 ]
 
 post_photo_urls = [
