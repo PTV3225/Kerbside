@@ -1,14 +1,36 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0; /* Reset margin to 0 */
+  padding: 0; /* Reset padding to 0 */
+}
+
 .footer {
   background: #F4F4F4;
-  margin-top: 50px;
+  padding: 35px 50px;
+  color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  margin-top: auto; /* Push the footer to the bottom */
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  padding: 35px 50px;
-  color: rgba(0,0,0,0.3);
-
 }
+
+// previous code
+
+// .footer {
+//   background: #F4F4F4;
+//   margin-top: 50px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   height: 50px;
+//   padding: 35px 50px;
+//   color: rgba(0,0,0,0.3);
+// }
+
 .footer-links {
   display: flex;
   align-items: center;
