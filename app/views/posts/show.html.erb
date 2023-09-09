@@ -42,43 +42,41 @@
             </div>
         </div>
 
-
-
-                <!-- Treasures Section -->
-              <div class="card no-outline-shadow-card_ok mb-4">
-                  <div class="card-body">
-                    <h4>Individual items</h4>
-                    <div class="treasures">
-                      <% if @post.treasures.any? %>
-                        <% @post.treasures.each do |treasure| %>
-                          <div class="row mb-1 treasure-item" id="treasure-item-<%= treasure.id %>">
-                            <div class="col-md-4">
-                              <% if treasure.photo.attached? %>
-                                <%= cl_image_tag treasure.photo.key, height: 200, width: 200, crop: :fill, class: "show_image_card" %>
-                              <% end %>
-                                <% if @post.user == current_user %>
-                                  <%= link_to delete_post_treasure_path(@post, treasure), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-outline-danger btn-sm" do %> Delete item<% end %>
-                                <% end %>
-                            </div>
-                            <div class="col-md-8">
-                            <p><strong>Type:</strong> <%= treasure.treasure_type.category%></p>
-                              <p><strong>Description:</strong> <%= treasure.description %></p>
-                              <p><strong>Status:</strong> <%= treasure.status ? "Available" : "Not Available" %></p>
-                            </div>
-                          </div>
+        <!-- Treasures Section -->
+        <div class="card no-outline-shadow-card_ok mb-5">
+            <div class="card-body">
+              <h4>Individual items</h4>
+              <div class="treasures">
+                <% if @post.treasures.any? %>
+                  <% @post.treasures.each do |treasure| %>
+                    <div class="row mb-1 treasure-item" id="treasure-item-<%= treasure.id %>">
+                      <div class="col-md-4">
+                        <% if treasure.photo.attached? %>
+                          <%= cl_image_tag treasure.photo.key, height: 200, width: 200, crop: :fill, class: "show_image_card" %>
                         <% end %>
-                      <% else %>
-                        <div class="col">
-                          <p class="text-muted">No information for the individual items has been added.</p>
-                        </div>
-                      <% end %>
+                          <% if @post.user == current_user %>
+                            <%= link_to delete_post_treasure_path(@post, treasure), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-outline-danger btn-sm" do %> Delete item<% end %>
+                          <% end %>
+                      </div>
+                      <div class="col-md-8">
+                      <p><strong>Type:</strong> <%= treasure.treasure_type.category%></p>
+                        <p><strong>Description:</strong> <%= treasure.description %></p>
+                        <p><strong>Status:</strong> <%= treasure.status ? "Available" : "Not Available" %></p>
+                      </div>
                     </div>
-                    <% if @post.user == current_user %>
-                      <%= link_to 'Add item', new_post_treasure_path(@post), class: "btn btn-primary btn-sm" %>
-                    <% end %>
+                  <% end %>
+                <% else %>
+                  <div class="col">
+                    <p class="text-muted">No information for the individual items has been added.</p>
                   </div>
-                </div>
+                <% end %>
               </div>
+              <% if @post.user == current_user %>
+                <%= link_to 'Add item', new_post_treasure_path(@post), class: "btn btn-primary btn-sm" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
           <!-- Chatroom section -->
           <div class="col-md-4">
